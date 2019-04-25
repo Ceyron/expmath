@@ -17,8 +17,8 @@ Run this file by bokeh serve
 
 # Defining all constant values TODO: Create a read-in routine from a file
 HEIGHT = 400
-WIDTH_PLOT = 800
-WIDTH_TOTAL = 1200
+WIDTH_PLOT = 600
+WIDTH_TOTAL = 880 
 SIZE_CIRCLE = 10
 SPREADING_SLIDERS = 2.
 MIN_WIDTH_TUNNEL = 0.05
