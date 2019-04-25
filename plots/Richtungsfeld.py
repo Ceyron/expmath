@@ -12,8 +12,8 @@ from bokeh.models.widgets import Slider
 
 hv.extension('bokeh')
 HEIGHT = 400
-WIDTH_PLOT = 800
-WIDTH_TOTAL = 1200
+WIDTH_PLOT = 600
+WIDTH_TOTAL = 800
 
 '''
 FUNC... defines the explicit ordinary differential equation that is first
