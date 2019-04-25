@@ -1,0 +1,43 @@
+#Leeres Beispiel für eine Inhaltsdatei. Es werden die einzelnen Inhalte in die untenstehenden Variablen eingefügt. Die "wrapper.html" ist für die Positionierung der Inhalte zuständig. 
+#Umlaute sind zulässig, mathematische Ausdrücke sind nach dem "Mathjax" Zusatz zu formatieren. Diese ist mit der LaTex-Formatierung letztlich identisch.
+#Innerhalb der Blöcke sind HTML-Markups verwendbar. So lassen sich Listen und Aufzählungen realisieren
+#Wenn eine Variable leer bleiben soll und somit nicht gerendert werden soll, so darf zwischen den "}{" kein Leerzeichen oder Absatz stehen. (Unten sind alle Variablen "echt" leer)
+#Leere Variablen können hier auch komplett weggelassen werden
+
+#Bezug auf die Strukturgebende wrapper.html
+{% extends "wrapper.html" %}
+
+#Frei formatierbarer Eingangstext
+{% block PRETEXT %}{% endblock %}
+
+#Überschrift der ersten Definition
+{% block DEF1_HEAD %}{% endblock %}
+#Inhalt der ersten Definition
+{% block DEF1 %}{% endblock %}
+
+#Identisches vorgehen
+{% block DEF2_HEAD %}{% endblock %}
+{% block DEF2%}{% endblock %}
+
+{% block DEF3_HEAD %}{% endblock %}
+{% block DEF3 %}{% endblock %}
+
+{% block DEF4_HEAD %}{% endblock %}
+{% block DEF4 %}{% endblock %}
+
+#Nicht ändern
+{% block BOKEH %}
+{{ script|safe }}
+{% endblock %}
+
+{% block QUEST1_HEAD %}{% endblock %}
+{% block QUEST1 %}{% endblock %}
+
+{% block QUEST2_HEAD %}{% endblock %}
+{% block QUEST2 %}{% endblock %}
+
+{% block QUEST3_HEAD %}{% endblock %}
+{% block QUEST3 %}{% endblock %}
+
+{% block QUEST4_HEAD %}{% endblock %}
+{% block QUEST4 %}{% endblock %}

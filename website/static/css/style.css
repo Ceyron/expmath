@@ -1,0 +1,569 @@
+html {
+	overflow-y: scroll;
+}
+body {
+	color: black;
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	font-size: 100.1%;
+	min-width: 55em;
+	background-color: transparent;
+	background-image: url("../img/background-img.jpg");
+	background-repeat: repeat-y;
+	background-position: center;
+}
+header, footer, nav, section, aside, article, figure, figcaption {
+	display: block
+}
+
+/* Die Seite umfliessender Wrapper */
+#wrapper {
+	position: relative;
+	width: 996px;
+	height: 100%;
+  margin: 0 auto;
+}
+
+/* Objekte im Header Bereich der Seite */
+.tu-siegel {
+	position: relative;
+	left: 8px;
+	top: 29px;
+	width: 198px;
+	height: 74px;
+	z-index: 1;
+}
+.logo {
+	position: absolute;
+	left: 628px;
+	top: 4px;
+	width: 350px;
+	height: 74px;
+}
+.symbolpic {
+	position: relative;
+	left: 18px;
+	width: 960px;
+	height: 170px;
+}
+
+/* Formatierung für die Horizontale Navigationsleiste */
+
+/*Formatierung des Blockes selber*/
+nav.horizontal {
+	position: relative;
+	left: 18px;
+	background-color: #be1e3c;
+	height: 22px;
+	width: 960px;
+	padding: 0;
+}
+nav.horizontal ul {
+	padding: 0;
+	margin: 0;
+	display: block;
+	list-style-type: none;
+}
+
+
+nav.horizontal ul li {
+	display: block;
+	margin: auto;
+	float: left;
+  text-decoration:none;
+  font-size:16px;
+}
+
+/*Formatierung der Schrift & Block*/
+nav.horizontal ul li a, nav.horizontal ul li span, .dropdown .dropbtn {
+	
+	margin: 0;
+	height: 22px;
+	display: block;
+	border: none;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 0.7em;
+	padding:0px 8px 0px 8px;
+	border-right:1px solid white;
+	background-color: #be1e3c;
+	
+	
+}
+
+
+/*Entfernen von standardmäßigen Rändern*/
+nav.horizontal ul li.last a, nav.horizontal ul li.last span, .dropbtn.last {
+  border:none;
+}
+
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+/* Reaktion beim Hovern (Button in der Nav-Leiste oder Dropdowninhalt. Nicht Dropdownbutton selber) */
+nav.horizontal ul li a:hover, .dropdown-content a:hover {
+  background-color: #be1e3c;
+  color: white;
+}
+
+/* Dropdown Blöcke Formatierung (Standard: Nicht sichtbar) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #dedede;
+  color: black;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1em;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Dropdown Text Formatierung */
+.dropdown-content a {
+  float: none;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85em;
+  padding: 0px 8px 0px 8px;
+  display: block;
+  text-align: left;
+  color: black;
+}
+
+
+
+/* Dropdown beim Hovern zeigen */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Container für die Linke Navigation, Content und Snippet Spalte */
+article.content {
+  position: relative;
+  margin-top:30px;
+}
+
+/* Content und Snippet Spalte */
+.mittlere_spalte {
+	position: relative;
+	float:left;
+	width: 880px;
+	margin-left:40px;
+	padding: 0;
+	padding-bottom: 10px;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 0.8em;
+	line-height: 1.33em;
+}
+
+/* Content */
+.inhalt {
+	padding: 0;
+	padding-bottom: 10px;
+	float: left;
+	width: 880px;
+	font-family: Arial;
+	font-weight: normal;
+}
+
+/*Formatierung Ausklappbare Texte*/
+details[open] {
+  background: #dedede;
+  margin-bottom: 1em;
+}
+
+/* Footer */
+footer {
+  clear:both;
+  width:530px;
+  height:28px;
+  margin:10px 0px 20px 248px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: normal;
+	color: #666666;
+	line-height: 1.7em;
+	text-decoration: none;
+  border-top:1px solid #DCDCDC;
+  border-bottom:1px solid #DCDCDC;
+}
+footer a {
+	text-decoration: none;
+}
+footer a:link {
+	color: black;
+}
+footer a:visited {
+	color: black;
+}
+footer a:hover {
+	color: #be1e3c;
+	background-color: white;
+	text-decoration: none;
+}
+footer a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+footer a:focus {
+	color: #be1e3c;
+	background-color: white;
+	text-decoration: none;
+}
+footer .icons {
+  float:right;
+}
+footer .icons img {
+  background-color: transparent;
+	border: 0;
+  padding-top:6px;
+  padding-left:8px;
+  text-decoration:none;
+  height:17px;
+  width:17px
+}
+footer span {
+  display:block;
+  float:left;
+  margin-top:4px;
+}
+
+/* Formatierungen für Überschriften, Absätze, Schriften, Aufzählungen, etc. */
+h1 {
+	font-size: 18px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: #be1e3c;
+	background-color: transparent;
+	margin-top: 1px;
+	margin-bottom: 14px;
+}
+h2 {
+	font-size: 18px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	margin-top: 1px;
+	background-color: transparent;
+	margin-bottom: 14px;
+}
+h3 {
+	font-size: 16px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: #be1e3c;
+	margin-top: 1px;
+	background-color: transparent;
+	margin-bottom: 13px;
+}
+h4 {
+	font-size: 16px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	margin-top: 1px;
+	background-color: transparent;
+	margin-bottom: 13px;
+}
+.haengend {
+	text-indent: -1.5em;
+	margin-left: 1.5em;
+}
+.invers {
+	background-color: #ff9900;
+	color: white;
+}
+.noborder {
+	border-style:none;
+	border-width:0;
+}
+img {
+	border: 0;
+}
+.left {
+	float: left;
+	margin-right: 1em;
+}
+.right {
+	float: right;
+	margin-left: 1em;
+}
+hr {
+	color: #DCDCDC;
+	background-color: #DCDCDC;
+}
+li {
+	font-family: Arial;
+	font-size: 13px;
+	line-height: 1.33em;
+	color: #000000;
+	margin-top: 0em;
+}
+p {
+	font-family: Arial;
+	font-size: 13px;
+	line-height: 1.33em;
+	color: #000000;
+	margin-top: 0em;
+	margin-bottom: 10px;
+}
+pre {
+	font-size: 12px;
+}
+blockquote, q {
+	font-style: italic;
+	font-size: 1em;
+	line-height: 1.33em;
+	margin-bottom: 1.3em;
+}
+blockquote {
+	margin-left: 5em;
+	background-color: #fafafa;
+}
+cite {
+	font-size: 1em;
+	background-color: #fff
+}
+code {
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #fafafa;
+}
+strong {
+	font-size: 1em;
+	font-family: Arial;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 1.33em;
+}
+ul ol li {
+	list-style-type: decimal;
+	list-style-image: none;
+}
+dt {
+	font-size: 1em;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+	background-color: transparent;
+	line-height: 1.2em;
+	margin-bottom: 0.2em;
+}
+dd {
+	margin-bottom: 1.2em;
+}
+q:lang(de) {
+	quotes: "»" "«" ">" "<";
+}
+q:lang(en) {
+	quotes: "»" "«" ">" "<";
+}
+q:before {
+	content: open-quote;
+}
+q:after {
+	content: close-quote;
+}
+li {
+	font-family: Arial;
+	margin-bottom: .5em;
+}
+ul li {
+	list-style-image: url('../img/icons/quadrat.jpg');
+	list-style-type: square;
+}
+
+/* Formatierung von Links */
+a {
+	text-decoration: underline;
+}
+a:link {
+	color: #be1e3c;
+}
+a:visited {
+	color: #be1e3c;
+}
+a:hover, a:active {
+	color: #ffffff;
+	background-color:  #be1e3c;
+	text-decoration: none;
+}
+a.noborder:hover {
+	background-color: transparent;
+	border: none;
+}
+/* Formatierung für Links mit Icon
+   Interne Links erkennt man daran dass sie kein http vorangestellt haben (relativ sind) oder wenn sie von extern liegenden Skripten generiert werden an der URL der TU Braunschweig.
+   Diese bekommen einen waagerechten Pfeil als Icon, externe bekommen einen diagonalen Pfeil
+*/
+.inhalt a {
+	padding-left: 16px;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a:active {
+	color: #be1e3c;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+/* Mit der Klasse noicon kann der Pfeil ausgeblendet werden */
+a.noicon:link {
+	padding-left: 0px !important;
+	background: none !important;
+}
+a.noicon:hover {
+	color: #fff!important;
+	background: #be1e3c !important;
+	background-color: #be1e3c !important;
+}
+a.noicon:focus {
+	color: #fff!important;
+	background: #be1e3c !important;
+	background-color: #be1e3c !important;
+}
+/* Emaillinks bekommen ein @Zeichen */
+.inhalt a[href ^="mailto:"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/email-14.png) no-repeat center left;
+}
+.inhalt a[href ^="mailto:"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/email-14.png) no-repeat center left;
+}
+/* externe Seiten enthalten http oder https am Anfang der URL */
+.inhalt a[href ^="http:"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/externer-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="http:"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/externer-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https:"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/externer-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https:"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/externer-link-14.png) no-repeat center left;
+}
+/* Auch interne Links haben, wenn sie als Hardlinks angegeben sind oder in Skripten ein http vorne in der URL. Dann wird der Teil danach überprüft */
+.inhalt a[href ^="http://www.tu-braunschweig.de"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="http://www.tu-braunschweig.de"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="http://tu-braunschweig.de"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="http://tu-braunschweig.de"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https://www.tu-braunschweig.de"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https:/www./tu-braunschweig.de"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https://.tu-braunschweig.de"] {
+	padding-left: 16px;
+	background: transparent url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+.inhalt a[href ^="https://tu-braunschweig.de"]:hover {
+	padding-left: 16px;
+	background: #be1e3c url(../img/icons/interner-link-14.png) no-repeat center left;
+}
+/* PDF-Links bekommen ein PDF-Zeichen */
+.inhalt a[href $=".pdf"] {
+	padding-left: 0px;
+	padding-right: 16px;
+	background: transparent url(../img/icons/pdf-14.png) no-repeat center right;
+}
+.inhalt a[href $=".pdf"]:hover {
+	padding-left: 0px;
+	padding-right: 16px;
+	background: #be1e3c url(../img/icons/pdf-14.png) no-repeat center right;
+}
+/* Keine Anzeige der Icons bei der Darstellung von Bildern */
+.inhalt a[href $=".png"] {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".png"]:hover {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".gif"] {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".gif"]:hover {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".jpg"] {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".jpg"]:hover {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".jpeg"] {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[href $=".jpeg"]:hover {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+/* Anker und Tooltips bekommen kein Icon */
+.inhalt a[name] {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+.inhalt a[name]:hover {
+	padding-left: 0px;
+	padding-right: 0px;
+	background: none;
+}
+/* pagetop Klasse schaltet Hintergrund für Anker Links aus */
+a.pagetop:hover, a.pagetop:link, a.pagetop:active {
+	background: none!important;
+}
+
