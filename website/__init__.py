@@ -57,7 +57,7 @@ def Schwingungen():
 
 #Site Richtungsfeld
 @app.route('/Richtungsfeld', methods=['GET'])
-def Schwingungen():
+def Richtungsfeld():
 
         script = server_document("http://134.169.6.175:9001/Richtungsfeld")
         return render_template("Richtungsfeld.html", template="Flask", script=script)
