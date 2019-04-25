@@ -20,6 +20,9 @@ FUNC... defines the explicit ordinary differential equation that is first
 order in the form y'=FUNC(X, Y)
 FUNC..._solution defines the solution to this equation in the form
 y = FUNC(X, C) with the integral constant C
+
+To add new fields, declare the ODE and its general solution. Then, add
+the functions to the list below the definitions.
 '''
 
 
@@ -27,26 +30,27 @@ def FUNC_1(X, Y):
     return 1/3 * Y
 
 
-def FUNC_1_SOLUTION(X, C):
-    return C*np.exp(1/3*X)
+def FUNC_1_SOLUTION(X, x_initial, y_initial):
+    return y_initial * np.exp(- 1/3 * x_initial) * np.exp(1/3 * X)
 
 
 def FUNC_2(X, Y):
     return X
 
 
-def FUNC_2_SOLUTION(X, C):
-    return 1/2 * X**2 + C
+def FUNC_2_SOLUTION(X, x_initial, y_initial):
+    return 1/2 * X**2 + y_initial - 1/2 * x_initial**2
 
 
 def FUNC_3(X, Y):
     return X + Y
 
 
-def FUNC_3_SOLUTION(X, C):
-    return (C+1)*np.exp(X) - (X+np.ones(X.shape))
+def FUNC_3_SOLUTION(X, x_initial, y_initial):
+    return np.exp(-x_initial) * (y_initial + x_initial + 1) * np.exp(X) -\
+        (X + 1)
 
-
+# Collect all functions as a list of function pointers
 functions = [FUNC_1, FUNC_2, FUNC_3]
 solutions = [FUNC_1_SOLUTION, FUNC_2_SOLUTION, FUNC_3_SOLUTION]
 
@@ -61,7 +65,7 @@ U = np.ones((21, 21))
 plots = []
 
 # Use the holoview library to generate a vector_field plot since this is not
-# yet natively available fpr bokeh. The holoview render method then turns
+# yet natively available for bokeh. The holoview render method then turns
 # this into a bokeh figure
 for func in functions:
     V = func(X, Y)
@@ -79,33 +83,37 @@ for plot in plots:
     plot.tools = []
     values.append(ColumnDataSource())
 
-# The slider controlling the value of the solution function at x=0
-height = Slider(title="y(0)=", value=1, start=-5, end=5, step=0.05)
-
+# The slider controlling the value of the solution function at a certain point
+# This will fix all degress of freedom the general solution to this ODE will have
+height = Slider(title="y Position des Anfangswertes", value=1, start=-5, end=5, step=0.05)
+x_pos = Slider(title="x Position des Anfangswertes", value=0., start=-5, end=5, step=0.05)
 
 def update_slider(attr, old, new):
     x_plot = np.linspace(-10, 10, 100)
-    for i in range(3):
-        y_plot = solutions[i](x_plot, height.value)
+    for i, solution in enumerate(solutions):
+        y_plot = solution(x_plot, x_pos.value, height.value)
         values[i].data = {"x": x_plot, "y": y_plot}
-    value_cross.data = {"x": np.array([0., ]), "y": np.array([height.value, ])}
+    value_cross.data = {"x": np.array([x_pos.value, ]), "y": np.array([height.value, ])}
 
 
 # Initialize the data dictionaries by calling the update handler
 update_slider(0, 0, 0)
 
 tabs = []
-names = ["Erstes Feld", "Zweites Feld", "Drittes Feld"]
-for i in range(3):
-    plots[i].line("x", "y", source=values[i], line_width=3)
-    plots[i].cross("x", "y", source=value_cross, color="orange", line_width=7)
-    tabs.append(Panel(child=plots[i], title=names[i]))
+names = ["Erstes Feld", "Zweites Feld", "Drittes Feld", "Viertes Feld", "Fünftes Feld"]
+for i, plot in enumerate(plots):
+    plot.line("x", "y", source=values[i], line_width=3)
+    plot.cross("x", "y", source=value_cross, color="orange", line_width=12)
+    tabs.append(Panel(child=plot, title=names[i]))
 
 
+# Here we have to use tabs. The user won't be able to choose the ODE in the
+# right column. This might be inconsistent but is necessary since bokeh does
+# not support native vector field plots yet
 tabs = Tabs(tabs=tabs, width=WIDTH_PLOT)
-sliders = widgetbox(height)
+sliders = widgetbox(height, x_pos)
 
-for slider in (height, ):
+for slider in (height, x_pos):
     slider.on_change("value", update_slider)
 
 curdoc().add_root(row(tabs, sliders))
