@@ -111,15 +111,15 @@ def calculate_solution(div_field, length, tension, density, first, second,
                        third):
     div_field.text = "u(t,x) ="
     if(first != 0.0):
-        div_field.text += " " + str(round(first, 1)) + " \cdot \cos \left( \\frac{1}{" + str(round(length, 1)) + "} \sqrt{\\frac{" + str(round(tension, 1)) + "}{" + str(round(density, 1)) + "}} t \\right)" + " \cdot \sin \left( \\frac{1}{" + str(round(length)) + "} x \\right)"
+        div_field.text += " " + str(round(first, 1)) + " \cdot \cos \left( \\frac{1}{" + str(round(length, 1)) + "} \sqrt{\\frac{" + str(round(tension, 1)) + "}{" + str(round(density, 1)) + "}} t \\right)" + " \cdot \sin \left( \\frac{1}{" + str(round(length, 1)) + "} x \\right)"
     if(second != 0.0):
         if(first != 0.0):
             div_field.text += " +"
-        div_field.text += " {0} \cos({1}t) \sin({2}x)".format(second,2.,2.)
+        div_field.text += " " + str(round(second, 1)) + " \cdot \cos \left( \\frac{2}{" + str(round(length, 1)) + "} \sqrt{\\frac{" + str(round(tension, 1)) + "}{" + str(round(density, 1)) + "}} t \\right)" + " \cdot \sin \left( \\frac{2}{" + str(round(length, 1)) + "} x \\right)"
     if(third != 0.0):
         if(first != 0.0 or second != 0.0):
             div_field.text += " +"
-        div_field.text += " {0} cos({1}t) sin({2}x)".format(third,3.,3.)
+        div_field.text += " " + str(round(third, 1)) + " \cdot \cos \left( \\frac{3}{" + str(round(length, 1)) + "} \sqrt{\\frac{" + str(round(tension, 1)) + "}{" + str(round(density, 1)) + "}} t \\right)" + " \cdot \sin \left( \\frac{3}{" + str(round(length, 1)) + "} x \\right)"
 
 
 def compute(t, length, tension, density, first, second, third):
@@ -152,7 +152,7 @@ placeholder = Div(width=WIDTH_TOTAL, height=100)
 
 field_solution = LatexLabel(text="",
                    x=0, y=-40, x_units='screen', y_units='screen',
-                   render_mode='css', text_font_size='12pt',
+                   render_mode='css', text_font_size='10pt',
                    background_fill_alpha=0)
 
 plot.add_layout(field_solution)
