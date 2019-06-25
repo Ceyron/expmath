@@ -62,7 +62,8 @@ def update_data(function_selector, point_slider_left, point_slider_right, deriva
     # The black line thet draws the continous function representing the regular function
     regular_values.data = {"x": x, "y": y_middle}
     # Two data ranges for the tangent line to be plotted around the two points chosen by the sliders
-    x_for_tangent_left = np.linspace(point_slider_left.value - 0.3, point_slider_left.value + 0.3, 2)
+    # TODO: New unit-circle method with the slope of the curve ensures that tangent lines always have the same length. This has to be reworked for all three functions so that the chosen multiplicator fits the dimensions of the plot
+    x_for_tangent_left = np.linspace(point_slider_left.value - (0.001 + 0.3 * np.cos(np.arctan(functions[function_selector.active][0](np.array([point_slider_left.value, ]))))), point_slider_left.value + (0.001 + 0.3 * np.cos(np.arctan(functions[function_selector.active][0](np.array([point_slider_left.value, ]))))), 2)
     x_for_tangent_right = np.linspace(point_slider_right.value - 0.3, point_slider_right.value + 0.3, 2)
     # The ColumnDataSources for the tangent lines by using a function to model the straight line
     regular_tangent_line_left.data = {"x": x_for_tangent_left, "y": line_points_from_slope_and_one_point(functions[function_selector.active][0](np.array([point_slider_left.value, ])), (point_slider_left.value, functions[function_selector.active][1](point_slider_left.value)), x_for_tangent_left)}
@@ -124,8 +125,8 @@ plot_right.line(x="x", y="y", source=integral_values, line_width=2, color="black
 plot_right.cross(x="x", y="y", source=integral_dots, size=15, line_width=2)
 
 function_selector = RadioButtonGroup(labels=["Lineare Funktion", "Trigonometrische Funktion", "Exponentialfunktion"], active=0)
-point_slider_left = Slider(title="Linker Punkt", value=0, start=-3, end=3, step=0.1)
-point_slider_right = Slider(title="Rechter Punkt", value=1, start=-3, end=3, step=0.1)
+point_slider_left = Slider(title="Linker Punkt", value=0, start=-3, end=3, step=0.01)
+point_slider_right = Slider(title="Rechter Punkt", value=1, start=-3, end=3, step=0.01)
 
 update_data(function_selector, point_slider_left, point_slider_right, derivative_values, derivative_dots, regular_values, regular_tangent_line_left, regular_tangent_line_right, regular_vertical_line_left, regular_vertical_line_right, positive_area_band_values, negative_area_band_values, integral_values, integral_dots)
 
