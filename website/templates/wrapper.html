@@ -25,31 +25,28 @@
 
 		
             
-		<!-- Lineare Algebra 1 Dropdown-->	
-		 <div class="dropdown">
-			<button class="dropbtn">Lineare Algebra
-				<i class="fa fa-caret-down"></i>
-			</button>
-			<div class="dropdown-content">
-				<a href="/ContentA">Content A</a>
-				<a href="/ContentB">Content B</a>
-				<a href="/ContentC">Content C</a>
-				
-				<!-- Beispieleinbindung -->
-				<!-- <a href="/NAME">TITEL</a> -->
-				<!-- NAME muss mit NAME in __init__.py uebereinstimmen -->
-				
-				
-			</div>
-		</div>
-		
+	
 		<!-- Analysis 1 Dropdown-->	
 		<div class="dropdown">
 			<button class="dropbtn">Analysis 1
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/Folgen">Folgen</a>
+                {% for address, plot_name in analysis_1.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
+			</div>
+		</div>
+        
+        <!-- Lineare Algebra 1 Dropdown-->	
+		 <div class="dropdown">
+			<button class="dropbtn">Lineare Algebra
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+                {% for address, plot_name in lineare_algebra.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
 			</div>
 		</div>
 		
@@ -59,9 +56,9 @@
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/ContentB">Content B</a>
-				<a href="/ContentC">Content C</a>
-				<a href="/ContentD">Content D</a>
+                {% for address, plot_name in analysis_2.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
 			</div>
 		</div>
 		
@@ -71,10 +68,9 @@
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/Richtungsfeld">Richtungsfeld</a>
-				<a href="/ContentB">Content B</a>
-				<a href="/ContentC">Content C</a>
-				<a href="/ContentD">Content D</a>
+                {% for address, plot_name in ode.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
 			</div>
 		</div>
 
@@ -85,9 +81,9 @@
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/ContentB">Content B</a>
-				<a href="/ContentC">Content C</a>
-				<a href="/ContentD">Content D</a>
+                {% for address, plot_name in analysis_3.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
 			</div>
 		</div>
 		
@@ -97,9 +93,9 @@
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/Schwingungen">Schwingungen einer Saite</a>
-				<a href="/ContentC">Content C</a>
-				<a href="/Leer">Leer</a>
+                {% for address, plot_name in pde.items() %}
+                <a href="/{{ address }}">{{ plot_name }}</a>
+                {% endfor %}
 			</div>
 		</div>
 		

@@ -1,88 +1,93 @@
-#fuer deutsche Umlaute 
 # -*- coding: utf-8 -*
 
-#Benoetigte Zusatzbibliotheken, Flask und Bokeh
-from flask import Flask, render_template,request
+from flask import Flask, render_template
 from bokeh.embed import server_document
 
-#Beispiel der Einbindung einer neuen Website am Ende des Skriptes
+"""
+Add a new plot:
+    1) Create a template
+    2) Add to the topic dictionary
+"""
+
+# ip address and port of the bokeh server
+IP = "134.169.53.27"
+PORT = "9001"
 
 app = Flask(__name__)
+
+# The following dictionaries contain the plot_name (as used as a link)
+# for the key and the item is the proper name that is going to be
+# displayed on the website (i.e., rendered into the template).
+# Changing the ordering in here will change the order of appearance
+# in the dropdown.
+analysis_1 = {
+    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium",
+    "epsilon_kriterium": "Epsilon Kriterium",
+    "integrale_und_ableitungen": "Integrale und Ableitungen",
+    "taylorpolynome": "Taylorpolynome",
+    "trigonometrische_funktionen": "Trigonometrische Funktionen",
+    }
+
+lineare_algebra = {
+    "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
+    "komplexe_zahlen": "Komplexe Zahlen",
+    "matrizen_2d": "Matrizen und Lineare Transformationen",
+    }
+
+analysis_2 = {
+    "multivariable_funktionen": "Multivariable Funktionen",
+    }
+
+ode = {
+    "richtungsfeld": "Richtungsfeld",
+    }
+
+analysis_3 = {
+    "test": "Test",
+    }
+
+pde = {
+    "schwingungen": "Schwingungen",
+    "variationsformulierung": "Variationsformulierung",
+    }
+
+all_plot_keys = \
+        list(analysis_1.keys()) + list(lineare_algebra.keys()) + \
+        list(analysis_2.keys()) + list(ode.keys()) + \
+        list(analysis_3.keys()) + list(pde.keys())
+print(all_plot_keys)
 
 #Homesite
 @app.route('/', methods=['GET'])
 def bkapp_page():
+    return render_template("home.html", template="Flask",
+        analysis_1=analysis_1,
+        lineare_algebra=lineare_algebra,
+        analysis_2=analysis_2,
+        ode=ode,
+        analysis_3=analysis_3,
+        pde=pde,
+    )
 
-        return render_template("Home.html", template="Flask")
-
-#Testsite A
-@app.route('/ContentA', methods=['GET'])
-def ContentA():
-
-        return render_template("ContentA.html", template="Flask")
-
-#Testsite B
-@app.route('/ContentB', methods=['GET'])
-def ContentB():
-
-        return render_template("ContentB.html", template="Flask")
-
-#Testsite C
-@app.route('/ContentC', methods=['GET'])
-def ContentC():
-
-        return render_template("ContentC.html", template="Flask")
-
-#Testsite D
-@app.route('/ContentD', methods=['GET'])
-def ContentD():
-
-        return render_template("ContentD.html", template="Flask")
+# General Routing
+@app.route("/<string:plot_name>", methods=["GET"])
+def plot_app(plot_name):
+    if plot_name.lower() in all_plot_keys:
+        script = server_document("http://" + IP + ":" + PORT + "/" + plot_name.lower())
+        return render_template(plot_name.lower() + ".html", script=script,
+            analysis_1=analysis_1,
+            lineare_algebra=lineare_algebra,
+            analysis_2=analysis_2,
+            ode=ode,
+            analysis_3=analysis_3,
+            pde=pde,
+        )
+    else:
+        return "Plot {0} not found".format(plot_name)
 
 
-#Site Folgen
-@app.route('/Folgen', methods=['GET'])
-def Folgen():
 
-        script = server_document("http://134.169.6.175:9001/Epsilon_Kriterium")
-        return render_template("Folgen.html", template="Flask", script=script)
-
-#Site Schwingungen
-@app.route('/Schwingungen', methods=['GET'])
-def Schwingungen():
-
-        script = server_document("http://134.169.6.175:9001/Schwingungen")
-        return render_template("Schwingungen.html", template="Flask", script=script)
-      
-
-#Site Richtungsfeld
-@app.route('/Richtungsfeld', methods=['GET'])
-def Richtungsfeld():
-
-        script = server_document("http://134.169.6.175:9001/Richtungsfeld")
-        return render_template("Richtungsfeld.html", template="Flask", script=script)
-      
-
-#Leere Site
-@app.route('/Leer', methods=['GET'])
-def Leer():
-
-        return render_template("Leer.html", template="Flask")
-        
-###Beispieleinbindung neuer Site (Ohne #)
-###Es existiert eine NAME.html im /templates Verzeichnis.
-###Es existiert ein Bokehplot für diese Anwendung, URL benoetigt (Eigenes Skript)
-###Website Navigation wird in wrapper.html angepasst. (/templates Verzeichnis)
-#@app.route('/NAME', methods=['GET'])
-#def NAME():
-#
-#        script = server_document("URL_ZU_BOKEH_SITE")
-#        return render_template("NAME.html", template="Flask", script=script)
-#
-#
-###
-
-#Notwendig, wenn Skript nicht ueber WSGI gestartet wird, flaskeigener Webserver wird gestartet
+# If using the flask-intern webserver instead of a WSGI gateway (i.e., if this file is called from the terminal)
 if __name__ == '__main__':
   #  app.run(host="0.0.0.0", port=8080)
-        app.run(port=8080)
+    app.run(port=8080)
