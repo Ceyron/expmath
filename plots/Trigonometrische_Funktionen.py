@@ -42,6 +42,7 @@ phase = Slider(title="Phase der trig. Funktion", start=0, end=2*np.pi, step=0.1,
 x = np.linspace(-1, 1, 100)
 y_top = np.sqrt(1 - x**2)
 
+# TODO: Make circle drawing easier by using bokeh's built-in circle method
 plot_left.line(x=x, y=y_top, color="black", line_width=2)
 plot_left.line(x=x, y=-y_top, color="black", line_width=2)
 plot_left.line(x="x", y="y", color="black", source=triangle_values)
