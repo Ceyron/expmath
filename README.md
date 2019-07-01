@@ -10,3 +10,9 @@ Inside data there is the Flask and Bokeh directory. Use the build-in bokeh serve
 
 # Road-Map
 Create two more examples, consisting of a dynamic animation of an oscillating string showing of the combination of eigen frequencies and eigen modes and a three-dimensional example of a transformation taking place.
+
+
+# TODO
+
+* Dockerize the entire application: This might consist of two independent docker containers, one for the static webpage und one for the interactive bokeh content
+* Get the DNS working
