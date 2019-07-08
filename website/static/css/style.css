@@ -567,3 +567,18 @@ a.pagetop:hover, a.pagetop:link, a.pagetop:active {
 	background: none!important;
 }
 
+/* Added Details to improve visual quality of the details block */
+details {
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+    color: #363636;
+    margin: 0 0 .4em;
+    padding: 1%;
+    outline: none;
+}
+summary {
+    outline: none;
+    cursor: pointer;
+}
+details[open] {background: #E1E1E1;}
