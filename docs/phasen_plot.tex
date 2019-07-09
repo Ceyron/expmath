@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+
+\begin{document}
+    \section{Phasen-Plots zur Lösung gekoppelter gewöhnlicher Differentialgleichung}
+
+    Die allgemeine gewöhnliche Differentialgleichung des gedämpften Feder-Masse-Schwingers ohne äußere Anregung,
+    \begin{equation}
+        y'' + \frac{d}{m} y' + \frac{k}{m} y = 0,
+    \end{equation}
+    welche zweiter Ordnung ist, lässt sich in ein System von zwei Differentialgleichungen erster Ordnung,
+    \begin{align}
+        q_0' &= q_1\\
+        q_1' &= -\frac{d}{m} q_1 - \frac{k}{m} q_0,
+    \end{align}
+    mithilfe der Definition von neuen Funktionen,
+    \begin{align}
+        q_0 &:= y\\
+        q_1 &:= y',
+    \end{align}
+    überführen. Dabei kann der Vektor $\vec{q} = (q_0, q_1)^T$ als Argument für eine Funktion verstanden werden, die ihn auf seine erste Ableitung abbildet,
+    \begin{equation}
+        \vec{q}' = f(\vec{q}).
+    \end{equation}
+    Dieser Zusammenhang kann im Fall von zwei gekoppelten gewöhnlichen Differentialgleichungen erster Ordnung in einem Phasenplot dargestellt werden, welches der Plot des Vektorfeldes dieser Funktion ist. Das heißt, dass es in einem y' über y Diagramm (Der Zustand der Variable - die Auslenkung - wird auf der \glqq{}x-Achse\grqq{} und die zeitliche Veränderung der Variable - die Geschwindigkeit - wird auf der der \glqq{}y-Achse\grqq{} eingetragen) für jeden Punkt einen Vektor gibt, der dessen Entwicklung im Sinne der Differentialgleichung beschreibt. Für die Visualisierung ist es dabei oft hilfreich, die maximal Länge aller Vektoren zu beschränken.
+
+    Wählt man nun in diesem Diagramm einen beliebigen Anfangspunkt (welcher die Anfangswerte $y(t=0)$ und $y'(t=0)$ repräsentiert), dann kann man qualitativ die Trajektorie einzeichnen. Dadurch werden einige interessante Punkte in diesem Diagramm kenntlich.
+
+    Die echte Trajektorie kann mithilfe der analytischen Lösung eingezeichnet werden. Dafür sind die Anfangswerte $y(t=0) = y_0$ und $y'(t=0) = y_1$ notwendig. Mithilfe von Abkürzungen,
+    \begin{align}
+        \delta &:= \frac{d}{m} \\
+        \omega &:= \sqrt{\frac{k}{m}},
+    \end{align}
+    und des Exponentialansatzes können nach einer Fallunterscheidung drei allgemeine Lösungen aufgestellt werden.
+    \begin{itemize}
+        \item Aperiodischer Grenzfall $\delta^2 = \omega^2$:
+            \begin{align}
+                q_0(t) &= y(t) = C_1 e^{-\delta t} + C_2 t e^{-\delta t} \\
+                q_1(t) &= y'(t) = -C_1 \delta e^{-\delta t} + C_2 e^{-\delta t} - C_2 \delta e^{-\delta t} \\
+                C_1 &= y_0 \\
+                C_2 &= y_0 \delta + y_1
+            \end{align}
+        \item Dämpfungsfall $\delta^2 > \omega^2$:
+            \begin{align}
+                q_0(t) &= y(t) = e^{-\delta t} \left( C_1 e^{a t} + C_2 e^{- a t} \right) \\
+                q_1(t) &= y'(t) = -\delta e^{-\delta t} \left( C_1 e^{a t} + C_2 e^{-a t} \right) + e^{-\delta t} \left(C_1 a e^{a t} - C_2 a e^{-a t} \right) \\
+                a &= \sqrt{\delta^2 - \omega^2}\\
+                C_1 &= \frac{y_0}{2} + \frac{y_0 + \delta y_1}{2a}\\
+                C_2 &= \frac{y_0}{2} - \frac{y_0 + \delta y_1}{2a}
+            \end{align}
+        \item Schwingfall $\delta^2 < \omega^2$:
+            \begin{align}
+                q_0(t) &= y(t) = e^{-\delta t} \left( C_1 \sin{b t} + C_2 \cos{b t} \right)\\
+                q_1(t) &= y'(t) = -\delta e^{-\delta t} \left( C_1 \sin{b t} + C_2 \cos{b t} \right) + e^{-\delta t} \left( C_1 b \cos{b t} - C_2 b \sin{b t} \right)\\
+                b &= \sqrt{\omega^2 - \delta^2}\\
+                C_1 &= \frac{y_1 + \delta y_0}{b}\\
+                C_2 &= y_0
+            \end{align}
+    \end{itemize}
+
+\end{document}
