@@ -40,6 +40,7 @@ analysis_2 = {
 
 ode = {
     "richtungsfeld": "Richtungsfeld",
+    "phasen_plot": "Phasen-Plot",
     }
 
 analysis_3 = {
@@ -55,7 +56,6 @@ all_plot_keys = \
         list(analysis_1.keys()) + list(lineare_algebra.keys()) + \
         list(analysis_2.keys()) + list(ode.keys()) + \
         list(analysis_3.keys()) + list(pde.keys())
-print(all_plot_keys)
 
 #Homesite
 @app.route('/', methods=['GET'])
