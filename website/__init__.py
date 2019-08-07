@@ -15,6 +15,9 @@ Add a new plot:
 IP = "134.169.53.27"
 PORT = "9001"
 
+# The fuzzy ratio needed at least to set the recommendation
+RATIO = 50
+
 app = Flask(__name__)
 
 # The following dictionaries contain the plot_name (as used as a link)
@@ -23,35 +26,64 @@ app = Flask(__name__)
 # Changing the ordering in here will change the order of appearance
 # in the dropdown.
 analysis_1 = {
-    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium",
+    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium (TODO)",
     "epsilon_kriterium": "Epsilon Kriterium",
+    "reihen": "Partialsummen und Reihen",
     "integrale_und_ableitungen": "Integrale und Ableitungen",
+    "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     "taylorpolynome": "Taylorpolynome",
     "trigonometrische_funktionen": "Trigonometrische Funktionen",
+    "funktionen_zeichnen": "Schrittweises Zeichnen von Funktionen (TODO)",
+    "umkehrfunktionen": "Umkehrfunktionen (TODO)",
     }
 
 lineare_algebra = {
     "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
     "komplexe_zahlen": "Komplexe Zahlen",
-    "matrizen_2d": "Matrizen und Lineare Transformationen",
+    "basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
+    "matrizen_2d": "Matrizen und Lineare Transformationen (2D)",
+    "matrizen_3d": "Matrizen und Lineare Transformationen (3D)",
+    "eigenvektoren": "Eigenvektoren von Matrizen (TODO)",
+    "skalar_produkt": "Skalarprodukt von Vektoren (2D) (TODO)",
+    "vektor_produkt": "Vektorprodukt/Kreuzprodukt von Vektoren (3D) (TODO)",
     }
 
 analysis_2 = {
     "multivariable_funktionen": "Multivariable Funktionen",
+    "partielle_ableitungen": "Partiell Ableitungen (TODO)",
+    "gradient": "Gradient",
+    "divergenz": "Divergenz",
+    "rotation": "Rotation",
+    "parametrisierungen": "Parametrisierung von Linien im Raum (TODO)",
+    "kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
+    "fourier_reihen": "Fourier-Reihen (TODO)",
+    "fourier_zerlegung": "Fourier-Zerlegung - Frequenzraum (TODO)",
     }
 
 ode = {
+    "einfache_ode": "Einfache gewöhnliche Differentialgleichungen (TODO)",
+    "federschwinger": "Federschwinger (TODO)",
     "richtungsfeld": "Richtungsfeld",
     "phasen_plot": "Phasen-Plot",
+    "laplace_transformation": "Laplace-Transformation (TODO)",
     }
 
 analysis_3 = {
-    "test": "Test",
+    "satz_von_gauss": "Satz von Gauß (TODO)",
+    "transformations_satz": "Integraltransformationen und Transformationssatz\
+        (TODO)",
     }
 
 pde = {
+    "waermeleitung": "Wärmeleitung (TODO)",
     "schwingungen": "Schwingungen",
+    "membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
+        Mittelwerteigenschaft (TODO)",
+    "transport_gleichung": "Transportgleichung und Charakteristiken (TODO)",
+    "fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
+    "green_funktion": "Green-Funktion (TODO)",
     "variationsformulierung": "Variationsformulierung",
+    "finite_elemente": "Finite Elemente",
     }
 
 all_plot_keys = \
@@ -63,55 +95,67 @@ all_plot_keys = \
 @app.route('/', methods=['GET'])
 def bkapp_page():
     return render_template("home.html", template="Flask",
-        analysis_1=analysis_1,
-        lineare_algebra=lineare_algebra,
-        analysis_2=analysis_2,
-        ode=ode,
-        analysis_3=analysis_3,
-        pde=pde,
-    )
-
-# General Routing
-@app.route("/<string:plot_name>", methods=["GET"])
-def plot_app(plot_name):
-    if plot_name.lower() in all_plot_keys:
-        script = server_document("http://" + IP + ":" + PORT + "/" + plot_name.lower())
-        return render_template(plot_name.lower() + ".html", script=script,
             analysis_1=analysis_1,
             lineare_algebra=lineare_algebra,
             analysis_2=analysis_2,
             ode=ode,
             analysis_3=analysis_3,
             pde=pde,
+    )
+
+# General Routing
+@app.route("/<string:plot_name>", methods=["GET"])
+def plot_app(plot_name):
+    if plot_name.lower() in all_plot_keys:
+        if plot_name.lower() in analysis_1:
+            folder = "analysis_1/"
+        elif plot_name.lower() in lineare_algebra:
+            folder = "lineare_algebra/"
+        elif plot_name.lower() in analysis_2:
+            folder = "analysis_2/"
+        elif plot_name.lower() in ode:
+            folder = "ode/"
+        elif plot_name.lower() in analysis_3:
+            folder = "analysis_3/"
+        elif plot_name.lower() in pde:
+            folder = "pde/"
+        else:
+            folder = ""
+        script = server_document("http://" + IP + ":" + PORT + "/" +
+                plot_name.lower())
+        return render_template(folder + plot_name.lower() + ".html",
+                script=script,
+                analysis_1=analysis_1,
+                lineare_algebra=lineare_algebra,
+                analysis_2=analysis_2,
+                ode=ode,
+                analysis_3=analysis_3,
+                pde=pde,
         )
     else:
-        ratio = 50
         closest_match = None
         for key in all_plot_keys:
-            if fuzz.ratio(plot_name.lower(), key) > ratio:
+            if fuzz.ratio(plot_name.lower(), key) > RATIO:
                 ratio = fuzz.ratio(plot_name.lower(), key)
                 closest_match = key
         if closest_match != None:
             return render_template("recommend.html", recommend=closest_match,
-                analysis_1=analysis_1,
-                lineare_algebra=lineare_algebra,
-                analysis_2=analysis_2,
-                ode=ode,
-                analysis_3=analysis_3,
-                pde=pde,
+                    analysis_1=analysis_1,
+                    lineare_algebra=lineare_algebra,
+                    analysis_2=analysis_2,
+                    ode=ode,
+                    analysis_3=analysis_3,
+                    pde=pde,
             )
         else:
             return render_template("404.html",
-                analysis_1=analysis_1,
-                lineare_algebra=lineare_algebra,
-                analysis_2=analysis_2,
-                ode=ode,
-                analysis_3=analysis_3,
-                pde=pde,
+                    analysis_1=analysis_1,
+                    lineare_algebra=lineare_algebra,
+                    analysis_2=analysis_2,
+                    ode=ode,
+                    analysis_3=analysis_3,
+                    pde=pde,
             )
-        
-            
-
 
 
 
