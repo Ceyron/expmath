@@ -3,6 +3,8 @@
 from flask import Flask, render_template
 from bokeh.embed import server_document
 
+from fuzzywuzzy import fuzz
+
 """
 Add a new plot:
     1) Create a template
@@ -83,7 +85,33 @@ def plot_app(plot_name):
             pde=pde,
         )
     else:
-        return "Plot {0} not found".format(plot_name)
+        ratio = 50
+        closest_match = None
+        for key in all_plot_keys:
+            if fuzz.ratio(plot_name.lower(), key) > ratio:
+                ratio = fuzz.ratio(plot_name.lower(), key)
+                closest_match = key
+        if closest_match != None:
+            return render_template("recommend.html", recommend=closest_match,
+                analysis_1=analysis_1,
+                lineare_algebra=lineare_algebra,
+                analysis_2=analysis_2,
+                ode=ode,
+                analysis_3=analysis_3,
+                pde=pde,
+            )
+        else:
+            return render_template("404.html",
+                analysis_1=analysis_1,
+                lineare_algebra=lineare_algebra,
+                analysis_2=analysis_2,
+                ode=ode,
+                analysis_3=analysis_3,
+                pde=pde,
+            )
+        
+            
+
 
 
 

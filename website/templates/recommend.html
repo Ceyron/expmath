@@ -1,0 +1,9 @@
+{% extends "wrapper.html" %}
+
+{% block PRETEXT %}
+ <h1>Gesuchter Plot wurde nicht gefunden</h1>
+ Der gewünschte Plot wurde nicht gefunden. Es sieht diesem ähnlich: <br>
+ <a href=http://134.169.53.27/{{ recommend|safe }}>{{ recommend|safe }}</a>
+{% endblock %}
+
+
