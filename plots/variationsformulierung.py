@@ -4,8 +4,6 @@ In this interactive plot we present one of the easiest functional, the one of fa
 '''
 
 import numpy as np
-import sympy as sp
-from sympy.abc import y
 
 from bokeh.io import curdoc
 from bokeh.layouts import row, widgetbox
