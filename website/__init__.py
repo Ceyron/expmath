@@ -33,7 +33,7 @@ analysis_1 = {
     "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     "taylorpolynome": "Taylorpolynome",
     "trigonometrische_funktionen": "Trigonometrische Funktionen",
-    "funktionen_zeichnen": "Schrittweises Zeichnen von Funktionen (TODO)",
+    "schrittweises_zeichnen": "Schrittweises Zeichnen von Funktionen",
     "umkehrfunktionen": "Umkehrfunktionen (TODO)",
     }
 
@@ -51,9 +51,9 @@ lineare_algebra = {
 analysis_2 = {
     "multivariable_funktionen": "Multivariable Funktionen",
     "partielle_ableitungen": "Partiell Ableitungen (TODO)",
-    "gradient": "Gradient",
-    "divergenz": "Divergenz",
-    "rotation": "Rotation",
+    "gradient": "Gradient (TODO)",
+    "divergenz": "Divergenz (TODO)",
+    "rotation": "Rotation (TODO)",
     "parametrisierungen": "Parametrisierung von Linien im Raum (TODO)",
     "kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
     "fourier_reihen": "Fourier-Reihen (TODO)",
@@ -75,11 +75,12 @@ analysis_3 = {
     }
 
 pde = {
-    "waermeleitung": "Wärmeleitung (TODO)",
+    "waermeleitung": "Wärmeleitung",
     "schwingungen": "Schwingungen",
+    "wellen": "Wellenbewegung (TODO)",
+    "transport_gleichung": "Transportgleichung und Charakteristiken (TODO)",
     "membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
         Mittelwerteigenschaft (TODO)",
-    "transport_gleichung": "Transportgleichung und Charakteristiken (TODO)",
     "fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
     "green_funktion": "Green-Funktion (TODO)",
     "variationsformulierung": "Variationsformulierung",
