@@ -28,7 +28,9 @@ app = Flask(__name__)
 analysis_1 = {
     "epsilon_delta_kriterium": "Epsilon-Delta Kriterium (TODO)",
     "epsilon_kriterium": "Epsilon Kriterium",
+    "ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
+    "einfache_funktionen": "Standardfunktionen (TODO)",
     "integrale_und_ableitungen": "Integrale und Ableitungen",
     "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     "taylorpolynome": "Taylorpolynome",
