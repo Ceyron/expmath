@@ -133,6 +133,9 @@ vertical_tunnel_bounds = ColumnDataSource()
 plot = Figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT, x_range=VIEWPORT_X,
         y_range=VIEWPORT_Y)
 plot.toolbar.active_drag = None  # For touchscreen users helpful
+# Indicate the x-axis and the y-axis
+plot.line(x=[X_LEFT, X_RIGHT], y=[0, 0], color="black")
+plot.line(x=[0, 0], y=[Y_BOTTOM, Y_TOP], color="black")
 
 # Use multi-line instead of single line to get proper jumps
 plot.multi_line(xs="xs", ys="ys", source=function_value_pairs, color="blue",
