@@ -26,17 +26,17 @@ app = Flask(__name__)
 # Changing the ordering in here will change the order of appearance
 # in the dropdown.
 analysis_1 = {
-    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium (TODO)",
+    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium",
     "epsilon_kriterium": "Epsilon Kriterium",
     "ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
-    "einfache_funktionen": "Standardfunktionen (TODO)",
+    "einfache_funktionen": "Standardfunktionen",
     "integrale_und_ableitungen": "Integrale und Ableitungen",
     "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     "taylorpolynome": "Taylorpolynome",
     "trigonometrische_funktionen": "Trigonometrische Funktionen",
     "schrittweises_zeichnen": "Schrittweises Zeichnen von Funktionen",
-    "umkehrfunktionen": "Umkehrfunktionen (TODO)",
+    "umkehrfunktionen": "Umkehrfunktionen",
     }
 
 lineare_algebra = {
@@ -79,8 +79,8 @@ analysis_3 = {
 pde = {
     "waermeleitung": "Wärmeleitung",
     "schwingungen": "Schwingungen",
-    "wellen": "Wellenbewegung (TODO)",
-    "transport_gleichung": "Transportgleichung und Charakteristiken (TODO)",
+    "wellen": "Wellenbewegung",
+    "transport_gleichung": "Transportgleichung und Charakteristiken",
     "membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
         Mittelwerteigenschaft (TODO)",
     "fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
