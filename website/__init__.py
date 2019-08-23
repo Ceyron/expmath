@@ -67,6 +67,8 @@ ode = {
     "federschwinger": "Federschwinger (TODO)",
     "richtungsfeld": "Richtungsfeld",
     "phasen_plot": "Phasen-Plot",
+    "lipschitz_stetigkeit": "Lipschitzstetigkeit - Existenz und Eindeutigkeit\
+    (TODO)",
     "laplace_transformation": "Laplace-Transformation (TODO)",
     }
 
