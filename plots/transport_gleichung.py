@@ -284,7 +284,7 @@ def JUMP_WITH_GAP(x_of_t, x_original, c, d, final_output=False):
     if not final_output:
         return np.array(x_left + x_right), np.array(y_left + y_right)
     else:
-        return [np.array(x_left), np.array(x_right)],
+        return [np.array(x_left), np.array(x_right)],\
                 [np.array(y_left), np.array(y_right)]
 
 
@@ -294,12 +294,12 @@ names = [
         ("Idealisierte Fahrschulempfehlung $ u_t + [ku]_x = 0 $",
             "ideal_school"),
         ("Fahrschulempfehlung $ u_t +\
-                \left[ k \left( \\frac{1}{u} - l \\right) u \\right]_x = 0",
+                \left[ k \left( \\frac{1}{u} - l \\right) u \\right]_x = 0 $",
                 "school"),
         None,
         ("Burgers-Gleichung $ u_t + [a u^2]_x = 0$", "burgers"),
         None,
-        ("Ortsabhängiger Fluss $ u_t + [a x u ]_x = 0", "location_dependent")
+        ("Ortsabhängiger Fluss $ u_t + [a x u ]_x = 0 $", "location_dependent")
         ]
 solutions  = {
         "constant": CONSTANT_SOLUTION,
