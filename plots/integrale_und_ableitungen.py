@@ -6,9 +6,18 @@ from bokeh.models import ColumnDataSource, Band
 from bokeh.models.widgets import Slider, RadioButtonGroup
 from bokeh.plotting import figure
 
+# Geometry Constants of the plot
 HEIGHT=400
 WIDTH_MIDDLE_PLOT=300
 WIDTH_OUTER_PLOTS=250
+
+# The initial viewport the user starts, also used for setting the intervals the
+# functions are drawn in
+X_LEFT = -3
+X_RIGHT = 3
+Y_BOTTOM = -4
+Y_TOP = 4
+
 
 def FUNC_1(x):
     return x
@@ -104,29 +113,45 @@ integral_values = ColumnDataSource()
 integral_dots = ColumnDataSource()
 
 
-plot_left = figure(plot_height=HEIGHT, plot_width=WIDTH_OUTER_PLOTS, tools="", title="Ableitung")
-plot_middle = figure(plot_height=HEIGHT, plot_width=WIDTH_MIDDLE_PLOT, tools="", title="Randfunktion")
-plot_right = figure(plot_height=HEIGHT, plot_width=WIDTH_OUTER_PLOTS, tools="", title="Eine Stammfunktion")
+plot_left = figure(plot_height=HEIGHT, plot_width=WIDTH_OUTER_PLOTS, tools="",
+        title="Ableitung", x_range=[X_LEFT, X_RIGHT], y_range=[Y_BOTTOM, Y_TOP])
+plot_middle = figure(plot_height=HEIGHT, plot_width=WIDTH_MIDDLE_PLOT, tools="",
+        title="Betrachtete Funktion", x_range=[X_LEFT, X_RIGHT],
+        y_range=[Y_BOTTOM, Y_TOP])
+plot_right = figure(plot_height=HEIGHT, plot_width=WIDTH_OUTER_PLOTS, tools="",
+        title="Eine Stammfunktion", x_range=[X_LEFT, X_RIGHT],
+        y_range=[Y_BOTTOM, Y_TOP])
 
-plot_left.line(x="x", y="y", source=derivative_values, line_width=2, color="black")
+plot_left.line(x="x", y="y", source=derivative_values, line_width=2,
+        color="black")
 plot_left.cross(x="x", y="y", source=derivative_dots, size=15, line_width=3)
 
-plot_middle.line(x="x", y="y", source=regular_values, line_width=2, color="black")
-plot_middle.line(x="x", y="y", source=regular_tangent_line_left, line_width=3, color="orange")
-plot_middle.line(x="x", y="y", source=regular_tangent_line_right, line_width=3, color="orange")
-plot_middle.line(x="x", y="y", source=regular_vertical_line_left, line_dash="dashed", line_width=2, color="black")
-plot_middle.line(x="x", y="y", source=regular_vertical_line_right, line_dash="dashed", line_width=2, color="black")
-positive_area_band = Band(base="x", lower="lower", upper="upper", source=positive_area_band_values, fill_color="blue")
+plot_middle.line(x="x", y="y", source=regular_values, line_width=2,
+        color="black")
+plot_middle.line(x="x", y="y", source=regular_tangent_line_left, line_width=3,
+        color="orange")
+plot_middle.line(x="x", y="y", source=regular_tangent_line_right, line_width=3,
+        color="orange")
+plot_middle.line(x="x", y="y", source=regular_vertical_line_left,
+        line_dash="dashed", line_width=2, color="black")
+plot_middle.line(x="x", y="y", source=regular_vertical_line_right,
+        line_dash="dashed", line_width=2, color="black")
+positive_area_band = Band(base="x", lower="lower", upper="upper",
+        source=positive_area_band_values, fill_color="blue")
 plot_middle.add_layout(positive_area_band)
-negative_area_band = Band(base="x", lower="lower", upper="upper", source=negative_area_band_values, fill_color="purple")
+negative_area_band = Band(base="x", lower="lower", upper="upper",
+        source=negative_area_band_values, fill_color="purple")
 plot_middle.add_layout(negative_area_band)
 
 plot_right.line(x="x", y="y", source=integral_values, line_width=2, color="black")
 plot_right.cross(x="x", y="y", source=integral_dots, size=15, line_width=2)
 
-function_selector = RadioButtonGroup(labels=["Lineare Funktion", "Trigonometrische Funktion", "Exponentialfunktion"], active=0)
-point_slider_left = Slider(title="Linker Punkt", value=0, start=-3, end=3, step=0.01)
-point_slider_right = Slider(title="Rechter Punkt", value=1, start=-3, end=3, step=0.01)
+function_selector = RadioButtonGroup(labels=["Lineare Funktion",
+    "Trigonometrische Funktion", "Exponentialfunktion"], active=0)
+point_slider_left = Slider(title="Linker Punkt", value=0, start=-3, end=3,
+        step=0.01)
+point_slider_right = Slider(title="Rechter Punkt", value=1, start=-3, end=3,
+        step=0.01)
 
 update_data(function_selector, point_slider_left, point_slider_right, derivative_values, derivative_dots, regular_values, regular_tangent_line_left, regular_tangent_line_right, regular_vertical_line_left, regular_vertical_line_right, positive_area_band_values, negative_area_band_values, integral_values, integral_dots)
 
