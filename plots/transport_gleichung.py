@@ -291,7 +291,7 @@ def JUMP_WITH_GAP(x_of_t, x_original, c, d, final_output=False):
 # None elements will be rendered as seperators in the dropdown menu
 names = [
         ("Konstante Geschwindigkeit $ u_t + [cu]_x = 0 $", "constant"),
-        ("Idealisierte Fahrschulempfehlung $ u_t + [ku]_x = 0 $",
+        ("Idealisierte Fahrschulempfehlung $ u_t + [k]_x = 0 $",
             "ideal_school"),
         ("Fahrschulempfehlung $ u_t +\
                 \left[ k \left( \\frac{1}{u} - l \\right) u \\right]_x = 0 $",
