@@ -18,26 +18,29 @@ def FUNC_3(X, Y):
 # Collecting all functions in a list of function pointers
 functions = [FUNC_1, FUNC_2, FUNC_3]
 
-x = np.linspace(-5, 5, 100)
-y = np.linspace(-5, 5, 100)
+x = np.linspace(-5, 5, 20)
+y = np.linspace(-5, 5, 20)
 X, Y = np.meshgrid(x, y)
-def update_data(function_selector, source):
+def update_data(function_selector, surface_source):
     Z = functions[function_selector.active](X, Y)
-    source.data = {"X": X, "Y": Y, "Z": Z}
+    surface_source.data = {"X": X, "Y": Y, "Z": Z}
 
 
-source = ColumnDataSource()
+surface_source = ColumnDataSource()
 
-surface = Surface3d(x="X", y="Y", z="Z", data_source=source)
+surface = Surface3d(x="X", y="Y", z="Z", data_source=surface_source)
 
-function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2", "Funktion 3"], active=0)
+function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2",
+        "Funktion 3"], active=0)
 
 inputs = widgetbox(function_selector)
 
-update_data(function_selector, source)
+#update_data(function_selector, source)
 
 def update_button(source):
-    update_data(function_selector, source)
+    update_data(function_selector, surface_source)
+
+update_button(0)
 
 for button in (function_selector, ):
     button.on_click(update_button)
