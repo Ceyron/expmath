@@ -26,6 +26,7 @@ app = Flask(__name__)
 # Changing the ordering in here will change the order of appearance
 # in the dropdown.
 analysis_1 = {
+    "sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
     "epsilon_delta_kriterium": "Epsilon-Delta Kriterium",
     "epsilon_kriterium": "Epsilon Kriterium",
     "ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
