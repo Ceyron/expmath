@@ -27,11 +27,12 @@ app = Flask(__name__)
 # in the dropdown.
 analysis_1 = {
     "sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
-    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium",
-    "epsilon_kriterium": "Epsilon Kriterium",
+    "epsilon_kriterium": "Epsilon Kriterium für Folgen",
     "ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
     "einfache_funktionen": "Standardfunktionen",
+    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium für Funktionen",
+    "diffbarkeit": "Differenzierbarkeit von Funktionen",
     "integrale_und_ableitungen": "Integrale und Ableitungen",
     "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     "taylorpolynome": "Taylorpolynome",
@@ -41,8 +42,8 @@ analysis_1 = {
     }
 
 lineare_algebra = {
-    "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
     "komplexe_zahlen": "Komplexe Zahlen",
+    "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
     "basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
     "matrizen_2d": "Matrizen und Lineare Transformationen (2D)",
     "matrizen_3d": "Matrizen und Lineare Transformationen (3D)",
