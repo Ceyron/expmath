@@ -13,6 +13,7 @@ complicated drawings, based on the understanding of simples concepts or
 primitive functions
 """
 
+# Geometry constants of the plot
 HEIGHT = 400
 WIDTH_PLOT = 600
 WIDTH_TOTAL = 800
@@ -20,9 +21,15 @@ WIDTH_TOTAL = 800
 LINE_WIDTH_OLD = 2
 LINE_WIDTH_CURRENT = 3
 
-# The left-most and right-most point for the interval the functions are drawn in
+# The initial viewport the user starts in, the x interval is also used for the
+# limits in which the function is drawn in
 X_LEFT = -5
 X_RIGHT = 5
+Y_BOTTOM = -2
+Y_TOP = 5
+
+# How fine to discretize the interval in which the function are drawn in
+NUMER_OF_POINTS = 300
 
 # To insert a new function, create a new list with annonymous functions to
 # represent the steps (up to 5) and a list with latex draw commands for them
@@ -56,14 +63,41 @@ label_2 = [
         "\sin^2(x + \\frac{\pi}{2})",
         ]
 
-indicators = [indicator_1, indicator_2, ]
-functions = [func_1, func_2, ]
-labels = [label_1, label_2, ]
+indicator_3 = "1/(x^2 - 2)"
+func_3 = [
+        lambda x: x**2,
+        lambda x: x**2 - 2,
+        lambda x: 1/(x**2 - 2),
+        ]
+label_3 = [
+        "x^2",
+        "x^2 - 2",
+        "\\frac{1}{x^2 - 2}",
+        ]
+
+indicator_4 = "exp(x) / (1 + exp(x))"
+func_4 = [
+        lambda x: np.exp(x),
+        lambda x: 1 + np.exp(x),
+        lambda x: 1/(1 + np.exp(x)),
+        lambda x: np.exp(x) / (1 + np.exp(x))
+        ]
+label_4 = [
+        "e^x",
+        "1 + e^x",
+        "\\frac{1}{1 + e^x}",
+        "\\frac{e^x}{1 + e^x}",
+        ]
+
+
+indicators = [indicator_1, indicator_2, indicator_3, indicator_4, ]
+functions = [func_1, func_2, func_3, func_4, ]
+labels = [label_1, label_2, label_3, label_4, ]
 
 def update_data(function_active, step_selected, source):
     # Calculate the value pairs that are inserted into the ColumnDataSource
     # which then transfers them to the client
-    x = np.linspace(X_LEFT, X_RIGHT, 50)
+    x = np.linspace(X_LEFT, X_RIGHT, NUMER_OF_POINTS)
     y = functions[function_active][step_selected](x)
     source.data = {'x': x, 'y': y}
 
@@ -80,8 +114,9 @@ step_5_source = ColumnDataSource(data={'x': [], 'y': []})
 sources = [step_1_source, step_2_source, step_3_source, step_4_source,
         step_5_source]
 
-plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT, x_range=[-3, 3],
-        y_range=[-1, 5])
+plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
+        x_range=[X_LEFT, X_RIGHT], y_range=[Y_BOTTOM, Y_TOP])
+plot.toolbar.active_drag = None
 
 # Indicate the x and y axis by seperate lines
 plot.line([-10, 10], [0, 0], color="black")
@@ -142,7 +177,7 @@ def update_button(source):
     # function
     update_data(function_active, 0, step_1_source)
     # Fill the latex label with the formula for the first step
-    step_function_latex.text = "f(x) + " + labels[function_active][0]
+    step_function_latex.text = "f(x) = " + labels[function_active][0]
     # Whenever the function is changed the steps start back at the first
     step_slider.value = 1
 
@@ -150,7 +185,6 @@ def update_button(source):
 step_slider.on_change("value", update_slider)
 function_selector.on_click(update_button)
 
-inputs = widgetbox(function_selector, step_slider, )
-
 # Create the html page for the plot by assembling widgets and plot canvas
+inputs = widgetbox(function_selector, step_slider, )
 curdoc().add_root(row(plot, inputs, width=WIDTH_TOTAL))

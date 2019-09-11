@@ -17,6 +17,7 @@ will see that both value will converge against each other when the
 discretizations is getting fine enough, given that the function is continous.
 """
 
+# Geometry constants of the plot
 HEIGHT = 400
 WIDTH_PLOT = 600
 WIDTH_TOTAL = 800
@@ -34,13 +35,8 @@ def FUNC_1(x):
 def FUNC_2(x):
     return np.arctan(x)
 
-# A discontinous function. The upper and lower sum won't converge against each
-# other
-def FUNC_3(x):
-    return x #TODO
-
 # Store all functions in a list of function pointers for conveniant access
-functions = [FUNC_1, FUNC_2, FUNC_3]
+functions = [FUNC_1, FUNC_2]
 
 def update_function(function_selector, function_values):
     """
@@ -114,14 +110,15 @@ lower_sum = ColumnDataSource()
 upper_sum = ColumnDataSource()
 
 plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT)
+plot.toolbar.active_drag = None
 plot.line("x", "y", source=function_values, color="black", line_width=2)
 plot.vbar(x="x_center", width="width", top="height", source=upper_sum,
 color="blue", alpha=0.6)
 plot.vbar(x="x_center", width="width", top="height", source=lower_sum,
 color="orange", alpha=0.6)
 
-function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2",
-    "Funktion 2"], active=0)
+function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2"],
+        active=0)
 interval_slider = RangeSlider(title="Interval", start=-5., end=5., value=(1.,
     3.), step=0.1)
 discretization_slider = Slider(title="Anzahl an Rechtecken", start=1, end=50,

@@ -4,7 +4,7 @@ import sympy as sp
 from bokeh.io import curdoc
 from bokeh.layouts import row, widgetbox
 from bokeh.models import ColumnDataSource, Band
-from bokeh.models.widgets import Slider, RadioButtonGroup, Div
+from bokeh.models.widgets import Slider, RadioButtonGroup, Toggle
 from bokeh.plotting import figure
 
 '''
@@ -38,8 +38,16 @@ X_TAYLOR_RIGHT = 3
 # Thickness of the drawn functions
 LINE_WIDTH_TRUE = 3
 LINE_WIDTH_TAYLOR = 2
+LINE_WIDTH_ERROR_BAR = 4
 
 SIZE_CROSS = 15
+
+# The amount the slider value is changen when the slider is moved by one
+# position
+SLIDER_STEPPING = 0.1
+
+# Number of points used to discretize the interval for drawing
+NUMBER_OF_POINTS = 100
 
 def FUNC_1_0(x):
     return np.sin(x)
@@ -58,47 +66,46 @@ def FUNC_1_5(x):
 # summation later on
 FUNC_1 = [FUNC_1_0, FUNC_1_1, FUNC_1_2, FUNC_1_3, FUNC_1_4, FUNC_1_5]
 
-# Left-point based numerical integration (mid-point rule)
-def integrate(first, second, spacing):
-    result = 0.0
-    for i in range(len(first)):
-        result += np.abs(first[i] - second[i]) * spacing
-    return result
+def calculate_new_true_function_value_pairs():
+    x = np.linspace(X_LEFT, X_RIGHT, NUMBER_OF_POINTS)
+    y = FUNC_1_0(x)
+    return x, y
 
-# This function is called to create the dynamically updated ColumnDataSource
-# that powers the drawing on the client-side
-def update_data(order, x_spot, curve_values, taylor_values, point_values,
-        band_values, error_box, vertical_line_values):
-    x = np.linspace(-5, 5, 100)
-    y_true = FUNC_1_0(x)
-    y_taylor = np.zeros(x.shape)
-    for i in range(order.value + 1):
-        y_taylor += (x - x_spot.value * np.ones(x.shape))**i / np.math.factorial(i) * FUNC_1[i](x_spot.value)
-    curve_values.data = {"x": x, "y": y_true}
-    taylor_values.data = {"x": x, "y": y_taylor}
-    point_values.data = {"x": (x_spot.value, ), "y": (FUNC_1_0(x_spot.value), )}
-    band_values.data = {"x": x[20:80], "y1": y_true[20:80], "y2": y_taylor[20:80]}
-    error = integrate(y_true[20: 80], y_taylor[20:80], 0.1)
-    error_box.text = "Ungefährer Fehler im Interval (-3, 3): <br> " + str(round(error, 4))
-    vertical_lines_values.data = {
-            "xs": [
-                [X_TAYLOR_LEFT, X_TAYLOR_LEFT],
-                [X_TAYLOR_RIGHT, X_TAYLOR_RIGHT],
-                ],
-            "ys": [
-                [y_true[20], y_taylor[20]],
-                [y_true[79], y_taylor[79]],
-                ]
-            }
+def assemble_taylor_polynomial(order, x_spot):
+    """
+    Returns a function pointer that contains the polynomials Taylor
+    approximation.
+    """
+    def approximation(x):
+        y_taylor = np.zeros(x.shape)
+        for i in range(order + 1):
+            y_taylor += (x - x_spot * np.ones(x.shape))**i / \
+                    np.math.factorial(i) * FUNC_1[i](x_spot)
+        return y_taylor
 
+    return approximation
+
+def calculate_new_taylor_approximation_value_pairs(approximation):
+    x = np.linspace(X_LEFT, X_RIGHT, NUMBER_OF_POINTS)
+    y = approximation(x)
+
+    return x, y
+
+def calculate_new_error_bar(approximation, error_location):
+    pos = np.array([error_location, ])
+    true_value = FUNC_1_0(pos)
+    approx_value = approximation(pos)
+    x = [error_location, error_location]
+    y = [true_value, approx_value]
+
+    return x, y
 
 # ColumnDataSource abstracts the sending of new value pairs to the client over
 # the WebSocket protocol
 curve_values = ColumnDataSource()
 taylor_values = ColumnDataSource()
 point_values = ColumnDataSource()
-band_values = ColumnDataSource()
-vertical_lines_values = ColumnDataSource()
+error_bar_values = ColumnDataSource(data={"x": [], "y": []})
 
 plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
         x_range=[X_LEFT, X_RIGHT], y_range=[Y_BOTTOM, Y_TOP])
@@ -110,27 +117,54 @@ plot.line(x="x", y="y", source=taylor_values, color="blue",
         line_width=LINE_WIDTH_TAYLOR)
 plot.cross(x="x", y="y", source=point_values, color="blue", size=SIZE_CROSS,
         line_width=LINE_WIDTH_TAYLOR)
-plot.multi_line(xs="xs", ys="ys", source=vertical_lines_values, color="black")
-band = Band(base="x", lower="y1", upper="y2", source=band_values)
-plot.add_layout(band)
+plot.line(x="x", y="y", source=error_bar_values, color="red",
+        line_width=LINE_WIDTH_ERROR_BAR)
 
-order = Slider(title="Ordnung des Taylorpolynoms", value=0, start=0, end=5, step=1)
+order = Slider(title="Ordnung des Taylorpolynoms", value=0, start=0, end=5,
+        step=1)
 x_spot = Slider(title="Entwicklungstelle x_0", value=1, start=X_TAYLOR_LEFT,
-        end=X_TAYLOR_RIGHT, step = 0.1)
+        end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING)
 
-error_box = Div(width=WIDTH_DIV_BOX, height=100)
+# Advanced options made visible after a Toggle is pressed: A red thick vertical
+# bar indicates the error between the Taylor approximation and the true function
+# at the chosen point
+advanced_toggle = Toggle(label="Fehlerindikator einblenden")
+error_position_slider = Slider(title="""Position zum Vergleich zwischen Original
+        und Annäherung wählen""", value=-1, start=X_TAYLOR_LEFT,
+        end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING, visible=False)
 
-# Call the update routine first to populate the plot
-update_data(order, x_spot, curve_values, taylor_values, point_values,
-        band_values, error_box, vertical_lines_values)
+# Right now, only one function is availabe, so its values can be statically
+# calculated upfront
+x_true, y_true = calculate_new_true_function_value_pairs()
+curve_values.data = {"x": x_true, "y": y_true}
 
-inputs = widgetbox(order, x_spot, error_box)
-
+# Defining callbacks
 def update_slider(attr, old, new):
-    update_data(order, x_spot, curve_values, taylor_values, point_values,
-            band_values, error_box, vertical_lines_values)
+    approximation = assemble_taylor_polynomial(order.value, x_spot.value)
+    x_taylor, y_taylor = calculate_new_taylor_approximation_value_pairs(
+            approximation)
+    taylor_values.data = {"x": x_taylor, "y": y_taylor}
+    point_values.data = {"x": [x_spot.value, ], "y": [FUNC_1_0(x_spot.value), ]}
+    if advanced_toggle.active:
+        x_error, y_error = calculate_new_error_bar(approximation,
+                error_position_slider.value)
+        error_bar_values.data = {"x": x_error, "y": y_error}
 
-for slider in (order, x_spot):
+
+def show_advanced(source):
+    advanced_toggle.visible = False
+    error_position_slider.visible = True
+    update_slider(0, 0, 0)
+
+# Use callback in advance to populate the plot
+update_slider(0, 0, 0)
+
+# Connect widgets with their respective callbacks
+for slider in (order, x_spot, error_position_slider):
     slider.on_change("value", update_slider)
 
+advanced_toggle.on_click(show_advanced)
+
+# Assemble plot and create html
+inputs = widgetbox(order, x_spot, advanced_toggle, error_position_slider)
 curdoc().add_root(row(plot, inputs, width=WIDTH_TOTAL))

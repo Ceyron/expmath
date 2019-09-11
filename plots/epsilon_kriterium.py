@@ -110,8 +110,8 @@ line_bottom = ColumnDataSource()
 band_source = ColumnDataSource()
 
 plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
-              title="Drei interessante Folgen", tools="",
               x_range=[0, 10], y_range=[-2, 2])
+plot.toolbar.active_drag = None
 plot.circle("x", "y", source=nodes_in, size=SIZE_CIRCLE, color="orange")
 plot.circle("x", "y", source=nodes_out, size=SIZE_CIRCLE, color="black")
 plot.line("x", "y", source=line_top, color="blue")

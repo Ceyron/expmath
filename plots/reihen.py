@@ -12,9 +12,14 @@ understand the difference and relation between both. The user can also examine
 the convergence properties of the series.
 """
 
+# Geometry constants of the plot
 HEIGHT = 400
 WIDTH_PLOT = 300
 WIDTH_TOTAL = 800
+
+# Defining the viewport height the user will start in
+Y_BOTTOM = -1.5
+Y_TOP = 5.5
 
 SIZE_CIRCLE = 6
 WIDTH_BAR = 0.3
@@ -47,6 +52,7 @@ def SEQUENCE_4(x, a):
 
 
 SEQUENCES = [SEQUENCE_1, SEQUENCE_2, SEQUENCE_3, SEQUENCE_4, ]
+NAMES = ["1/k", "1/k^2", "(1/a)^k", "sin(a*k)"]
 # Use Dirichlet series as convergent majorant and Harmonic series and divergent
 # minorant
 CRITERIA = [SEQUENCE_2, SEQUENCE_1]
@@ -147,9 +153,11 @@ convergence_aid_series_source = ColumnDataSource(data={
 # dots/circles. The one on the right plots bars that represent the partial sum
 # of the sequence until the given point.
 plot_left = Figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
-        match_aspect=MATCH_ASPECT, title="Folge")
+        y_range=[Y_BOTTOM, Y_TOP], title="Folge")
+plot_left.toolbar.active_drag = None
 plot_right = Figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
-        match_aspect=MATCH_ASPECT, title="Partialsummen zu dieser Folge")
+        y_range=[Y_BOTTOM, Y_TOP], title="Partialsummen zu dieser Folge")
+plot_right.toolbar.active_drag = None
 
 plot_left.circle("x", "y", source=sequence_source, size=SIZE_CIRCLE,
         color="blue")
@@ -160,9 +168,7 @@ plot_right.vbar(x="x_center", width=WIDTH_BAR, top="height",
 plot_right.vbar(x="x_center", width=WIDTH_BAR, top="height",
         source=convergence_aid_series_source, color="red")
 
-sequence_selector = RadioButtonGroup(labels=["1/x", "1/x^2", "(1/a)^x",
-    "sin(a*x)"],
-        active=0)
+sequence_selector = RadioButtonGroup(labels=NAMES, active=0)
 number_slider = Slider(title="Anzahl an natürlichen Zahlen", start=1,
         end=MAX_NATURAL_NUMBERS, value=4, step=1)
 
