@@ -4,7 +4,7 @@ from bokeh.driving import count
 from bokeh.io import curdoc
 from bokeh.layouts import row, widgetbox
 from bokeh.models import ColumnDataSource
-from bokeh.models.widgets import Slider, RadioButtonGroup
+from bokeh.models.widgets import Slider, RadioButtonGroup, Div
 
 from extensions.surface3d import Surface3d
 
@@ -30,6 +30,11 @@ surface_source = ColumnDataSource()
 
 surface = Surface3d(x="X", y="Y", z="Z", data_source=surface_source)
 
+# The employed 3d wrapper function seems to overlay the dropdown menus, there
+# incorporate a simple div as spacing over which the plotting engine can be
+# rendered
+spacing = Div(text="", width=5, height=600)
+
 function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2",
         "Funktion 3"], active=0)
 
@@ -45,4 +50,4 @@ update_button(0)
 for button in (function_selector, ):
     button.on_click(update_button)
 
-curdoc().add_root(row(surface, inputs))
+curdoc().add_root(row(spacing, surface, inputs))
