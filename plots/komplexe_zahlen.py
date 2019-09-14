@@ -15,14 +15,26 @@ are calculated and presented below the sliders. The user can switch
 between degrees and radians for the angle measure.
 """
 
+# Geometry constants of the plot
 HEIGHT = 400
 WIDTH_PLOT = 600
 WIDTH_TOTAL = 800
 DIV_BOX_WIDTH = WIDTH_TOTAL - WIDTH_PLOT
 DIV_BOX_HEIGHT = 50
+
+# The viewport the user initially starts in
+X_LEFT = -5
+X_RIGHT = 5
+DISTORTION = HEIGHT/WIDTH_PLOT
+Y_BOTTOM = DISTORTION * X_LEFT
+Y_TOP = DISTORTION *  X_RIGHT
+
+# Constants defining the size of the arrow-like thing
+ARROW_LINE_WIDTH = 3
 ARROWHEAD_CROSS_SIZE = 15
 
-def redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, number_source):
+def redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider,
+        imaginary_or_angle_slider, number_source):
     """
     This callback handler calcuates the position of the complex number
     based on the slider values and the chosen input method (cartesian/
@@ -63,13 +75,13 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         imaginary = imaginary_or_angle_slider.value
 
         radius = np.sqrt(real**2 + imaginary**2)
-        radius_or_real_box.text = "Radius=" + str(round(radius, 2))
+        radius_or_real_box.text = "Radius = " + str(round(radius, 2))
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
-            angle_or_imaginary_box.text = "Winkel=" + str(round(angle, 1)) + "°"
+            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 1)) + "°"
         else: # Radians
             angle = np.arctan2(imaginary, real)
-            angle_or_imaginary_box.text = "Winkel=" + str(round(angle, 3))
+            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 3))
     else: # Polar
         radius = real_or_radius_slider.value
         if degree_or_radian.active == 0: # Degrees
@@ -80,8 +92,8 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         real = radius * np.cos(angle)
         imaginary = radius * np.sin(angle)
 
-        radius_or_real_box.text = "Realteil=" + str(round(real, 2))
-        angle_or_imaginary_box.text = "Imaginärteil" + str(round(imaginary, 2))
+        radius_or_real_box.text = "Realteil = " + str(round(real, 2))
+        angle_or_imaginary_box.text = "Imaginärteil = " + str(round(imaginary, 2))
 
 
 def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider):
@@ -93,7 +105,8 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
     The necessary change in the boxes is done by the previous callback
     handler which is immediately called when the sliders' values change
     """
-    if cartesian_or_polar.active == 0: # This means it must have been 1 before (polar -> cartesian)
+    if cartesian_or_polar.active == 0: # This means it must have been 1 before
+                                       # (polar -> cartesian)
         radius = real_or_radius_slider.value
         if degree_or_radian.active == 0: # Degrees
             angle = np.deg2rad(imaginary_or_angle_slider.value)
@@ -140,22 +153,27 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
             imaginary_or_angle_slider.end = np.pi
             imaginary_or_angle_slider.step = 0.1
         imaginary_or_angle_slider.value = angle
-    # Note: no update to the boxes is needed, since the change in the slider values will automatically activate the callback handlers
+    # Note: no update to the boxes is needed, since the change in the slider
+    # values will automatically activate the callback handlers
 
 
-def switch_degree_radian(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, angle_or_imaginary_box):
-    if cartesian_or_polar.active == 0: # Cartesian: The angle occurs in the div boxes below the sliders
+def switch_degree_radian(cartesian_or_polar, degree_or_radian,
+        real_or_radius_slider, imaginary_or_angle_slider,
+        angle_or_imaginary_box):
+    if cartesian_or_polar.active == 0: # Cartesian: The angle occurs in the div
+                                       # boxes below the sliders
         real = real_or_radius_slider.value
         imaginary = imaginary_or_angle_slider.value
 
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
-            angle_or_imaginary_box.text = "Winkel=" + str(round(angle, 1)) + "°"
+            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 1)) + "°"
         else: # Radians
             angle = np.arctan2(imaginary, real)
-            angle_or_imaginary_box.text = "Winkel=" + str(round(angle, 3))
+            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 3))
     else: # Polar: The angle occurs in the sliders
-        if degree_or_radian.active == 0: #  This means it was 1 (radian -> degrees)
+        if degree_or_radian.active == 0: #  This means it was 1 (radian ->
+                                         #  degrees)
             angle_radian = imaginary_or_angle_slider.value
             angle_degrees = np.rad2deg(angle_radian)
 
@@ -175,40 +193,61 @@ def switch_degree_radian(cartesian_or_polar, degree_or_radian, real_or_radius_sl
 
 number_source = ColumnDataSource()
 
-plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT, tools="", x_range=[-5, 5], y_range=[-5, 5], match_aspect=True)
+plot = figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT, 
+        x_range=[X_LEFT, X_RIGHT], y_range=[Y_BOTTOM, Y_TOP], match_aspect=True)
+plot.toolbar.active_drag = None
+
+# Use thin black lines to indicate x-axis and y-axis
+plot.line(x=[-10, 10], y=[0, 0], color="black")
+plot.line(x=[0, 0], y=[-10, 10], color="black")
+
 # Currently, there is no interactive arrow element in bokeh. Therefore,
 # we cheat by using a line with a cross at the end
-plot.cross(x="x", y="y", size="size", source=number_source)
-plot.line(x="x", y="y", source=number_source)
+plot.cross(x="x", y="y", size="size", line_width=ARROW_LINE_WIDTH,
+        source=number_source)
+plot.line(x="x", y="y", line_width=ARROW_LINE_WIDTH, source=number_source)
 
 cartesian_or_polar = RadioButtonGroup(labels=["Kartesisch", "Polar"], active=0)
 degree_or_radian = RadioButtonGroup(labels=["Grad", "Bogenmaß"], active=0)
-real_or_radius_slider = Slider(title="Realteil", start=-5, end=5, value=4, step=0.1)
-imaginary_or_angle_slider = Slider(title="Imaginärteil", start=-5, end=5, value=3, step=0.1)
+real_or_radius_slider = Slider(title="Realteil", start=-5, end=5, value=4,
+        step=0.1)
+imaginary_or_angle_slider = Slider(title="Imaginärteil", start=-5, end=5,
+        value=3, step=0.1)
 radius_or_real_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)
 angle_or_imaginary_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)
 
-# Use the callback handlers once in advane to populate the plot
-redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, number_source)
-fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, radius_or_real_box, angle_or_imaginary_box)
+# Use the update functions once in advane to populate the plot
+redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider,
+        imaginary_or_angle_slider, number_source)
+fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian,
+        real_or_radius_slider, imaginary_or_angle_slider, radius_or_real_box,
+        angle_or_imaginary_box)
 
+# Defining callbacks
 def update_slider(attr, old, new):
-    redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, number_source)
-    fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, radius_or_real_box, angle_or_imaginary_box)
+    redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider,
+            imaginary_or_angle_slider, number_source)
+    fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian,
+            real_or_radius_slider, imaginary_or_angle_slider,
+            radius_or_real_box, angle_or_imaginary_box)
 
 def update_coordinate_addressing(source):
-    switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider)
+    switch_cartesian_polar(cartesian_or_polar, degree_or_radian,
+            real_or_radius_slider, imaginary_or_angle_slider)
 
 def update_angle_measure(source):
-    switch_degree_radian(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, angle_or_imaginary_box)
+    switch_degree_radian(cartesian_or_polar, degree_or_radian,
+            real_or_radius_slider, imaginary_or_angle_slider,
+            angle_or_imaginary_box)
 
+# Connect widgets with their respective callbacks
 for slider in (real_or_radius_slider, imaginary_or_angle_slider, ):
     slider.on_change("value", update_slider)
 
 cartesian_or_polar.on_click(update_coordinate_addressing)
-
 degree_or_radian.on_click(update_angle_measure)
 
-inputs = widgetbox(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider, radius_or_real_box, angle_or_imaginary_box)
-
+# Assemble plot and create html
+inputs = widgetbox(cartesian_or_polar, degree_or_radian, real_or_radius_slider,
+        imaginary_or_angle_slider, radius_or_real_box, angle_or_imaginary_box)
 curdoc().add_root(row(plot, inputs, width=WIDTH_TOTAL))

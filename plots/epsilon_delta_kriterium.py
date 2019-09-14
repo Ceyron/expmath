@@ -70,17 +70,22 @@ def FUNC_3(x):
     # Catch all 0-dimensional scalars
     if isinstance(x, (int, float)):
         if x < 1:
-            y = x + 1
+            y = x + 0.5
         else:
-            y = 1.5*x
+            y = 2.5*x
 
         xs = [x, ]
         ys = [y, ]
         return xs, ys
     else:
         xs = np.split(x, [np.where(x<1)[0][-1], ])
-        y_left = xs[0] + 1
-        y_right = 1.5 * xs[1]
+        # Make sure that the line properly jumps without creating
+        # a undefined interval
+        xs[0][-1] = 1
+        xs[1][0] = 1
+
+        y_left = xs[0] + 0.5
+        y_right = 2.5 * xs[1]
         
         ys = [y_left, y_right]
         return xs, ys

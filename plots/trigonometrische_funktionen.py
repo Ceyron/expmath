@@ -6,62 +6,125 @@ from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import Slider, RadioButtonGroup
 from bokeh.plotting import figure
 
-# These values are used to assemble the final look of the plot and slider
+'''
+This function updates the dynamically ColumnDataSources that are send via the
+WebSocket connection. Based on the value of the slider phase and the currently
+selected trigonmetric function the values of the triangle within the unit
+circle, the relevant straight line and the values for plotting the function
+itself are populated.
+'''
+
+# Geometry constants of the plot
 HEIGHT = 270
 WIDTH_LEFT = 300
 WIDTH_RIGHT = 600
 
-'''
-This function updates the dynamically ColumnDataSources that are send via the WebSocket connection. Based on the value of the slider phase and the currently selected trigonmetric function the values of the triangle within the unit circle, the relevant straight line and the values for plotting the function itself are populated.
-'''
-def update_data(phase, selector_trig, trig_values, triangle_values, active_values):
-    x = np.linspace(0, phase.value, 100)
-    trig_functions = [np.sin, np.cos, np.tan]  # A list of function pointers corresponding to the selection available by the RadioButtonGroup
-    y = trig_functions[selector_trig.active](x)
-    trig_values.data = {"x": x, "y": y}
-    triangle_values.data = {"x": [0, np.cos(phase.value), np.cos(phase.value), 0], "y": [0, 0, np.sin(phase.value), 0], "radius": [0, 0, 0.05, 0]}
-    active_values_functions = [
-            {"x": [np.cos(phase.value), np.cos(phase.value)], "y": [0, np.sin(phase.value)]},
-            {"x": [0, np.cos(phase.value)], "y": [0, 0]},
-            {"x": [1, 1] if (0<=phase.value<=np.pi/2 or 3*np.pi/2<=phase.value<=2*np.pi) else [-1, -1], "y": [0, min(np.tan(phase.value), 2.)]},
-            ]  # A list of dictionaries for the relevant line which length represents the value of the trigonometric function at the current phase angle
-    active_values.data = active_values_functions[selector_trig.active]
+# The size of the dot located on the unit circle representing the angle as the
+# arc length
+DOT_RADIUS = 0.08
+
+# A list of function pointers corresponding to the selection available by the
+# RadioButtonGroup
+TRIG_FUNCTIONS = [np.sin, np.cos, np.tan]
+
+# A list of dictionaries for the relevant line which length represents the value
+# of the trigonometric function at the current phase angle
+def HIGHLIGHT_LINE_SINE(phase):
+    x = [np.cos(phase), np.cos(phase)]
+    y = [0, np.sin(phase)]
+    return x, y
+
+def HIGHLIGHT_LINE_COSINE(phase):
+    x = [0, np.cos(phase)]
+    y = [0, 0]
+    return x, y
+
+def HIGHLIGHT_LINE_TANGENT(phase):
+    x = [1, 1]
+    y = [0, min(np.tan(phase), 100.)]
+    return x, y
+
+HIGHLIGHT_LINES = [HIGHLIGHT_LINE_SINE, HIGHLIGHT_LINE_COSINE,
+        HIGHLIGHT_LINE_TANGENT]
 
 
-circle_values = ColumnDataSource()
+def calculate_new_function_value_pairs(trig_active, phase):
+    x = np.linspace(0, phase, 100)
+    y = TRIG_FUNCTIONS[trig_active](x)
+
+    return x, y
+
+def calculate_triangle_values_on_unit_circle(trig_active, phase):
+    x = [np.cos(phase), 0, np.cos(phase), np.cos(phase)]
+    y = [np.sin(phase), 0, 0, np.sin(phase)]
+    radius = [DOT_RADIUS, 0, 0, 0]
+
+    if trig_active == 2:  # Tangent is selected
+        x.append(1)
+        y.append(np.tan(phase))
+        radius.append(0)
+
+    return x, y, radius
+
+def calculate_active_value_highlight_line(trig_active, phase):
+    return HIGHLIGHT_LINES[trig_active](phase)
+
+
+# ColumnDataSource abstract the sending of new value pairs to the client
 trig_values = ColumnDataSource()
 triangle_values = ColumnDataSource()
 active_values = ColumnDataSource()
 
-plot_left = figure(plot_width=WIDTH_LEFT, plot_height=HEIGHT, x_range=[-2, 2], y_range=[-2, 2], tools="")
-plot_right = figure(plot_width=WIDTH_RIGHT, plot_height=HEIGHT, x_range=[0, 8], y_range=[-2, 2], tools="")
+plot_left = figure(plot_width=WIDTH_LEFT, plot_height=HEIGHT, x_range=[-2, 2],
+        y_range=[-2, 2])
+plot_left.toolbar.active_drag = None
+plot_right = figure(plot_width=WIDTH_RIGHT, plot_height=HEIGHT, x_range=[0, 8],
+        y_range=[-2, 2])
+plot_right.toolbar.active_drag = None
 
-selector_trig = RadioButtonGroup(labels=["Sinus", "Kosinus", "Tangenz"], active=0)
-phase = Slider(title="Phase der trig. Funktion", start=0, end=2*np.pi, step=0.1, value=0.7)
+function_selector = RadioButtonGroup(labels=["Sinus", "Kosinus", "Tangens"],
+        active=0)
+phase_slider = Slider(title="Phase der trigonometrischen Funktion", start=0,
+        end=2*np.pi, step=0.1, value=0.7)
 
-x = np.linspace(-1, 1, 100)
-y_top = np.sqrt(1 - x**2)
+# Draw circle once in advance 
+plot_left.circle(x=0, y=0, radius=1, color="black", line_width=2,
+        fill_color=None)
 
-# TODO: Make circle drawing easier by using bokeh's built-in circle method
-plot_left.line(x=x, y=y_top, color="black", line_width=2)
-plot_left.line(x=x, y=-y_top, color="black", line_width=2)
 plot_left.line(x="x", y="y", color="black", source=triangle_values)
 plot_left.line(x="x", y="y", color="blue", source=active_values, line_width=2)
-plot_left.circle(x="x", y="y", color="black", source=triangle_values, radius="radius")
+plot_left.circle(x="x", y="y", color="black", source=triangle_values,
+        radius="radius")
+
 plot_right.line(x="x", y="y", color="blue", source=trig_values, line_width=2)
 
-update_data(phase, selector_trig, trig_values, triangle_values, active_values)
-
+# Define the callbacks
 def update_slider(attr, old, new):
-    update_data(phase, selector_trig, trig_values, triangle_values, active_values)
+    x, y = calculate_new_function_value_pairs(function_selector.active,
+            phase_slider.value)
+    trig_values.data = {"x": x, "y": y}
+
+    x_triangle, y_triangle, radius = calculate_triangle_values_on_unit_circle(
+            function_selector.active, phase_slider.value)
+    triangle_values.data = {"x": x_triangle, "y": y_triangle,
+            "radius": radius}
+
+    x_highlight, y_highlight = calculate_active_value_highlight_line(
+            function_selector.active, phase_slider.value)
+    active_values.data = {"x": x_highlight, "y": y_highlight}
+
 
 def update_button(source):
-    update_data(phase, selector_trig, trig_values, triangle_values, active_values)
+    update_slider(0, 0, 0)
 
-for slider in (phase, ):
-    slider.on_change("value", update_slider)
 
-for button in (selector_trig, ):
-    button.on_click(update_button)
+# Use callback in advance to populate the plot
+update_slider(0, 0, 0)
 
-curdoc().add_root(column(row(plot_left, plot_right), selector_trig, phase))
+# Connect widgets with their respective callbacks
+phase_slider.on_change("value", update_slider)
+function_selector.on_click(update_button)
+
+# Assemble the plot and create the html
+curdoc().add_root(column(row(plot_left, plot_right), function_selector,
+        phase_slider))
