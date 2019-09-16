@@ -90,7 +90,7 @@ def update_data(cartesian_or_polar, real_or_radius, imaginary_or_angle, order,
         raticand_radius = real_or_radius.value
         raticand_angle = imaginary_or_angle.value
         raticand_real = raticand_radius * np.cos(np.deg2rad(raticand_angle))
-        raticand_imaginary = raticand_radius *
+        raticand_imaginary = raticand_radius *\
                 np.sin(np.deg2rad(raticand_angle))
 
     # The data for the arrow represting the radicand
