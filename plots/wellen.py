@@ -39,19 +39,19 @@ indicators_0 = [INIT_0_1_indicator, INIT_0_2_indicator, ]
 initials_0 = [INIT_0_1, INIT_0_2, ]
 
 # The first initial condition (velocity/momentum at time zero)
-INIT_1_1_indicator = "1"
+INIT_1_1_indicator = "1/(1+e^(-x)) - 0,5"
 def INIT_1_1_integrated(x):
-    return x
-INIT_1_2_inidicator = "x"
+    return 0.5*x + np.log(1 + np.exp(-x))
+INIT_1_2_indicator = "1"
 def INIT_1_2_integrated(x):
-    return 0.5 * x**2
-INIT_1_3_indicator = "1, x in (-1, 1)"
+    return x
+INIT_1_3_indicator = "x, x in (-1, 1)"
 def INIT_1_3_integrated(x):
     return np.piecewise(x,
-            [x<-1, (-1 <= x)  & (x < 1), 1<=x],
-            [0, lambda ele: ele, 0])
+            [x < -1, (-1 <= x ) & (x < 1), 1 <=x],
+            [0, lambda ele: 0.5 * ele**2, 0])
     
-indicators_1 = [INIT_1_1_indicator, INIT_1_2_inidicator, INIT_1_3_indicator]
+indicators_1 = [INIT_1_1_indicator, INIT_1_2_indicator, INIT_1_3_indicator]
 initials_1_integrated = [INIT_1_1_integrated, INIT_1_2_integrated,
         INIT_1_3_integrated]
 
@@ -126,9 +126,6 @@ scale_1 = Slider(title="Skalierung der 1. Anfangsbedingung", start=0, end=2,
         step=0.1, value=0, visible=False)
 
 
-
-
-
 def animate():
     if time.value >= time.end:
         time.value = time.start
@@ -172,12 +169,12 @@ def slider_callback(attr, old, new):
     data_source.data = {'x': x, 'y': u}
 
 def init_0_selector_callback(source):
-    scale_0.value = 1 # This will automatically call the other callback to
-                      # redraw the plot
+    scale_0.value = 1 
+    slider_callback(0, 0, 0)
 
 def init_1_selector_callback(source):
-    scale_1.value = 0.2 # This will automatically call the other callback to
-                      # redraw the plot
+    scale_1.value = 0.2 
+    slider_callback(0, 0, 0)
 
 # Call callback once upfront to populate the plot
 slider_callback(0,0,0)
