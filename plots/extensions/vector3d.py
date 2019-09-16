@@ -1,3 +1,5 @@
+import os
+
 from bokeh.core.properties import Instance, String
 from bokeh.models import ColumnDataSource, LayoutDOM
 from bokeh.util.compiler import TypeScript
@@ -28,7 +30,9 @@ class Vector3d(LayoutDOM):
     # The special class attribute ``__implementation__`` should contain a string
     # of JavaScript (or CoffeeScript) code that implements the JavaScript side
     # of the custom extension model.
-    __implementation__ = TypeScript(open("extensions/vector3d.ts", "r").read() %
+    __implementation__ = TypeScript(
+            open(os.path.dirname(os.path.abspath(__file__)) +\
+                    "/vector3d.ts", "r").read() %\
             (plot_width, plot_height, line_width, x_range[0], x_range[1],
             y_range[0], y_range[1], z_range[0], z_range[1]))
 

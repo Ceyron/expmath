@@ -1,3 +1,5 @@
+import os
+
 from bokeh.core.properties import Instance, String
 from bokeh.models import ColumnDataSource, LayoutDOM
 from bokeh.util.compiler import TypeScript
@@ -12,7 +14,9 @@ class Surface3d(LayoutDOM):
     # The special class attribute ``__implementation__`` should contain a string
     # of JavaScript (or CoffeeScript) code that implements the JavaScript side
     # of the custom extension model.
-    __implementation__ = TypeScript(open("extensions/surface3d.ts", "r").read())
+    __implementation__ = TypeScript(
+            open(os.path.dirname(os.path.abspath(__file__)) +\
+                    "/surface3d.ts", "r").read())
 
     # Below are all the "properties" for this model. Bokeh properties are
     # class attributes that define the fields (and their types) that can be

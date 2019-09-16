@@ -1,3 +1,5 @@
+import os
+
 from bokeh.models import Label
 from bokeh.util.compiler import TypeScript
 
@@ -13,5 +15,7 @@ class LatexLabel(Label):
     """
     __javascript__ = ["https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"]
     __css__ = ["https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"]
-    __implementation__ = TypeScript(open("extensions/Latex.ts", "r").read())
+    __implementation__ = TypeScript(
+            open(os.path.dirname(os.path.abspath(__file__)) +\
+                    "/Latex.ts", "r").read())
 
