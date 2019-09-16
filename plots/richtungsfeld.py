@@ -84,36 +84,44 @@ for plot in plots:
     values.append(ColumnDataSource())
 
 # The slider controlling the value of the solution function at a certain point
-# This will fix all degress of freedom the general solution to this ODE will have
-height = Slider(title="y Position des Anfangswertes", value=1, start=-5, end=5, step=0.05)
-x_pos = Slider(title="x Position des Anfangswertes", value=0., start=-5, end=5, step=0.05)
+# This will fix all degress of freedom the general solution to this ODE will
+# have
+height = Slider(title="y Position des Anfangswertes", value=1, start=-5, end=5,
+        step=0.05)
+x_pos = Slider(title="x Position des Anfangswertes", value=0., start=-5, end=5,
+        step=0.05)
 
+# Defining callback handlers
 def update_slider(attr, old, new):
     x_plot = np.linspace(-10, 10, 100)
     for i, solution in enumerate(solutions):
         y_plot = solution(x_plot, x_pos.value, height.value)
         values[i].data = {"x": x_plot, "y": y_plot}
-    value_cross.data = {"x": np.array([x_pos.value, ]), "y": np.array([height.value, ])}
+    value_cross.data = {"x": np.array([x_pos.value, ]), "y":
+            np.array([height.value, ])}
 
 
 # Initialize the data dictionaries by calling the update handler
 update_slider(0, 0, 0)
 
 tabs = []
-names = ["Erstes Feld", "Zweites Feld", "Drittes Feld", "Viertes Feld", "Fünftes Feld"]
+names = ["Erstes Feld", "Zweites Feld", "Drittes Feld", "Viertes Feld",
+        "Fünftes Feld"]
 for i, plot in enumerate(plots):
     plot.line("x", "y", source=values[i], line_width=3)
     plot.cross("x", "y", source=value_cross, color="orange", line_width=12)
     tabs.append(Panel(child=plot, title=names[i]))
 
 
-# Here we have to use tabs. The user won't be able to choose the ODE in the
+# Here, we have to use tabs. The user won't be able to choose the ODE in the
 # right column. This might be inconsistent but is necessary since bokeh does
 # not support native vector field plots yet
 tabs = Tabs(tabs=tabs, width=WIDTH_PLOT)
-sliders = widgetbox(height, x_pos)
 
+# Connect the widgets with their respective callbacks
 for slider in (height, x_pos):
     slider.on_change("value", update_slider)
 
-curdoc().add_root(row(tabs, sliders))
+# Assemble the plot and create the html
+inputs = widgetbox(height, x_pos)
+curdoc().add_root(row(tabs, inputs))

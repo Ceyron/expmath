@@ -14,7 +14,7 @@ WIDTH_PLOT = 500
 WIDTH_TOTAl = 800
 
 """
-ATTENTION: This script is still experimental and needs an overhaul (#TODO)
+CAUTION: This script is still experimental and needs an overhaul (#TODO)
 
 This plot offers the user the chance to manipulate the vector field of phase
 plot and see the solution of the underlying systems of ordinary differential
@@ -320,11 +320,13 @@ def switch_ode(ode_selector, slider_1, slider_2, slider_3, slider_4, initial_y,
         slider_3.end = 0.01
         slider_3.value = 0.
         slider_3.step = 0.1
+        slider_3.visible = False
         slider_4.title = "Ohne Funktion"
         slider_4.start = 0.
         slider_4.end = 0.01
         slider_4.value = 0.
         slider_4.step = 0.1
+        slider_4.visible = False
 
         initial_y.title = "Anfangsauslenkung y(0)"
         initial_y.start = -5
@@ -350,6 +352,7 @@ def switch_ode(ode_selector, slider_1, slider_2, slider_3, slider_4, initial_y,
         slider_3.end = 5.
         slider_3.value = 0.5
         slider_3.step = 0.05
+        slider_3.visible = True
 
     elif ode_selector.value == "volterra-lotka":
         slider_1.title = "Reproduktionsrate der Beute"
@@ -367,11 +370,13 @@ def switch_ode(ode_selector, slider_1, slider_2, slider_3, slider_4, initial_y,
         slider_3.end = 20.
         slider_3.value = 3.
         slider_3.step = 0.1
+        slider_3.visible = True
         slider_4.title = "Reproduktionsrate der Räuber"
         slider_4.start = 2
         slider_4.end = 20.
         slider_4.value = 15.
         slider_4.step = 0.1
+        slider_4.visible = True
 
         initial_y.title = "Anfangsanzahl an Beute u(0)"
         initial_y.start = 1
