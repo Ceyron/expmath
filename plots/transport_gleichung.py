@@ -354,6 +354,7 @@ def calculate_characteristics_endpoints(type_selected, initial_selected, a,
 # drawn
 solution_source = ColumnDataSource()
 characteristics_source = ColumnDataSource()
+horizontal_time_line_source = ColumnDataSource()
 
 
 plot_top = Figure(plot_height=HEIGHT_PLOT, plot_width=WIDTH_PLOT,
@@ -367,6 +368,10 @@ plot_bottom = Figure(plot_height=HEIGHT_PLOT, plot_width=WIDTH_PLOT,
 plot_bottom.xaxis[0].axis_label = "Ort x"
 plot_bottom.yaxis[0].axis_label = "Zeit t"
 plot_bottom.toolbar.active_drag = None  # Helpful for touchscreen users
+
+# A horizontal black line that moves upwards to indicate the bevaiour in time
+plot_bottom.line(x="x", y="y", source=horizontal_time_line_source,
+        color="black")
 
 # The solution is drawn as multiple lines however this is only necessary for
 # JUMP_WITH_GAP IC so properly render the gap
@@ -408,6 +413,11 @@ def update_bottom_plot():
             initial_selector.active, slider_1.value,
             initial_slider_1.value, initial_slider_2.value)
     characteristics_source.data = {"xs": xs, "ts": ts}
+
+    horizontal_time_line_source.data = {
+            "x": [-20, 20],
+            "y": [time.value, time.value],
+            }
 
 def animate():
     if time.value >= time.end:
