@@ -123,8 +123,8 @@ plot = Figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT,
         x_range=[X_LEFT, X_RIGHT], y_range=[Y_BOT, Y_TOP])
 plot.toolbar.active_drag = None
 
-plot.line(x="x", y="y", source=original_function_source, line_width=LINE_WIDTH,
-        color="black")
+plot.line(x="x", y="y", source=original_function_source,
+        line_width=LINE_WIDTH_ORIGINAL, color="black")
 plot.line(x="x", y="y", source=fourier_approximation_source,
         line_width=LINE_WIDTH_APPROXIMATION, color="red")
 

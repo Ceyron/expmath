@@ -154,26 +154,28 @@ order_slider = Slider(title="Ordnung der Wurzel", start=2, end=10, value=3,
         step=1)
 
 
-update_data(cartesian_or_polar, real_or_radius, imaginary_or_angle, order,
-        circle_source, polyeder_source, radicant_number_source)
+update_data(cartesian_or_polar_selector, real_or_radius_slider,
+        imaginary_or_angle_slider, order_slider, circle_source, polyeder_source,
+        radicant_number_source)
 
 
 def update_slider(attr, old, new):
-    update_data(cartesian_or_polar, real_or_radius, imaginary_or_angle, order,
-            circle_source, polyeder_source, radicant_number_source)
+    update_data(cartesian_or_polar_selector, real_or_radius_slider,
+            imaginary_or_angle_slider, order_slider, circle_source,
+            polyeder_source, radicant_number_source)
 
 def update_button(source):
-    switch_cartesian_polar(cartesian_or_polar, real_or_radius,
-            imaginary_or_angle)
+    switch_cartesian_polar(cartesian_or_polar_selector, real_or_radius_slider,
+            imaginary_or_angle_slider)
 
 # Connect the widgets with their respective callbacks
-for button in (cartesian_or_polar, ):
+for button in (cartesian_or_polar_selector, ):
     button.on_click(update_button)
 
-for slider in (real_or_radius, imaginary_or_angle, order):
+for slider in (real_or_radius_slider, imaginary_or_angle_slider, order_slider):
     slider.on_change("value", update_slider)
 
 # Assemble the plot and create the html
-inputs = widgetbox(cartesian_or_polar, real_or_radius, imaginary_or_angle,
-        order)
+inputs = widgetbox(cartesian_or_polar_selector, real_or_radius_slider,
+        imaginary_or_angle_slider, order_slider)
 curdoc().add_root(row(plot, inputs, width=WIDTH_TOTAL))
