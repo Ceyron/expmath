@@ -54,7 +54,7 @@ lineare_algebra = {
 
 analysis_2 = {
     "multivariable_funktionen": "Multivariable Funktionen",
-    "partielle_ableitungen": "Partiell Ableitungen (TODO)",
+    "partielle_ableitungen": "Partielle Ableitungen (TODO)",
     "gradient": "Gradient (TODO)",
     "divergenz": "Divergenz (TODO)",
     "rotation": "Rotation (TODO)",
