@@ -26,9 +26,9 @@ app = Flask(__name__)
 # Changing the ordering in here will change the order of appearance
 # in the dropdown.
 analysis_1 = {
-    "sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
+    #"sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
     "epsilon_kriterium": "Epsilon Kriterium für Folgen",
-    "ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
+    #"ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
     "einfache_funktionen": "Standardfunktionen",
     "epsilon_delta_kriterium": "Epsilon-Delta Kriterium für Funktionen",
@@ -44,41 +44,41 @@ analysis_1 = {
 lineare_algebra = {
     "komplexe_zahlen": "Komplexe Zahlen",
     "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
-    "basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
+    #"basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
     "matrizen_2d": "Matrizen und Lineare Transformationen (2D)",
     "matrizen_3d": "Matrizen und Lineare Transformationen (3D)",
-    "eigenvektoren": "Eigenvektoren von Matrizen (TODO)",
-    "skalar_produkt": "Skalarprodukt von Vektoren (2D) (TODO)",
-    "vektor_produkt": "Vektorprodukt/Kreuzprodukt von Vektoren (3D) (TODO)",
+    #"eigenvektoren": "Eigenvektoren von Matrizen (TODO)",
+    #"skalar_produkt": "Skalarprodukt von Vektoren (2D) (TODO)",
+    #"vektor_produkt": "Vektorprodukt/Kreuzprodukt von Vektoren (3D) (TODO)",
     }
 
 analysis_2 = {
-    "multivariable_funktionen": "Multivariable Funktionen",
-    "partielle_ableitungen": "Partielle Ableitungen (TODO)",
-    "gradient": "Gradient (TODO)",
-    "divergenz": "Divergenz (TODO)",
-    "rotation": "Rotation (TODO)",
+    "multivariable_funktionen": "Multivariable Funktionen (3D)",
+    #"partielle_ableitungen": "Partielle Ableitungen (TODO)",
+    #"gradient": "Gradient (TODO)",
+    #"divergenz": "Divergenz (TODO)",
+    #"rotation": "Rotation (TODO)",
     "parametrisierungen_2d": "Parametrisierung von Linien im Raum (2D)",
-    "parametrisierungen_3d": "Parametrisierung von Linien im Raum (3D) (TODO)",
-    "kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
+    #"parametrisierungen_3d": "Parametrisierung von Linien im Raum (3D) (TODO)",
+    #"kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
     "fourier_reihen": "Fourier-Reihen",
-    "fourier_zerlegung": "Fourier-Zerlegung - Frequenzraum (TODO)",
+    #"fourier_zerlegung": "Fourier-Zerlegung - Frequenzraum (TODO)",
     }
 
 ode = {
-    "einfache_ode": "Einfache gewöhnliche Differentialgleichungen (TODO)",
-    "federschwinger": "Federschwinger (TODO)",
+    #"einfache_ode": "Einfache gewöhnliche Differentialgleichungen (TODO)",
+    #"federschwinger": "Federschwinger (TODO)",
     "richtungsfeld": "Richtungsfeld",
     "phasen_plot": "Phasen-Plot",
-    "lipschitz_stetigkeit": "Lipschitzstetigkeit - Existenz und Eindeutigkeit\
-    (TODO)",
-    "laplace_transformation": "Laplace-Transformation (TODO)",
+    #"lipschitz_stetigkeit": "Lipschitzstetigkeit - Existenz und Eindeutigkeit\
+    #(TODO)",
+    #"laplace_transformation": "Laplace-Transformation (TODO)",
     }
 
 analysis_3 = {
-    "satz_von_gauss": "Satz von Gauß (TODO)",
-    "transformations_satz": "Integraltransformationen und Transformationssatz\
-        (TODO)",
+    #"satz_von_gauss": "Satz von Gauß (TODO)",
+    #"transformations_satz": "Integraltransformationen und Transformationssatz\
+    #    (TODO)",
     }
 
 pde = {
@@ -86,10 +86,10 @@ pde = {
     "schwingungen": "Schwingungen",
     "wellen": "Wellenbewegung",
     "transport_gleichung": "Transportgleichung und Charakteristiken",
-    "membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
-        Mittelwerteigenschaft (TODO)",
-    "fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
-    "green_funktion": "Green-Funktion (TODO)",
+    #"membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
+    #    Mittelwerteigenschaft (TODO)",
+    #"fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
+    #"green_funktion": "Green-Funktion (TODO)",
     "variationsformulierung": "Variationsformulierung",
     "finite_elemente": "Finite Elemente",
     }
