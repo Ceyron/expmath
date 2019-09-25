@@ -1,0 +1,11 @@
+# Use python3 base image
+FROM python:3
+
+
+RUN pip3 install bokeh
+COPY . /expmath
+RUN cd /expmath
+CMD nohup bokeh serve /expmath/plots/*.py \
+    --allow-websocket-origin=*:5006 \
+    --allow-websocket-origin=*:9001 &
+
