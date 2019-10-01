@@ -1,5 +1,4 @@
 import numpy as np
-import sympy as sp
 
 from bokeh.io import curdoc
 from bokeh.layouts import row, widgetbox
