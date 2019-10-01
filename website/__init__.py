@@ -12,7 +12,8 @@ Add a new plot:
 """
 
 # ip address and port of the bokeh server
-IP = "134.169.53.27"
+#IP = "134.169.53.27"
+IP = "127.0.0.1"
 PORT = "9001"
 
 # The fuzzy ratio needed at least to set the recommendation

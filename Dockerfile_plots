@@ -1,11 +1,18 @@
 # Use python3 base image
 FROM python:3
 
+RUN pip3 install bokeh holoviews scipy
 
-RUN pip3 install bokeh
-COPY . /expmath
-RUN cd /expmath
-CMD nohup bokeh serve /expmath/plots/*.py \
-    --allow-websocket-origin=*:5006 \
-    --allow-websocket-origin=*:9001 &
+RUN mkdir -p /expmath/plots
+COPY plots/* /expmath/plots/
+
+CMD bokeh serve /expmath/plots/*.py \
+    --port 9001 \
+    --address=0.0.0.0 \
+    --allow-websocket-origin=*:9001 \
+    --allow-websocket-origin=*:8080 \
+    --allow-websocket-origin=*:80
+
+EXPOSE 9001
+
 
