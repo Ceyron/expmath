@@ -3,10 +3,10 @@ FROM ubuntu:latest
 # Necessary general packages
 RUN apt update && apt install -y \
     apache2 libapache2-mod-wsgi-py3 \
-    python3 python3-pip
+    python3 python3-pip nodejs
 
 # Install python dependencies and setup virtual env
-RUN pip3 install flask fuzzywuzzy virtualenv bokeh holoviews scipy
+RUN pip3 install flask fuzzywuzzy virtualenv bokeh holoviews scipy nodejs
 RUN virtualenv /var/www/expmath/website/venv
 RUN . /var/www/expmath/website/venv/bin/activate
 RUN pip3 install flask fuzzywuzzy bokeh
