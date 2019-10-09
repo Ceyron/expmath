@@ -1,23 +1,95 @@
-# expmath
-Online visualization tool for basic engineering math concepts using flask and bokeh
+# ExpMath (Exploratory Mathematics)
 
-https://www.tutorialspoint.com/flask/flask_quick_guide.htm
+ExpMath is a project of the Institute of Computational Mathematics at the
+Technical University of Braunschweig. It aims at providing a web application
+visualizing mathematical ideas to students of the engineering disciplines of the
+first semesters. The concept is to not provide a more sophisticated alternative
+to Matlab, Mathematica, Octave, GNUplot etc. but to empower students with
+the capabilities of visualization even if they not yet have the skills to create
+the tools themselves.
 
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+The ExpMath site consists of two parts:
+
+1. The actual interactive plots are rendered with the help of bokeh, a Python
+   visualization library in combination with some custom extensions.
+2. Each interactive plot is framed within static components summarizing the
+   theoretical background and enhancing the user experience with questions.
 
 # Usage
-Inside data there is the Flask and Bokeh directory. Use the build-in bokeh
-server (*bokeh serve*) to serve the entire Bokeh directory with the appropriate
-commands to make it visibile to the outside or use the available shell-script.
-For additonal security use a proxy server in front of the bokeh tornado. The
-Flask App serves the dynamically created content around the interactive
-diagrams. It is connected to an Apache Webserver by the wsgi interface. Make
-sure Apache is set up correctly.
 
-# Road-Map
-Create two more examples, consisting of a dynamic animation of an oscillating
-string showing of the combination of eigen frequencies and eigen modes and a
-three-dimensional example of a transformation taking place.
+### Deployment with docker
+
+1. Clone the repository to the production server, and adjust the IP address in
+   website/__init__.py to the one of the server
+2. Make sure docker is installed and the docker daemon is running
+3. Use the script to build the docker container
+
+    ./build_on_server.sh
+
+4. Use the script to deploy the server (if necessary stop an old docker
+   container beforehand)
+
+    ./start_on_server.sh
+
+5. Use the script to stop a running server
+
+    ./stop_on_server.sh
+
+### Manual deployment on a Ubuntu machine
+
+1. Install the necessary dependencies
+
+    sudo apt update
+
+    sudo apt install apache2 libapache2-mod-wsgi-py3 python3 python3-pip
+
+    sudo pip3 install flask fuzzywuzzy virtualenv bokeh holoviews scipy
+
+2. Create the folder structure
+
+    mkdir -p /var/www/expmath/website
+    
+    mkdir -p /var/www/expmath/log
+
+    mkdir -p /var/www/expmath/plots
+
+3. Create a virtual environment for the flask application
+
+    virtualenv /var/www/expmath/website/venv
+
+    source /var/www/expmath/website/venv/bin/activate
+
+    pip3 install flask fuzzywuzzy bokeh
+
+    exit
+
+4. Clone the github repository and !! adjust the IP address in
+   website/__init__.py to the one of the server
+
+    git clone https://github.com/Ceyron/expmath.git ~/expmath
+
+5. Copy the files
+
+    cp -r ~/expmath/plots/* /var/www/expmath/plots/
+
+    cp -r ~/expmath/website/* /var/www/expmath/website/
+
+    cp ~/expmath/deployment/expmath.conf /etc/apache2/sites-available/
+
+    cp ~/expmath/deployment/expmath.wsgi /var/www/expmath/
+
+6. Configure Apache
+
+    sudo a2enmod wsgi
+
+    sudo a2ensite expmath
+
+    sudo a2dissite 000-default
+
+    sudo apache2ctl restart
+
+7. Make sure the firewall does not block port 80 and 9001
+
 
 # Embedding in an all static web-app
 If you are not using flask, then it is still possible interactive bokeh-plots,
@@ -29,10 +101,5 @@ follows
         bokeh-app-path=/[PLOT\_NAME]&bokeh-absolute-url=http://[IP]:[PORT]/
         [PLOT\_NAME]" id="1000"></script>
 
-# TODO
-* Dockerize the entire application: This might consist of two independent docker
-  containers, one for the static webpage und one for the interactive bokeh
-  content
-* Get the DNS working
 
 
