@@ -122,7 +122,7 @@ plot.add_layout(band)
 # Define all occuring widgets
 sequence_selector = RadioButtonGroup(
         labels=["Folge 1", "Folge 2", "Folge 3"], active=0)
-numbers_slider = Slider(title="Anzahl natürlicher Zahlen", value=10, start=5,
+numbers_slider = Slider(title="Anzahl Folgenelemente", value=10, start=5,
                         end=50, step=1)
 bounding_selector = RadioButtonGroup(
         labels=["Konvergenz", "Beschränktheit"], active=0)
