@@ -28,38 +28,38 @@ app = Flask(__name__)
 # in the dropdown.
 analysis_1 = {
     #"sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
-    "epsilon_kriterium": "Epsilon Kriterium für Folgen",
+    "epsilon_kriterium": "Folgen und Grenzwerte",
     #"ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
     "einfache_funktionen": "Standardfunktionen",
-    "epsilon_delta_kriterium": "Epsilon-Delta Kriterium für Funktionen",
+    "epsilon_delta_kriterium": "Stetigkeit von Funktionen",
     "diffbarkeit": "Differenzierbarkeit von Funktionen",
     "integrale_und_ableitungen": "Integrale und Ableitungen",
     "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
-    "taylorpolynome": "Taylorpolynome",
+    "taylorpolynome": "Taylor-Polynome",
     "trigonometrische_funktionen": "Trigonometrische Funktionen",
-    "schrittweises_zeichnen": "Schrittweises Zeichnen von Funktionen",
+    "schrittweises_zeichnen": "Schrittweises Skizzieren von Funktionen",
     "umkehrfunktionen": "Umkehrfunktionen",
     }
 
 lineare_algebra = {
     "komplexe_zahlen": "Komplexe Zahlen",
-    "komplexes_wurzelziehen": "Komplexes Wurzelziehen",
+    "komplexes_wurzelziehen": "Komplexe Wurzeln",
     #"basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
-    "matrizen_2d": "Matrizen und Lineare Transformationen (2D)",
-    "matrizen_3d": "Matrizen und Lineare Transformationen (3D)",
+    "matrizen_2d": "Matrizen und lineare Transformationen (2D)",
+    "matrizen_3d": "Matrizen und lineare Transformationen (3D)",
     #"eigenvektoren": "Eigenvektoren von Matrizen (TODO)",
     #"skalar_produkt": "Skalarprodukt von Vektoren (2D) (TODO)",
     #"vektor_produkt": "Vektorprodukt/Kreuzprodukt von Vektoren (3D) (TODO)",
     }
 
 analysis_2 = {
-    "multivariable_funktionen": "Multivariable Funktionen (3D)",
+    "multivariable_funktionen": "Multivariate Funktionen - Skalarfelder",
     #"partielle_ableitungen": "Partielle Ableitungen (TODO)",
     #"gradient": "Gradient (TODO)",
     #"divergenz": "Divergenz (TODO)",
     #"rotation": "Rotation (TODO)",
-    "parametrisierungen_2d": "Parametrisierung von Linien im Raum (2D)",
+    "parametrisierungen_2d": "Parametrisierung von Kurven (2D)",
     #"parametrisierungen_3d": "Parametrisierung von Linien im Raum (3D) (TODO)",
     #"kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
     "fourier_reihen": "Fourier-Reihen",

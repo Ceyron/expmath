@@ -474,7 +474,7 @@ parameter_sliders = (parameter_a, parameter_b, parameter_c, parameter_d)
 
 # This toggle is used to activate a second function and once it is activated to
 # switch between controling the first and the second function
-second_toggle = Toggle(label="Zweite Funktion aktivieren")
+second_toggle = Toggle(label="Zweite Funktion $g$ (de-)aktivieren")
 
 # Lable extension rendered by the help of KaTex on the client-side
 function_latex = LatexLabel(text = "", x = WIDTH_PLOT - 20, y = 80,

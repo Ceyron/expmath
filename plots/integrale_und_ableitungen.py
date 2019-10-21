@@ -63,7 +63,7 @@ functions = [
         [FUNC_3_derivative, FUNC_3, FUNC_3_integral]
         ]
 
-names = ["Linear Funktion", "Trigonometrische Funktion", "Exponentialfunktion"]
+names = ["Lineare Funktion", "Trigonometrische Funktion", "Exponentialfunktion"]
 
 # Given the coordinates of one point and the slope at this, model the tangent line to this point and use it to return the y-coordinate for a given x-coordinate
 def line_points_from_slope_and_one_point(slope, point, x):

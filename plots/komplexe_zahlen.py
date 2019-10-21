@@ -116,13 +116,13 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         real = radius * np.cos(angle)
         imaginary = radius * np.sin(angle)
 
-        real_or_radius_slider.title = "Realteil"
+        real_or_radius_slider.title = "Realteil $a = $"
         real_or_radius_slider.start = -5
         real_or_radius_slider.end = 5
         real_or_radius_slider.value = real
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Imaginärteil"
+        imaginary_or_angle_slider.title = "Imaginärteil $b = $"
         imaginary_or_angle_slider.start = -5
         imaginary_or_angle_slider.end = 5
         imaginary_or_angle_slider.value = imaginary
@@ -137,13 +137,13 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         else: # Radians
             angle = np.arctan2(imaginary, real)
 
-        real_or_radius_slider.title = "Radius"
+        real_or_radius_slider.title = "Radius $r = $"
         real_or_radius_slider.start = 0
         real_or_radius_slider.end = 5
         real_or_radius_slider.value = radius
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Winkel"
+        imaginary_or_angle_slider.title = "Winkel $\varphi = $"
         if degree_or_radian.active == 0: # Degrees
             imaginary_or_angle_slider.start = -180
             imaginary_or_angle_slider.end = 180
@@ -167,10 +167,10 @@ def switch_degree_radian(cartesian_or_polar, degree_or_radian,
 
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
-            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 1)) + "°"
+            angle_or_imaginary_box.text = "Winkel $\varphi =$ " + str(round(angle, 1)) + "°"
         else: # Radians
             angle = np.arctan2(imaginary, real)
-            angle_or_imaginary_box.text = "Winkel = " + str(round(angle, 3))
+            angle_or_imaginary_box.text = "Winkel $\varphi =$ " + str(round(angle, 3))
     else: # Polar: The angle occurs in the sliders
         if degree_or_radian.active == 0: #  This means it was 1 (radian ->
                                          #  degrees)
@@ -209,9 +209,9 @@ plot.line(x="x", y="y", line_width=ARROW_LINE_WIDTH, source=number_source)
 
 cartesian_or_polar = RadioButtonGroup(labels=["Kartesisch", "Polar"], active=0)
 degree_or_radian = RadioButtonGroup(labels=["Grad", "Bogenmaß"], active=0)
-real_or_radius_slider = Slider(title="Realteil", start=-5, end=5, value=4,
+real_or_radius_slider = Slider(title="Realteil $a$", start=-5, end=5, value=4,
         step=0.1)
-imaginary_or_angle_slider = Slider(title="Imaginärteil", start=-5, end=5,
+imaginary_or_angle_slider = Slider(title="Imaginärteil $b$", start=-5, end=5,
         value=3, step=0.1)
 radius_or_real_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)
 angle_or_imaginary_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)

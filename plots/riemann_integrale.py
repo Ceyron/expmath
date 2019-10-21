@@ -98,9 +98,9 @@ def update_boxes(function_selector, interval_slider, discretization_slider,
                 delta_x) * delta_x
 
     #TODO Improve styling
-    delta_box.text = "delta x = %1.2f" % delta_x
-    lower_sum_box.text = "Untersummen = %.2f" % lower_sum
-    upper_sum_box.text = "Obersummen = %.2f" % upper_sum
+    delta_box.text = "\Delta x = %1.2f" % delta_x
+    lower_sum_box.text = "Untersumme $U = %.2f$" % lower_sum
+    upper_sum_box.text = "Obersummen $O = %.2f$" % upper_sum
 
 
 # ColumnDataSource represents the abstraction for the dataset transmission to
@@ -119,14 +119,14 @@ color="orange", alpha=0.6)
 
 function_selector = RadioButtonGroup(labels=["Funktion 1", "Funktion 2"],
         active=0)
-interval_slider = RangeSlider(title="Interval", start=-5., end=5., value=(1.,
+interval_slider = RangeSlider(title="Intervall", start=-5., end=5., value=(1.,
     3.), step=0.1)
-discretization_slider = Slider(title="Anzahl an Rechtecken", start=1, end=50,
+discretization_slider = Slider(title="Anzahl an Stützstellen", start=1, end=50,
     value=2, step=1)
-delta_box = Div(text="delta x = 1.", width=WIDTH_BOX, height=HEIGHT_BOX)
-lower_sum_box = Div(text="Untersummen = 123", width=WIDTH_BOX,
+delta_box = Div(text="\Delta x = 1.", width=WIDTH_BOX, height=HEIGHT_BOX)
+lower_sum_box = Div(text="Untersumme U = 123", width=WIDTH_BOX,
         height=HEIGHT_BOX)
-upper_sum_box = Div(text="Obersummen = 123", width=WIDTH_BOX, height=HEIGHT_BOX)
+upper_sum_box = Div(text="Obersumme O = 123", width=WIDTH_BOX, height=HEIGHT_BOX)
 
 
 inputs = widgetbox(function_selector, interval_slider, discretization_slider,

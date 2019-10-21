@@ -52,7 +52,7 @@ def SEQUENCE_4(x, a):
 
 
 SEQUENCES = [SEQUENCE_1, SEQUENCE_2, SEQUENCE_3, SEQUENCE_4, ]
-NAMES = ["1/k", "1/k^2", "(1/a)^k", "sin(a*k)"]
+NAMES = ["$\frac{1}{k}$", "$\frac{1}{k^2}$", "$\left(\frac{1}{a}\right)^k$", "$\sin(a\cdot k)$"]
 # Use Dirichlet series as convergent majorant and Harmonic series and divergent
 # minorant
 CRITERIA = [SEQUENCE_2, SEQUENCE_1]
@@ -169,14 +169,14 @@ plot_right.vbar(x="x_center", width=WIDTH_BAR, top="height",
         source=convergence_aid_series_source, color="red")
 
 sequence_selector = RadioButtonGroup(labels=NAMES, active=0)
-number_slider = Slider(title="Anzahl an natürlichen Zahlen", start=1,
+number_slider = Slider(title="Anzahl Glieder", start=1,
         end=MAX_NATURAL_NUMBERS, value=4, step=1)
 
 # This button will toggle the visibility of 'advanced' options (all the
 # widgets that have visibility=False in their arguments
 advanded_toggle = Toggle(label="Erweiterte Widgets aktivieren")
 
-parameter_slider = Slider(title="Parameter a", start=-5., end=5., value=2.,
+parameter_slider = Slider(title="Parameter $a=$", start=-5., end=5., value=2.,
         step=0.1, visible=False)
 
 convergence_aid_toggle = Toggle(label="Konvergenzkriterien aktivieren",

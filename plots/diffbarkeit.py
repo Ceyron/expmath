@@ -119,9 +119,9 @@ plot.cross(x="x", y="y", source=dot_values, color="black", size=SIZE_GLYPHS)
 
 function_selector = RadioButtonGroup(
         labels=["Funktion 1", "Funktion 2", "Funktion 3"], active=0)
-point_slider = Slider(title="Betrachteter Punkt $x_0$", value=0,
+point_slider = Slider(title="Betrachtete Stelle $x_0 = $", value=0,
         start=-4, end=4, step=0.1)
-spacing_slider = Slider(title="Abstand um den Punkt $h$", value=0.5, start=0.01,
+spacing_slider = Slider(title="Abstand $h$ von der Stelle $x_0$", value=0.5, start=0.01,
         end=2, step=0.1)
 
 

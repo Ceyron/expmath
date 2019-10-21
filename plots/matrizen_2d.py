@@ -77,13 +77,13 @@ matrices = [MATRIX_1, MATRIX_2, MATRIX_3, MATRIX_4]
 MATRIX_1_LATEX = """
     A =
     \\begin{pmatrix}
-        \\frac{1}{2} & a \cr
-        1 & \\frac{1}{2}
+        0.5 & a \cr
+        1 & 0.5
     \end{pmatrix}
     =
     \\begin{pmatrix}
-        \\frac{1}{2} & %1.2f \cr
-        1 & \\frac{1}{2}
+        0.5 & %1.2f \cr
+        1 & 0.5
     \end{pmatrix}
 """
 

@@ -55,10 +55,10 @@ def update_data(sequence_selector, numbers_slider, bounding_selector,
     # Create new plotting values for the bounding lines
     x_line = np.array([0, numbers+10])
     if selected_type == 0: # Konvergenz
-        top_slider.title = "Grenzwert"
+        top_slider.title = "Grenzwert $a=$"
         top_slider.start = y_range[0] + MIN_WIDTH_TUNNEL
         top_slider.end = y_range[1] - MIN_WIDTH_TUNNEL
-        bottom_slider.title = "Epsilon"
+        bottom_slider.title = "$\varepsilon =$"
         bottom_slider.start = 0.05
         bottom_slider.end = (y_range[1] - y_range[0])/2.1
         

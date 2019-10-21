@@ -37,7 +37,7 @@ NUMER_OF_POINTS = 300
 # right top
 
 # The first function is a general fractional function
-indicator_1 = "1/sqrt(1+x^2)"
+indicator_1 = "$\frac{1}{sqrt(1+x^2)}$"
 func_1 = [
         lambda x: x**2,
         lambda x: 1 + x**2,
@@ -45,37 +45,37 @@ func_1 = [
         lambda x: 1 / np.sqrt(1 + x**2)
         ]
 label_1 = [
-        "x^2",
-        "1 + x^2",
-        "\sqrt{1 + x^2}",
-        "\\frac{1}{\sqrt{1 + x^2}}",
+        "$x^2$",
+        "$1 + x^2$",
+        "$\sqrt{1 + x^2}$",
+        "$\frac{1}{\sqrt{1 + x^2}}$",
         ]
 
-indicator_2 = "sin^2(x+pi/2)"
+indicator_2 = "$sin^2\left(x+\frac{\pi}{2}\right)$"
 func_2 = [
         lambda x: np.sin(x),
         lambda x: np.sin(x + np.pi/2),
         lambda x: np.sin(x + np.pi/2)**2,
         ]
 label_2 = [
-        "\sin(x)",
-        "\sin(x + \\frac{\pi}{2})",
-        "\sin^2(x + \\frac{\pi}{2})",
+        "$\sin(x)$",
+        "$\sin\left(x + \frac{\pi}{2}\right)$",
+        "$\sin^2\left(x + \frac{\pi}{2}\right)$",
         ]
 
-indicator_3 = "1/(x^2 - 2)"
+indicator_3 = "$\frac{1}{x^2 - 2}"
 func_3 = [
         lambda x: x**2,
         lambda x: x**2 - 2,
         lambda x: 1/(x**2 - 2),
         ]
 label_3 = [
-        "x^2",
-        "x^2 - 2",
-        "\\frac{1}{x^2 - 2}",
+        "$x^2$",
+        "$x^2 - 2$",
+        "$\frac{1}{x^2 - 2}$",
         ]
 
-indicator_4 = "exp(x) / (1 + exp(x))"
+indicator_4 = "$\frac{{\rm{e}}^x}{1 + {\rm{x}}}"
 func_4 = [
         lambda x: np.exp(x),
         lambda x: 1 + np.exp(x),
@@ -83,10 +83,10 @@ func_4 = [
         lambda x: np.exp(x) / (1 + np.exp(x))
         ]
 label_4 = [
-        "e^x",
-        "1 + e^x",
-        "\\frac{1}{1 + e^x}",
-        "\\frac{e^x}{1 + e^x}",
+        "${\rm{e}}^x$",
+        "$1 + {\rm{e}}^x$",
+        "$\frac{1}{1 + {\rm{e}}^x}$",
+        "$\frac{{\rm{e}}^x}{1 + {\rm{e}}^x}$",
         ]
 
 
@@ -135,7 +135,7 @@ plot.line('x', 'y', source=step_5_source, line_width=LINE_WIDTH_OLD,
         color="red")
 
 function_selector = RadioButtonGroup(labels=indicators, active=0)
-step_slider = Slider(title="Schritt auswählen", start=1, end=4, value=1, step=1)
+step_slider = Slider(title="Schritt", start=1, end=4, value=1, step=1)
 # The latex label is an updated label that is connected with the katex latex
 # engine. Since it is connected to the plot, it has to adjusted with respect to
 # the bottom left corner of the plot measuring in screen units (=pixels)

@@ -119,17 +119,16 @@ plot.cross(x="x", y="y", source=point_values, color="blue", size=SIZE_CROSS,
 plot.line(x="x", y="y", source=error_bar_values, color="red",
         line_width=LINE_WIDTH_ERROR_BAR)
 
-order = Slider(title="Ordnung des Taylorpolynoms", value=0, start=0, end=5,
+order = Slider(title="Taylor-Polynom vom Grad", value=0, start=0, end=5,
         step=1)
-x_spot = Slider(title="Entwicklungstelle x_0", value=1, start=X_TAYLOR_LEFT,
+x_spot = Slider(title="Entwicklungstelle $x_0$", value=1, start=X_TAYLOR_LEFT,
         end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING)
 
 # Advanced options made visible after a Toggle is pressed: A red thick vertical
 # bar indicates the error between the Taylor approximation and the true function
 # at the chosen point
-advanced_toggle = Toggle(label="Fehlerindikator einblenden")
-error_position_slider = Slider(title="""Position zum Vergleich zwischen Original
-        und Annäherung wählen""", value=-1, start=X_TAYLOR_LEFT,
+advanced_toggle = Toggle(label="Fehlerbalken einblenden")
+error_position_slider = Slider(title="""Vergleich zwischen Funktionswert und Näherung an der Stelle z""", value=-1, start=X_TAYLOR_LEFT,
         end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING, visible=False)
 
 # Right now, only one function is availabe, so its values can be statically
