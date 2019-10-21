@@ -68,17 +68,15 @@ Bedienung der Graphik
 
 
 {% block QUEST1_HEAD %}
-Fragen mit dem Plot
+Erkundung der Graphik 
 {% endblock %}
 {% block QUEST1 %}
 <ol>
     <li> Welche physikalische Größe ist dargestellt?</li>
-    <li> Warum gleicht sich die Temperatur schneller an, wenn der Stab länger
-        wird?</li>
-    <li> Woran erkennen Sie, dass die höheren Eigenformene schneller abklingen?
-        </li>
-    <li> Wie erkenen Sie die Formeln für inhomogene Randbedingungen wieder? Wo
-        ist $u_{stat}$? </li>
+    <li> Beschreiben Sie kurz das zeitabhängige Lösungsverhalten.</li>
+    <li> Welche Auswirkungen hat eine Verlängerung oder Verkürzung des Stabs auf das Lösungsverhalten?</li>
+    <li> Was verändert sich bei einer Anfangsbedingung mit der dritten Eigenform anstelle der ersten?</li>
+    <li> Welchen Einfluss hat die Verwendung inhomogener Randbedingungen? </li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
@@ -86,17 +84,33 @@ Antwort 1
 {% endblock %}
 
 {% block QUEST2_HEAD %}
-Fragen zum eigene Bearbeiten
+Fragen zum tieferen Verständnis
 {% endblock %}
 {% block QUEST2 %}
+Eine Lösung der Wärmleitungsgleichung $u_{,t}= a u_{,xx}$ mit homogenen Dirichlet-Randbedingungen 
+ist $u(t,x)= e^{-a(k \frac{\pi}{L})^2 t} sin(\frac{\pi}{L}k x)$.
 <ol>
-    <li> Lösen Sie ein Wärmeleitungsproblem mit inhomogenen
-        Dirichlet-Randbedingungen (Temperaturen an den Enden des Stabes ungleich
-        0). Vergleichen Sie die genutzte Superposition mit der statischen
-        Lösungen aus dem Plot. </li>
+    <li> Woran ist in der Formel zu erkennen, dass die höheren Eigenformen schneller abklingen?  </li>
+    <li> Woran ist in der Formel zu erkennen, dass sich die 
+        Temperaturverteilung bei längeren Stäben schneller ausgleicht?  </li>
+    <li> Welchen Einfluss haben inhomogene Randbedingungen auf die analytische Lösung? </li> 
 </ol>
 {% endblock %}
 {% block ANS2 %}
+Antwort 1
+{% endblock %}
+
+{% block QUEST3_HEAD %}
+Fragen zum eigene Bearbeiten
+{% endblock %}
+{% block QUEST3 %}
+<ol>
+    <li> Lösen Sie ein Wärmeleitungsproblem mit inhomogenen
+        Dirichlet-Randbedingungen. Vergleichen Sie die genutzte Superposition mit der statischen
+        Lösungen aus dem Plot. </li>
+</ol>
+{% endblock %}
+{% block ANS3 %}
 Antwort 1
 {% endblock %}
 
