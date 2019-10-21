@@ -97,24 +97,24 @@ conductivity = Slider(title="Temperaturleifähigkeit", value=1, start=0.1, end=2
         step=0.1)
 # The coefficient for the first Eigenfunction, determined by the initial
 # condition
-first = Slider(title="Erste Eigenform", value=1, start=-2, end=2, step=0.1)
+first = Slider(title="Auslenkung der ersten Eigenform", value=1, start=-2, end=2, step=0.1)
 # Enables the visibility for advanced widgets that are collapsed for a better
 # readability of the plot
 advanced_toggle = Toggle(label="Mehr Optionen")
 # The coefficient for the second Eigenfunction, determined by the initial
 # condition
-second = Slider(title="Zweite Eigenform", value=0, start=-2, end=2, step=0.1,
+second = Slider(title="Auslenkung der zweiten Eigenform", value=0, start=-2, end=2, step=0.1,
         visible=False)
 # The coefficient for the third Eigenfunction, determined by the initial
 # condition
-third = Slider(title="Dritte Eigenform", value=0, start=-2, end=2, step=0.1,
+third = Slider(title="Auslenkung der dritten Eigenform", value=0, start=-2, end=2, step=0.1,
         visible=False)
 # The temperature on the left and right vertex, determined by the boundary
 # condition to the problem. If one of them is unequal to zero then the general
 # solution is superposed with a linear function connecting both points
 left = Slider(title="Temperatur am linken Rand u(t, x=0)", value=0, start=-2,
         end=2, step=0.1, visible=False)
-right = Slider(title="Temperatur am rechten Rand u(t, x=l)", value=0, start=-2,
+right = Slider(title="Temperatur am rechten Rand u(t, x=L)", value=0, start=-2,
         end=2, step=0.1, visible=False)
 # Toggle that adds a periodic callback function, so that the plot seems to be
 # moving
