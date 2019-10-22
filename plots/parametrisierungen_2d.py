@@ -49,7 +49,7 @@ def CONSTANT(a, b, t):
 CONSTANT_LATEX = " %1.2f %0.0f"
 
 def LINEAR(a, b, t):
-    return a * t + b
+    return b * t + a
 
 LINEAR_LATEX = " %1.2f t + %1.2f "
 
@@ -66,8 +66,8 @@ COSINE_LATEX = " %1.2f \cos(%1.2f t) "
 
 functions = [CONSTANT, LINEAR, SINE, COSINE]
 latex = [CONSTANT_LATEX, LINEAR_LATEX, SINE_LATEX, COSINE_LATEX]
-names_x = ["a", "a*t+b", "a*sin(b*t)", "a*cos(b*t)", ]
-names_y = ["c", "c*t+d", "c*sin(d*t)", "c*cos(d*t)", ]
+names_x = ["a", "b*t+a", "a*sin(b*t)", "a*cos(b*t)", ]
+names_y = ["c", "d*t+c", "c*sin(d*t)", "c*cos(d*t)", ]
 
 
 def calculate_new_value_pairs(x_active, x_a, x_b, y_active, y_c, y_d, t_start,
@@ -127,7 +127,7 @@ y_parameter_c = Slider(title="Parameter c für y", start=-2, end=2, step=0.1,
 y_parameter_d = Slider(title="Parameter d für y", start=-2, end=2, step=0.1,
         value=2, visible=False)
 
-parameter_t = RangeSlider(title="Bereich der Parametrisierung", start=-5, end=5,
+parameter_t = RangeSlider(title="Intervall der Parametrisierung", start=-5, end=5,
         step=0.1, value=(2, 5))
 
 function_definition = LatexLabel(text="", x=WIDTH_PLOT, y = 80,
