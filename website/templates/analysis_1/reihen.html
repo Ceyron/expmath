@@ -2,37 +2,57 @@
 
 {% block PRETEXT %}
  <h1>Partialsummen und Reihen</h1>
- <h2>Konvergenz und Divergenz</h2>
 {% endblock %}
 
 
 {% block DEF1_HEAD %}
-Definition einer Folge
+Definition einer Reihe als Folge von Partialsummen
 {% endblock %}
 {% block DEF1 %}
-<p>Eine Folge gibt eine Zuordnung einer natürlichen Zahl $n \in \mathbb{N}$ auf eine reelle Zahl $a_n \in \mathbb{R}$, gemäß $n \mapsto a_n$ an.</p>
-<p>Die Folge ist dann $\left ( a_n \right )_{n=0}^\infty$.</p>
-<p>Jede Zahl $a_n$ ist ein Folgenglied, also ein Element der Folge.</p>
+<p>Die Reihe oder unendliche Summe</p>
+<p>$$\sum_{k = 0}^{\infty} a_k = a_0 + a_1 + a_2 + a_3 + \ldots $$</p> 
+<p>mit den Summanden $a_k$, $k\in \mathbb{N}$, ist die Folge $(s_n)_{n = 0}^{\infty}$ der Partialsummen</p>
+<p>$$s_n = \sum_{k=0}^n a_k = a_0 + a_1 + a_2 + \ldots + a_n.$$</p>
+
+
 {% endblock %}
 
 {% block DEF2_HEAD %}
-Wachstum von Folgen
+Wann konvergiert eine Reihe?
 {% endblock %}
 {% block DEF2%}
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ heißt monoton wachsend, wenn $a_{n+1} \geq a_n$ für alle $n \in \mathbb{N}$ gilt. 
-Sie heißt streng monoton wachsend, wenn sogar $a_{n+1} > a_n$ für alle $n \in \mathbb{N}$ gilt. 
- </p>
-<p>Analog heißt eine Folge $\left ( a_n \right )_{n=0}^\infty$ monoton fallend, wenn $a_{n+1} \leq a_n$ für alle $n \in \mathbb{N}$ gilt und streng monoton fallend, wenn $a_{n+1} < a_n$ für alle $n \in \mathbb{N}$ gilt. </p>
+<p>Konvergiert die Partialsummenfolge $(s_n)_{n=0}^\infty$, so heißt die zugehörige Reihe konvergent. </p>
+<p>Konvergiert die Reihe $\sum_{k = 0}^{\infty} a_k$, so bilden ihre Summanden $a_k$ eine Nullfolge.</p>
+<p>Eine Reihe $\sum_{k = 0}^{\infty} a_k$ konvergiert absolut, wenn die Reihe $\sum_{k = 0}^{\infty} \lvert a_k\rvert$ der Absolutbeträge konvergiert.</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
-Beschränktheit von Folgen
+Konvergenzkriterien
 {% endblock %}
 {% block DEF3 %}
- <p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist nach oben beschränkt, wenn es eine obere Schranke $s \in \mathbb{R}$ gibt, sodass $a_n \leq s$ für alle $n \in \mathbb{N}$ gilt. </p>
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist nach unten beschränkt, wenn es eine untere Schranke $u \in \mathbb{R}$ gibt, sodass $a_n \geq u$ für alle $n \in \mathbb{N}$ gilt. </p>
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist beschränkt, wenn es eine obere und eine untere Schranke gibt. </p>
-
+<p>Um die Konvergenz von Reihen zu überprüfen, gibt es verschiedene Kriterien.</p>
+<ul>
+	<li>Vergleichskriterium</li>
+	<ul> 
+		<li>$\sum_{k = 0}^{\infty} b_k$ konvergente Majorante mit $\lvert a_k\rvert \leq \lvert b_k\rvert$ 
+			$\Rightarrow$ $\sum_{k = 1}^{\infty} a_k$ absolut konvergent
+		</li>
+		<li>
+				$\sum_{k = 0}^{\infty} b_k$ divergente Minorante mit $a_k \geq b_k$ 
+				$\Rightarrow$ $\sum_{k = 1}^{\infty} a_k$ divergent
+		</li>
+	</ul>
+	<li>Quotientenkriterium: $\displaystyle \limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
+		\begin{cases} < 1 & Reihe absolut konvergent \\ = 1 & keine Aussage möglich \\ > 1 & keine Aussage möglich \end{cases}$
+	</li>
+	<li>Wurzelkriterium: $\displaystyle \limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
+			\begin{cases} < 1 & absolut konvergent \\ = 1 & keine Aussage möglich \\ > 1 & Reihe divergent \end{cases}$
+	</li>
+	<li>Leibniz-Kriterium: $\displaystyle 
+		\begin{cases} \lim_{k \to \infty} a_k = 0 & \\ 
+		(\lvert a_k\rvert)_{k=0}^\infty \text{ monoton fallend} & \\ 
+		\text{alternierende Reihe} \end{cases} \rightarrow \sum_{k=0}^\infty a_k$ konvergent </li>
+</ul>
 {% endblock %}
 
 {% block DEF4_HEAD %}
@@ -53,17 +73,11 @@ gilt.
 {% endblock %}
 
 {% block QUEST1_HEAD %}
-Teil 1 - Fragen
+Teil 1 - 
 {% endblock %}
 {% block QUEST1 %}
 <ol>
-<li>Was unterscheidet eine Folge von einer Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$?</li>
-<li>Wie erkennt man dies graphisch?</li>
-<li>Warum ist es falsch, eine durchgezogene Linie anstelle von einzelnen Punkten zu zeichnen?</li>
-<li>Bestimmen Sie die Zuordnungsvorschrift in der Graphik für eine Folge. Prüfen Sie Ihre Vermutung durch eine Beispielrechnung und eine graphische Überprüfung. </li>
-<li>Geben Sie für einzelne Folgenglieder die Abbildung von $\mathbb{N}$ nach $\mathbb{R}$ an.</li>
-<li>Welcher Wert $a_1$ wird $n=1$ zugeordnet? Welcher Wert $a_2$ wird $n=2$ zugeordnet? Versuchen Sie eine Regelmäßigkeit für höhere Werte $n$ zu finden. </li>
-</ol>
+<li></ol>
 {% endblock %}
 {% block ANS1 %}
 Antwort 1

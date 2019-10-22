@@ -179,7 +179,7 @@ advanded_toggle = Toggle(label="Erweiterte Widgets aktivieren")
 parameter_slider = Slider(title="Parameter $a=$", start=-5., end=5., value=2.,
         step=0.1, visible=False)
 
-convergence_aid_toggle = Toggle(label="Konvergenzkriterien aktivieren",
+convergence_aid_toggle = Toggle(label="Vergleichskriterium (de-)aktivieren",
         visible=False)
 convergence_aid_selector = RadioButtonGroup(labels=["Konvergente Majorante",
     "Divergente Minorante"], active=0, visible=False)
