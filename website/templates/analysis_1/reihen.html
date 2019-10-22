@@ -43,15 +43,23 @@ Konvergenzkriterien
 		</li>
 	</ul>
 	<li>Quotientenkriterium: $\displaystyle \limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
-		\begin{cases} < 1 & Reihe absolut konvergent \\ = 1 & keine Aussage möglich \\ > 1 & keine Aussage möglich \end{cases}$
+		\begin{cases} < 1 & \text{\tiny Reihe absolut konvergent} \\
+		= 1 & \text{\tiny keine Aussage möglich} \\
+		> 1 & \text{\tiny keine Aussage möglich} 
+		\end{cases}$
 	</li>
 	<li>Wurzelkriterium: $\displaystyle \limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
-			\begin{cases} < 1 & absolut konvergent \\ = 1 & keine Aussage möglich \\ > 1 & Reihe divergent \end{cases}$
+			\begin{cases} < 1 & \text{\tiny absolut konvergent}} 
+			\\ = 1 & \text{\tiny keine Aussage möglich} 
+			\\ > 1 & \text{\tiny Reihe divergent}
+			\end{cases}$
 	</li>
 	<li>Leibniz-Kriterium: $\displaystyle 
-		\begin{cases} \lim_{k \to \infty} a_k = 0 & \\ 
+		\begin{drcases} \lim_{k \to \infty} a_k = 0 & \\ 
 		(\lvert a_k\rvert)_{k=0}^\infty \text{ monoton fallend} & \\ 
-		\text{alternierende Reihe} \end{cases} \rightarrow \sum_{k=0}^\infty a_k$ konvergent </li>
+		\text{alternierende Reihe} & 
+		\end{drcases} 
+		\rightarrow \sum_{k=0}^\infty a_k$ konvergent </li>
 </ul>
 {% endblock %}
 
@@ -63,7 +71,8 @@ Grenzwert
 $$ \forall \varepsilon >0 \ \exists N  \, : \, \lvert a_n - a \rvert < \varepsilon \ \forall n \geq N$$
 gilt. 
 </p>
- <p>Wenn ein Grenzwert für eine Folge existiert, schreiben wir $\lim_{n \to infty } a_n =a$ oder kurz $(a_n) \rightarrow a$. Die Folge konvergiert gegen den Grenzwert $a$.</p>
+ <p>Wenn ein Grenzwert für eine Folge existiert, schreiben wir $\lim_{n \to infty } a_n =a$ oder kurz $(a_n) \rightarrow a$. 
+	 Die Folge konvergiert gegen den Grenzwert $a$.</p>
  <p>Wenn dieser Grenzwert $a=0$ ist, so heißt die Folge Nullfolge. </p>
   <p>Eine Folge, die nicht konvergiert, heißt divergente Folge. </p>
  {% endblock %}
