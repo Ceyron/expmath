@@ -30,31 +30,31 @@ analysis_1 = {
     #"sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
     "epsilon_kriterium": "Folgen und Grenzwerte",
     #"ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
-    "reihen": "Partialsummen und Reihen",
-    "einfache_funktionen": "Standardfunktionen",
-    "epsilon_delta_kriterium": "Stetigkeit von Funktionen",
-    "diffbarkeit": "Differenzierbarkeit von Funktionen",
-    "integrale_und_ableitungen": "Integrale und Ableitungen",
-    "riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
-    "taylorpolynome": "Taylor-Polynome",
-    "trigonometrische_funktionen": "Trigonometrische Funktionen",
-    "schrittweises_zeichnen": "Schrittweises Skizzieren von Funktionen",
-    "umkehrfunktionen": "Umkehrfunktionen",
+    #"reihen": "Partialsummen und Reihen",
+    #"einfache_funktionen": "Standardfunktionen",
+    #"epsilon_delta_kriterium": "Stetigkeit von Funktionen",
+    #"diffbarkeit": "Differenzierbarkeit von Funktionen",
+    #"integrale_und_ableitungen": "Integrale und Ableitungen",
+    #"riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
+    #"taylorpolynome": "Taylor-Polynome",
+    #"trigonometrische_funktionen": "Trigonometrische Funktionen",
+    #"schrittweises_zeichnen": "Schrittweises Skizzieren von Funktionen",
+    #"umkehrfunktionen": "Umkehrfunktionen",
     }
 
 lineare_algebra = {
-    "komplexe_zahlen": "Komplexe Zahlen",
-    "komplexes_wurzelziehen": "Komplexe Wurzeln",
+    #"komplexe_zahlen": "Komplexe Zahlen",
+    #"komplexes_wurzelziehen": "Komplexe Wurzeln",
     #"basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
-    "matrizen_2d": "Matrizen und lineare Transformationen (2D)",
-    "matrizen_3d": "Matrizen und lineare Transformationen (3D)",
+    #"matrizen_2d": "Matrizen und lineare Transformationen (2D)",
+   # "matrizen_3d": "Matrizen und lineare Transformationen (3D)",
     #"eigenvektoren": "Eigenvektoren von Matrizen (TODO)",
     #"skalar_produkt": "Skalarprodukt von Vektoren (2D) (TODO)",
     #"vektor_produkt": "Vektorprodukt/Kreuzprodukt von Vektoren (3D) (TODO)",
     }
 
 analysis_2 = {
-    "multivariable_funktionen": "Multivariate Funktionen - Skalarfelder",
+    #"multivariable_funktionen": "Multivariate Funktionen - Skalarfelder",
     #"partielle_ableitungen": "Partielle Ableitungen (TODO)",
     #"gradient": "Gradient (TODO)",
     #"divergenz": "Divergenz (TODO)",
@@ -62,15 +62,15 @@ analysis_2 = {
     "parametrisierungen_2d": "Parametrisierung von Kurven (2D)",
     #"parametrisierungen_3d": "Parametrisierung von Linien im Raum (3D) (TODO)",
     #"kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
-    "fourier_reihen": "Fourier-Reihen",
+   # "fourier_reihen": "Fourier-Reihen",
     #"fourier_zerlegung": "Fourier-Zerlegung - Frequenzraum (TODO)",
     }
 
 ode = {
     #"einfache_ode": "Einfache gewöhnliche Differentialgleichungen (TODO)",
     #"federschwinger": "Federschwinger (TODO)",
-    "richtungsfeld": "Richtungsfeld",
-    "phasen_plot": "Phasen-Plot",
+  #  "richtungsfeld": "Richtungsfeld",
+   # "phasen_plot": "Phasen-Plot",
     #"lipschitz_stetigkeit": "Lipschitzstetigkeit - Existenz und Eindeutigkeit\
     #(TODO)",
     #"laplace_transformation": "Laplace-Transformation (TODO)",
@@ -84,15 +84,15 @@ analysis_3 = {
 
 pde = {
     "waermeleitung": "Wärmeleitung",
-    "schwingungen": "Schwingungen",
-    "wellen": "Wellenbewegung",
-    "transport_gleichung": "Transportgleichung und Charakteristiken",
+    #"schwingungen": "Schwingungen",
+    #"wellen": "Wellenbewegung",
+   # "transport_gleichung": "Transportgleichung und Charakteristiken",
     #"membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
     #    Mittelwerteigenschaft (TODO)",
     #"fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
     #"green_funktion": "Green-Funktion (TODO)",
-    "variationsformulierung": "Variationsformulierung",
-    "finite_elemente": "Finite Elemente",
+    #"variationsformulierung": "Variationsformulierung",
+    #"finite_elemente": "Finite Elemente",
     }
 
 all_plot_keys = \
