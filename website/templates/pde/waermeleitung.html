@@ -6,12 +6,16 @@
 
 
 {% block DEF1_HEAD %}
-Wärmeleitung durch Diffusion
+Diffusive Wärmeleitung
 {% endblock %}
 {% block DEF1 %}
 <p> Wärme fließt vom heißen Potential zum kalten. Das macht den Fluss durche ein
-Medium proportional zum negativen Gradienten des Temperaturfeldes $F \prop -
-\grad u$. Dieser Potentialausgleich heißt Diffusion.</p>
+Medium proportional zum negativen Gradienten des Temperaturfeldes $F \propto -
+\nabla u$. Dieser Potentialausgleich heißt Diffusion.</p>
+<p> Der diffusive Wärmetransport unterscheidet sich vom Wärmeaustausch durch Konvektion 
+dadurch, dass keine Teilchen transportiert werden. </p>
+<p> Die dritte Form der Wärmeübertragung ist die Wärmestrahlung, also eine Energieübertragung
+durch elektromagnetische Wellen.</p>
 
 {% endblock %}
 
@@ -19,28 +23,37 @@ Medium proportional zum negativen Gradienten des Temperaturfeldes $F \prop -
 Vom Temperaturgradienten zum Fluss
 {% endblock %}
 {% block DEF2%}
-Zur quantitativen Beschreibung der Stärke des Flusses wird die konstitutive
-Gleichung benötigt. Diese entspricht der Proportionalitätskonstanten und enthält
-die Informationen zu potentieller Inhomogenität oder Anisotropie $ F =
-\mathbf{A} u$.</p>
+<p>Zur quantitativen Beschreibung der Stärke des Flusses wird die konstitutive
+Gleichung benötigt. Diese enthält Informationen über die Beschaffenheit des Materials. </p>
+<p> Für ein inhomogenes anisotropes Material ist die konstitutive Gleichung $ I =A (\mathbf{x}) u$.
+    Der Wärmefluss ist also abhängig vom Ort $\mathbf{x}$ (inhomogen) und der Richtung (anisotrop).</p>
+    <p> Für ein inhomogenens isotropes Material ist der Wärmefluss nicht richtungsabhängig, 
+        $ I =a(\mathbf{x}) u$.</p>
+    <p> Im Fall eines homogenen, isotropen Materials ist die konstitutive Gleichung 
+        $I= a u$ mit $a \in \mathbb{R}.$</p>
+
 {% endblock %}
 
 {% block DEF3_HEAD %}
 Die Wärmeleitungsgleichung
 {% endblock %}
 {% block DEF3 %}
-Fließt Wärme, so ändert sich auch die Temperatur. Dieser Zusammenhang wird in
+<p>Fließt Wärme, so ändert sich auch die Temperatur. Dieser Zusammenhang wird in
 der Kontinuitätsgleichung deutlich. Eine zeitliche Änderung der Temperatur wird
-durch eine Divergenz des Flussfeldes hervorgerufen $ u_t + \grad \dot
-[\mathbf{A} \grad u] = 0$. In anderen Worten, wenn an ein Ort eine Quelle von
-Wärme ist (z.B. weil es um ihr kälter ist), so wird deren Temperatur sinken.
+durch die negative Divergenz des Wärmeflusses hervorgerufen 
+$ \frac{\partial}{\partial t} u = - \nabla I (t,\mathbf{x}) .$</p>
+<p>Zusammen mit der Kontinuitätsgleichung für den Fluss erhält man für ein 
+inhomogenes, anisotropes Material die Wärmeleitungsgleichung
+$u_{,t}= \nabla \cdot ( A(\mathbf{x}) \nabla u)$.</p>
 {% endblock %}
 
 {% block DEF4_HEAD %}
-Bedienung des Plots
+Bedienung der Graphik
 {% endblock %}
 {% block DEF4 %}
-TODO
+<p> In der Graphik wird die Temperaturverteilung in einem dünnen Stab simuliert. 
+    Über die Regler lassen sich die Länge des Stabes, die Materialeigenschaften, 
+    die Temperaturverteilung zu Beginn der Beobachtung und die Randbedingungen steuern.</p>
 {% endblock %}
 
 
@@ -55,17 +68,15 @@ TODO
 
 
 {% block QUEST1_HEAD %}
-Fragen mit dem Plot
+Erkundung der Graphik 
 {% endblock %}
 {% block QUEST1 %}
 <ol>
     <li> Welche physikalische Größe ist dargestellt?</li>
-    <li> Warum gleicht sich die Temperatur schneller an, wenn der Stab länger
-        wird?</li>
-    <li> Woran erkennen Sie, dass die höheren Eigenformene schneller abklingen?
-        </li>
-    <li> Wie erkenen Sie die Formeln für inhomogene Randbedingungen wieder? Wo
-        ist $u_{stat}$? </li>
+    <li> Beschreiben Sie kurz das zeitabhängige Lösungsverhalten.</li>
+    <li> Welche Auswirkungen hat eine Verlängerung oder Verkürzung des Stabs auf das Lösungsverhalten?</li>
+    <li> Was verändert sich bei einer Anfangsbedingung mit der dritten Eigenform anstelle der ersten?</li>
+    <li> Welchen Einfluss hat die Verwendung inhomogener Randbedingungen? </li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
@@ -73,17 +84,33 @@ Antwort 1
 {% endblock %}
 
 {% block QUEST2_HEAD %}
-Fragen zum eigene Bearbeiten
+Fragen zum tieferen Verständnis
 {% endblock %}
 {% block QUEST2 %}
+Eine Lösung der Wärmleitungsgleichung $u_{,t}= a u_{,xx}$ mit homogenen Dirichlet-Randbedingungen 
+ist $u(t,x)= e^{-a(k \frac{\pi}{L})^2 t} sin(\frac{\pi}{L}k x)$.
 <ol>
-    <li> Lösen Sie ein Wärmeleitungsproblem mit inhomogenen
-        Dirichlet-Randbedingungen (Temperaturen an den Enden des Stabes ungleich
-        0). Vergleichen Sie die genutzte Superposition mit der statischen
-        Lösungen aus dem Plot. </li>
+    <li> Woran ist in der Formel zu erkennen, dass die höheren Eigenformen schneller abklingen?  </li>
+    <li> Woran ist in der Formel zu erkennen, dass sich die 
+        Temperaturverteilung bei längeren Stäben schneller ausgleicht?  </li>
+    <li> Welchen Einfluss haben inhomogene Randbedingungen auf die analytische Lösung? </li> 
 </ol>
 {% endblock %}
 {% block ANS2 %}
+Antwort 1
+{% endblock %}
+
+{% block QUEST3_HEAD %}
+Fragen zum eigene Bearbeiten
+{% endblock %}
+{% block QUEST3 %}
+<ol>
+    <li> Lösen Sie ein Wärmeleitungsproblem mit inhomogenen
+        Dirichlet-Randbedingungen. Vergleichen Sie die genutzte Superposition mit der statischen
+        Lösungen aus dem Plot. </li>
+</ol>
+{% endblock %}
+{% block ANS3 %}
 Antwort 1
 {% endblock %}
 
