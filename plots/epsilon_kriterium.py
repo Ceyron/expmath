@@ -55,10 +55,10 @@ def update_data(sequence_selector, numbers_slider, bounding_selector,
     # Create new plotting values for the bounding lines
     x_line = np.array([0, numbers+10])
     if selected_type == 0: # Konvergenz
-        top_slider.title = "Grenzwert $a=$"
+        top_slider.title = "Grenzwert $a$"
         top_slider.start = y_range[0] + MIN_WIDTH_TUNNEL
         top_slider.end = y_range[1] - MIN_WIDTH_TUNNEL
-        bottom_slider.title = "$\varepsilon =$"
+        bottom_slider.title = "$\\varepsilon$"
         bottom_slider.start = 0.05
         bottom_slider.end = (y_range[1] - y_range[0])/2.1
         
@@ -122,7 +122,7 @@ plot.add_layout(band)
 # Define all occuring widgets
 sequence_selector = RadioButtonGroup(
         labels=["Folge 1", "Folge 2", "Folge 3"], active=0)
-numbers_slider = Slider(title="Anzahl Folgenelemente", value=10, start=5,
+numbers_slider = Slider(title="Anzahl der Folgenelemente", value=10, start=5,
                         end=50, step=1)
 bounding_selector = RadioButtonGroup(
         labels=["Konvergenz", "Beschränktheit"], active=0)
