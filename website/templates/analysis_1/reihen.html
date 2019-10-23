@@ -22,8 +22,9 @@ Wann konvergiert eine Reihe?
 {% endblock %}
 {% block DEF2%}
 <p>Konvergiert die Partialsummenfolge $(s_n)_{n=0}^\infty$, so heißt die zugehörige Reihe konvergent. </p>
-<p>Konvergiert die Reihe $\sum_{k = 0}^{\infty} a_k$, so bilden ihre Summanden $a_k$ eine Nullfolge.</p>
-<p>Eine Reihe $\sum_{k = 0}^{\infty} a_k$ konvergiert absolut, wenn die Reihe $\sum_{k = 0}^{\infty} \lvert a_k\rvert$ der Absolutbeträge konvergiert.</p>
+<p>Konvergiert die Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$, so bilden ihre Summanden $a_k$ eine Nullfolge.</p>
+<p>Eine Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$ konvergiert absolut, wenn die Reihe 
+	$\displaystyle\sum_{k = 0}^{\infty} \lvert a_k\rvert$ der Absolutbeträge konvergiert.</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
@@ -42,24 +43,24 @@ Konvergenzkriterien
 				$\Rightarrow$ $\displaystyle\sum_{k = 0}^{\infty} a_k$ divergent
 		</li>
 	</ul>
-	<li>Quotientenkriterium: $\limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
+	<li>Quotientenkriterium $$\limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
 		\begin{cases} < 1 & {\scriptstyle\text{ Reihe absolut konvergent}} \\
 		= 1 & {\scriptstyle\text{ keine Aussage möglich}} \\
 		> 1 & {\scriptstyle\text{ keine Aussage möglich}} 
-		\end{cases}$
+		\end{cases}$$
 	</li>
-	<li>Wurzelkriterium: $\limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
+	<li>Wurzelkriterium $$\limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
 			\begin{cases} < 1 & {\scriptstyle\text{ Reihe absolut konvergent}} \\
 			= 1 & {\scriptstyle\text{ keine Aussage möglich}} \\
 			> 1 & {\scriptstyle\text{ Reihe divergent}} 
-			\end{cases}$
+			\end{cases}$$
 	</li>
-	<li>Leibniz-Kriterium: wenn für eine Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$ die Bedingungen
+	<li>Leibniz-Kriterium \\ Wenn für eine Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$ die Bedingungen
 		<ul>
 			<li>$\lim_{k \to \infty} a_k = 0$</li>
 			<li>$(\lvert a_k\rvert)_{k=0}^\infty$ monoton fallend</li>
 			<li>alternierend</li>
-		</ul>$\displaystyle 
+		</ul>
 		erfüllt sind, ist sie konvergent.
 	</li>
 </ul>
