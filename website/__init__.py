@@ -30,7 +30,7 @@ analysis_1 = {
     #"sinus": "Sinus Funktion mit variable ŕ Phasenverschiebung",
     "epsilon_kriterium": "Folgen und Grenzwerte",
     #"ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
-    #"reihen": "Partialsummen und Reihen",
+    "reihen": "Partialsummen und Reihen",
     #"einfache_funktionen": "Standardfunktionen",
     #"epsilon_delta_kriterium": "Stetigkeit von Funktionen",
     #"diffbarkeit": "Differenzierbarkeit von Funktionen",
