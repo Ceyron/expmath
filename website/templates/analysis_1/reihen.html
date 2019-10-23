@@ -34,33 +34,34 @@ Konvergenzkriterien
 <ul>
 	<li>Vergleichskriterium</li>
 	<ul> 
-		<li>$\sum_{k = 0}^{\infty} b_k$ konvergente Majorante mit $\lvert a_k\rvert \leq \lvert b_k\rvert$ 
-			$\Rightarrow$ $\sum_{k = 1}^{\infty} a_k$ absolut konvergent
+		<li>$\displaystyle\sum_{k = 0}^{\infty} b_k$ konvergente Majorante mit $\lvert a_k\rvert \leq \lvert b_k\rvert$ 
+			$\Rightarrow$ $\displaystyle\sum_{k = 0}^{\infty} a_k$ absolut konvergent
 		</li>
 		<li>
-				$\sum_{k = 0}^{\infty} b_k$ divergente Minorante mit $a_k \geq b_k$ 
-				$\Rightarrow$ $\sum_{k = 1}^{\infty} a_k$ divergent
+				$\displaystyle\sum_{k = 0}^{\infty} b_k$ divergente Minorante mit $a_k \geq b_k$ 
+				$\Rightarrow$ $\displaystyle\sum_{k = 0}^{\infty} a_k$ divergent
 		</li>
 	</ul>
-	<li>Quotientenkriterium: $\displaystyle \limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
+	<li>Quotientenkriterium: $\limsup_{k \to \infty} \lvert\frac{a_{k+1}}{a_k}\rvert 
 		\begin{cases} < 1 & {\scriptstyle\text{ Reihe absolut konvergent}} \\
 		= 1 & {\scriptstyle\text{ keine Aussage möglich}} \\
 		> 1 & {\scriptstyle\text{ keine Aussage möglich}} 
 		\end{cases}$
 	</li>
-	<li>Wurzelkriterium: $\displaystyle \limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
+	<li>Wurzelkriterium: $\limsup_{k\to\infty} \sqrt[k]{\lvert a_k \rvert} 
 			\begin{cases} < 1 & {\scriptstyle\text{ Reihe absolut konvergent}} \\
 			= 1 & {\scriptstyle\text{ keine Aussage möglich}} \\
 			> 1 & {\scriptstyle\text{ Reihe divergent}} 
 			\end{cases}$
 	</li>
-	<li>Leibniz-Kriterium: $\displaystyle 
-		\begin{drcases} 
-		\lim_{k \to \infty} a_k = 0 & \\ 
-		(\lvert a_k\rvert)_{k=0}^\infty {\scriptstyle\text{ monoton fallend}} & \\ 
-		{\sciptstyle\text{alternierende Reihe}} & 
-		\end{drcases} 
-		\rightarrow \sum_{k=0}^\infty a_k$ {\scriptstyle konvergent} </li>
+	<li>Leibniz-Kriterium: wenn für eine Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$ die Bedingungen
+		<ul>
+			<li>$\lim_{k \to \infty} a_k = 0$</li>
+			<li>$(\lvert a_k\rvert)_{k=0}^\infty$ monoton fallend</li>
+			<li>alternierend</li>
+		</ul>$\displaystyle 
+		erfüllt sind, ist sie konvergent.
+	</li>
 </ul>
 {% endblock %}
 
