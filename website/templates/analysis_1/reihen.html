@@ -22,7 +22,7 @@ Wann konvergiert eine Reihe?
 {% endblock %}
 {% block DEF2%}
 <p>Konvergiert die Partialsummenfolge $(s_n)_{n=0}^\infty$, so heißt die zugehörige Reihe konvergent. 
-	Der Grenzwert $\displaystyle \limsup_{n\to \infty} (s_n)_{n=0}^\infty$ heißt dann der Wert der Reihe.
+	Der Grenzwert $\displaystyle \lim_{n\to \infty} (s_n)_{n=0}^\infty$ heißt dann der Wert der Reihe.
 </p>
 <p>Konvergiert die Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$, so bilden ihre Summanden $a_k$ eine Nullfolge.</p>
 <p>Eine Reihe $\displaystyle\sum_{k = 0}^{\infty} a_k$ konvergiert absolut, wenn die Reihe 
@@ -96,19 +96,19 @@ Teil 2 - Konvergenz einer Reihe und Konvergenzkriterien
 {% endblock %}
 {% block QUEST2 %}
 <ol>
-<li>Untersuchen Sie die Konvergenzeigenschaften der vier Reihen in der Grafik. Variieren Sie dazu auch die Anzahl der angezeigten Glieder.</li>
+<li>Untersuchen Sie die vier Reihen in der Grafik auf Konvergenz. Variieren Sie dazu auch die Anzahl der angezeigten Glieder.</li>
 <li>Stellen Sie begründete Vermutungen auf, welche der Reihen konvergent ist, und welche nicht. </li>
 <li>Welchen Einfluss hat eine Änderung des Parameters $a$ auf das Konvergenzverhalten?</li>
 <li>Können die vier Reihen überhaupt konvergent sein? Wie lässt sich das ggf. in Abhängigkeit vom Parameter $a$ entscheiden?</li>
 <li>Kommentieren Sie die Aussage: Wenn die Reihe eine Nullfolge enthält, ist sie konvergent.</li>
-<li>Wieso führt uns eine konvergente Majoranten zu einer konvergenten Reihe, warum eine divergente Minorante zu einer 
+<li>Wieso führt uns eine konvergente Majorante zu einer konvergenten Reihe, warum eine divergente Minorante zu einer 
 	divergenten Reihe?</li>
 <li>Kann eine divergente Majorante bzw. eine konvergente Minorante zu einer Aussage über die Konvergenz einer Reihe führen?
 	Warum? Warum nicht?</li>
-<li>Nutzen Sie das Vergleichskriterium, um Ihre Vermutungen zu überprüfen.
+<li>Nutzen Sie das Vergleichskriterium, um Ihre Vermutungen über die Konvergenz der vier Reihen zu überprüfen.
 	Versuchen Sie, jeweils eine konvergente Majorante oder divergente Minorante anzulegen.</li>
 <li>Interpretieren Sie Ihre Beobachtungen. Was bedeuten sie für die Konvergenz der Reihen?</li>
-<li>Ist Ihre eigene Reihe konvergent? Was vermuten Sie aus Ihren Skizzen aus Teil 1?</li>
+<li>Ist Ihre eigene Reihe konvergent? Was vermuten Sie anhand Ihrer Skizzen aus Teil 1?</li>
 <li>Wie können Sie überprüfen, ob eine Konvergenz Ihrer Reihe überhaupt möglich ist?</li>
 <li>Finden Sie zu Ihrer eigenen Reihe eine konvergente Majorante oder eine divergente Minorante.</li>
 </ol>
@@ -123,7 +123,7 @@ Teil 3 - Quotienten- und Wurzelkriterium
 {% block QUEST3 %}
 <ol>
 <li>Geben Sie das Quotientenkriterium in Ihren Worten wieder. Erläutern Sie, warum es eine Aussage über die Konvergenz einer Reihe
-	machen kann. Warum untersucht es genau diesen Quotienten?</li>
+	machen kann. Warum untersucht es genau den Quotienten $\displaystyle \biggl|\frac{a_{n+1}}{a_n}\biggr|$?</li>
 <li></li>
 </ol>
 {% endblock %}
