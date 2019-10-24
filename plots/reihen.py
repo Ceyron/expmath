@@ -183,7 +183,7 @@ convergence_aid_toggle = Toggle(label="Vergleichskriterium (de-)aktivieren",
         visible=False)
 convergence_aid_selector = RadioButtonGroup(labels=["Konvergente Majorante",
     "Divergente Minorante"], active=0, visible=False)
-convergence_aid_parameter_slider = Slider(title="Skalieren der Hilfe",
+convergence_aid_parameter_slider = Slider(title="Skalieren der Vergleichsreihe",
         start=0.5, end=3., value=1., step=0.1, visible=False)
 
 
