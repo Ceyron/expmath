@@ -6,7 +6,7 @@ old_id=$(echo $line | cut -d " " -f3)
 sudo docker build -t expmath .
 
 # Delete old image only if building the new one was successfully
-if [[$? -e 0 ]]
+if [[ $? == 0 ]]
 then
     sudo docker image rm ${old_id}
 fi
