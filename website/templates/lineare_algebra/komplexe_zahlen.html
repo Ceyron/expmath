@@ -39,32 +39,27 @@ Polarkoordinaten
 {% block DEF3 %}
  <p>Komplexe Zahlen $z$ lassen sich nicht nur über die kartesische Darstellung schreiben.</p>
  <p>Auch durch ihre Position in der Gaußschen Zahlenebene, durch ihren Abstand vom Ursprung $r=|z|$ und durch ihren
-	 Winkel $\varphi$ mit der reellen Achse.
- </p>
+	 Winkel $\varphi$ mit der reellen Achse wird ihre Position eindeutig bestimmt:</p>
+<p> $$z = r \cdot {\rm{e}}^{{\rm{i}}\varphi}$$</p> 
 {% endblock %}
 
-{% block DEF4_HEAD %}
-Grenzwert
-{% endblock %}
-{% block DEF4 %}
- <p></p>
-{% endblock %}
 
 {% block BOKEH %}
 {{ script|safe }}
 {% endblock %}
 
 {% block QUEST1_HEAD %}
-Teil 1 - Fragen
+Teil 1 - Was ist eine komplexe Zahl?
 {% endblock %}
 {% block QUEST1 %}
 <ol>
-<li>Was unterscheidet eine Folge von einer Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$?</li>
-<li>Wie erkennt man dies graphisch?</li>
-<li>Warum ist es falsch, eine durchgezogene Linie anstelle von einzelnen Punkten zu zeichnen?</li>
-<li>Bestimmen Sie die Zuordnungsvorschrift in der Graphik für eine Folge. Prüfen Sie Ihre Vermutung durch eine Beispielrechnung und eine graphische Überprüfung. </li>
-<li>Geben Sie für einzelne Folgenglieder die Abbildung von $\mathbb{N}$ nach $\mathbb{R}$ an.</li>
-<li>Welcher Wert $a_1$ wird $n=1$ zugeordnet? Welcher Wert $a_2$ wird $n=2$ zugeordnet? Versuchen Sie eine Regelmäßigkeit für höhere Werte $n$ zu finden. </li>
+<li>Was ist die imaginäre Einheit und welche besonderen Eigenschaften hat sie?</li>
+<li>Wozu werden komplexe Zahlen eingeführt? Wozu sind sie nützlich?</li>
+<li>Denken Sie sich ein Problem/eine Gleichung aus, das ohne die Hinzunahme komplexer Zahlen nicht lösbar ist.</li>
+<li>Warum werden komplexe Zahlen als Zahlenpaare $(a,b)$ eingeführt? Welche Rolle spielt dies bei der graphischen Vorstellung
+	komplexer Zahlen?</li>
+<li>Wo finden Sie ähnliche Konzepte: damit ein mathematisches Problem lösbar wird, erfinden wir die zugehörige Lösung? Denken Sie dabei
+	an Zahlbereichserweiterungen.</li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
@@ -72,23 +67,17 @@ Antwort 1
 {% endblock %}
 
 {% block QUEST2_HEAD %}
-Teil 2 - Fragen
+Teil 2 - Gaußsche Zahlenebene
 {% endblock %}
 {% block QUEST2 %}
 <ol>
-<li>Zeichnen Sie jeweils eine
-	<ul>
-	<li>monoton, aber nicht streng monoton, wachsende Folge.</li>
-	<li>monoton, aber nicht streng monoton, fallende Folge.</li>
-	<li>eine streng monoton wachsende Folge.</li>
-	<li>eine Folge, die weder monoton wächst noch monoton fällt.</li>
-	</ul>
-</li>
-<li>Geben Sie die Monotonie-Eigenschaften der Folgen in der Graphik an.</li>
-<li>Weisen Sie die vermutete Monotonie-Eigenschaft nach. Nutzen Sie hierzu Ihre Ergebnisse aus Teil 1</li>
-<li>Geben Sie einen allgemeinen Ausdruck für $a_{n+1}$ an, indem Sie in die Zuordnungsvorschrift statt $n$ den Wert $n+1$ einsetzen. Formen Sie die entstandene Gleichung nun um. </li>
-<li>Warum hat die Definition der Beschränktheit den Zusatz \" für alle $n \in \mathbb{N}$ \"?</li>
-<li>Was wäre, wenn die Definition z.B. für $n=5$ nicht gilt? Wie unterscheidet sich eine solche Folge graphisch von einer, bei der die Bedingung für alle $n \in \mathbb{N}$ gilt?</li>
+<li>Denken Sie sich eine komplexe Zahl $z_1$ aus. Skizzieren Sie sie in der Gaußschen Zahlenebene.</li>
+<li>Wie lassen sich Real- und Imaginärteil von $z_2$ ablesen. Notieren Sie sie.</li>
+<li>Aus welchem Zahlbereich stammen die Zahlen auf der reellen und imaginären Achse. Wieso ist dies sinnvoll?</li>
+<li>Denken Sie sich eine weitere komplexe Zahl $z_2$ aus und skizzieren Sie diese ebenfalls in der Gaußschen Zahlenebene.</li>
+<li>Bestimmen Sie jeweils die komplex konjugierten Zahlen zu $z_1$ und $z_2$, und ergänzen Sie Ihre Skizze. Was ist geometrisch passiert?</li>
+<li>Bestimmen Sie $z_1 + z_2$, $z_1 \cdot z_2$, $z_1$^2$ und $\displaystyle\frac{z_1}{z_2}$. Ergänzen Sie auch hier Ihre Skizze um Ihre 
+	Ergebnisse.</li>
 </ol>
 {% endblock %}
 {% block ANS2 %}
@@ -96,48 +85,18 @@ Antwort 2
 {% endblock %}
 
 {% block QUEST3_HEAD %}
-Teil 3 - Fragen
+Teil 3 - Kartesische Darstellung vs. Polarkoordinaten
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-<li>Geben Sie eine sprachliche Beschreibung der Beschränktheit einer Folge nach oben an. </li>
-<li>Angenommen, für eine Folge $\left ( a_n \right )_{n=0}^\infty$ existiert eine obere Schranke $s$. Gibt es dann ein Element $ a_n \right$, das größer ist als $s$?</li>
-<li>Angenommen, für eine Folge $\left ( a_n \right )_{n=0}^\infty$ existiert eine obere Schranke $s$. Gibt es dann ein Element $ a_n \right$, das gleich $s$ ist?</li>
-<li>Zeichnen Sie 
-	<ul>
-	<li>eine nach oben, aber nicht nach unten beschränkte Folge. </li>
-	<li>eine nach unten, aber nicht nach oben beschränkte Folge.</li>
-	<li>eine beschränkte Folge.</li>
-	</ul>
-</li>
-<li>Überprüfen Sie die Folgen in der Graphik auf Beschränktheit. </li>
+<li>Erläutern Sie, worin sich die Darstellung in Polarkoordinaten von der Darstellung in kartesischen Koordinaten unterscheidet.</li>
+<li>Denken Sie sich eine komplexe Zahl $z_3$ aus, und notieren Sie sie in Polarkoordinaten. Skizzieren Sie sie in der Gaußschen 
+	Zahlenebene. Markieren Sie die definierenden Größen.</li>
+<li>Nutzen Sie Ihre geometrische Beobachtung aus Teil 2, um ohne Rechnung $\bar{z_3}$ in Ihre Skizze einzufügen.</li>
+<li>Was passiert mit dem Winkel $\varphi$, wenn $z_3$ komplex konjugiert wird?</li>
+
 </ol>
 {% endblock %}
 {% block ANS3 %}
-Antwort 3
-{% endblock %}
-
-{% block QUEST4_HEAD %}
-Teil 4 - Fragen
-{% endblock %}
-{% block QUEST4 %}
-<ol>
-<li>Geben Sie die Definition für den Grenzwert einer Folge in Worten wieder. </li>
-<li>Was bedeuten die Quantoren $\forall$ und $\exists$?</li>
-<li>Betrachten Sie die Graphik und versuchen Sie für je eine der Folgen einen Grenzwert zu finden. </li>
-<li>Raten Sie einen Grenzwert $a$, stellen Sie diesen ein und variieren Sie $\varepsilon$. Was beobachten Sie?</li>
-<li>Vergrößern Sie die Anzahl an Folgengliedern, die gezeichnet werden. Finden Sie eine natürliche Zahl $N$, sodass alle Folgenglieder ab diesem $N$ innerhalb des Epsilon-Schlauchs liegen?</li>
-<li>Argumentieren Sie die folgende Aussage: Wenn nur endlich viele Folgenglieder nicht im Epsilon-Schlauch liegen, konvergiert die Folge trotzdem. </li>
-<li>Zeichnen Sie die ersten 10 Folgenglieder von $\left ( f_n \right )_{n=0}^\infty$  mit $f_n=1$ für $\{n \in \mathbb{N} : n= 5^k, k\in \mathbb{N} \} = \{ 5, 25, 125, 600,  \dots \}$ und $f_n =0$ sonst. Gibt es für jedes $\varepsilon >0$ ein $N \in \mathbb{N}$, sodass die Grenzwertdefinition erfüllt ist?</li>
-<li>Bestimmen Sie für die Folge $\left ( a_n \right )_{n=0}^\infty$ mit $a_n= 0.75-  \frac{1}{n}$ die Abhängigkeit für $N$ von $\varepsilon$, sodass die Grenzwertdefinition erfüllt ist. Nutzen Sie den in 4(b) bestimmten Grenzwert von $\left ( a_n \right )_{n=0}^\infty$. Interpretieren Sie das Ergebnis.</li>
-<li>Schreiben Sie die Grenzwertdefinition mit der konkreten Zuordnungsvorschrift für $a_N$ auf.</li>
-<li>Lösen Sie den Betrag auf. </li>
-<li>Stellen Sie die entstandene Gleichung nach N um. </li>
-<li>Welche Folgenglieder liegen demnach im Epsilon-Schlauch?</li>
-<li>Argumentieren Sie mithilfe von 4(d), aus welchem Zahlenbereich $N$ ist.</li>
-<li>Welche Auswirkung hat die Wahl von $N$ auf die Folge?</li>
-</ol>
-{% endblock %}
-{% block ANS4 %}
 Antwort 3
 {% endblock %}

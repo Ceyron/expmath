@@ -116,13 +116,13 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         real = radius * np.cos(angle)
         imaginary = radius * np.sin(angle)
 
-        real_or_radius_slider.title = "Realteil $a = $"
+        real_or_radius_slider.title = "Realteil a"
         real_or_radius_slider.start = -5
         real_or_radius_slider.end = 5
         real_or_radius_slider.value = real
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Imaginärteil $b = $"
+        imaginary_or_angle_slider.title = "Imaginärteil b"
         imaginary_or_angle_slider.start = -5
         imaginary_or_angle_slider.end = 5
         imaginary_or_angle_slider.value = imaginary
@@ -137,13 +137,13 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         else: # Radians
             angle = np.arctan2(imaginary, real)
 
-        real_or_radius_slider.title = "Radius $r = $"
+        real_or_radius_slider.title = "Radius r"
         real_or_radius_slider.start = 0
         real_or_radius_slider.end = 5
         real_or_radius_slider.value = radius
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Winkel $\varphi = $"
+        imaginary_or_angle_slider.title = "Winkel $\\varphi$"
         if degree_or_radian.active == 0: # Degrees
             imaginary_or_angle_slider.start = -180
             imaginary_or_angle_slider.end = 180
