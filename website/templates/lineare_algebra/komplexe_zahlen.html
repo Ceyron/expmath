@@ -7,46 +7,49 @@
 
 
 {% block DEF1_HEAD %}
-Definition einer Folge
+Was sind komplexe Zahlen?
 {% endblock %}
 {% block DEF1 %}
-<p>Eine Folge gibt eine Zuordnung einer natürlichen Zahl $n \in \mathbb{N}$ auf eine reelle Zahl $a_n \in \mathbb{R}$, gemäß $n \mapsto a_n$ an.</p>
-<p>Die Folge ist dann $\left ( a_n \right )_{n=0}^\infty$.</p>
-<p>Jede Zahl $a_n$ ist ein Folgenglied, also ein Element der Folge.</p>
+<p>Wir betrachten Zahlenpaare $(a,b)$ mit den reellen Zahlen $a$ und $b$.</p>
+<p>Diese Paare werden mithilfe der imaginären Einheit $\rm{i}$ zu $z = a + {\rm{i}} b$ zur komplexen Zahl $z\in\mathbb{C}$
+	ergänzt.</p>
+<p>Die imaginäre Einheit $\rm{i}\in\mathbb{C}\backslash\mathbb{R}$ besitzt die Eigenschaft: 
+	${\rm{i}}^2 = {\rm{i}}\cdot{\rm{i}}= -1$. 
+	Sie ist keine reelle Zahl, da es keine reelle Wurzel aus $-1$ gibt.</p>
+<p> Die Menge $\mathbb{C} = \{a + {\rm{i}}b: a,b \in\mathbb{R}\}$ ist die Menge der komplexen Zahlen.</p>
+<p>$a = {\rm{Re}}(a+{\rm{i}}b)$ heißt Realteil der komplexen Zahl, $b = {\rm{Im}}(a+{\rm{i}}b)$ heißt Imaginärteil.</p>
+<p>Real- und Imaginärteil sind also selbst wieder reelle Zahlen.</p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
-Wachstum von Folgen
+Gaußsche Zahlenebene
 {% endblock %}
 {% block DEF2%}
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ heißt monoton wachsend, wenn $a_{n+1} \geq a_n$ für alle $n \in \mathbb{N}$ gilt. 
-Sie heißt streng monoton wachsend, wenn sogar $a_{n+1} > a_n$ für alle $n \in \mathbb{N}$ gilt. 
- </p>
-<p>Analog heißt eine Folge $\left ( a_n \right )_{n=0}^\infty$ monoton fallend, wenn $a_{n+1} \leq a_n$ für alle $n \in \mathbb{N}$ gilt und streng monoton fallend, wenn $a_{n+1} < a_n$ für alle $n \in \mathbb{N}$ gilt. </p>
+<p>Bei der graphischen Darstellung von komplexen Zahlen fällt auf, dass wir nicht nur eine, sondern zwei Größen $a$ und 
+	$b$ haben. Komplexe Zahlen lassen sich also nicht wie reelle Zahlen auf einer Zahlengerade anordnen, sondern 
+	benötigen zwei Koordinatenrichtungen.</p>
+<p>Dazu verlassen wir die reelle Zahlengerade und erweitern sie um eine imaginäre Achse, sodass wir ein 
+	zweidimensionales Koordinatensystem erhalten.</p>
+<p>Eine komplexe Zahl $z = a + {\rm{i}}b$ lässt sich in dieser Gaußschen Zahlenebene als Punkt mit den Koordinaten 
+	$(a,b)$ eintragen.</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
-Beschränktheit von Folgen
+Polarkoordinaten
 {% endblock %}
 {% block DEF3 %}
- <p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist nach oben beschränkt, wenn es eine obere Schranke $s \in \mathbb{R}$ gibt, sodass $a_n \leq s$ für alle $n \in \mathbb{N}$ gilt. </p>
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist nach unten beschränkt, wenn es eine untere Schranke $u \in \mathbb{R}$ gibt, sodass $a_n \geq u$ für alle $n \in \mathbb{N}$ gilt. </p>
-<p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ ist beschränkt, wenn es eine obere und eine untere Schranke gibt. </p>
-
+ <p>Komplexe Zahlen $z$ lassen sich nicht nur über die kartesische Darstellung schreiben.</p>
+ <p>Auch durch ihre Position in der Gaußschen Zahlenebene, durch ihren Abstand vom Ursprung $r=|z|$ und durch ihren
+	 Winkel $\varphi$ mit der reellen Achse.
+ </p>
 {% endblock %}
 
 {% block DEF4_HEAD %}
 Grenzwert
 {% endblock %}
 {% block DEF4 %}
- <p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ hat einen Grenzwert $a \in \mathbb{R}$, wenn 
-$$ \forall \varepsilon >0 \ \exists N  \, : \, \lvert a_n - a \rvert < \varepsilon \ \forall n \geq N$$
-gilt. 
-</p>
- <p>Wenn ein Grenzwert für eine Folge existiert, schreiben wir $\lim_{n \to infty } a_n =a$ oder kurz $(a_n) \rightarrow a$. Die Folge konvergiert gegen den Grenzwert $a$.</p>
- <p>Wenn dieser Grenzwert $a=0$ ist, so heißt die Folge Nullfolge. </p>
-  <p>Eine Folge, die nicht konvergiert, heißt divergente Folge. </p>
- {% endblock %}
+ <p></p>
+{% endblock %}
 
 {% block BOKEH %}
 {{ script|safe }}
