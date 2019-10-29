@@ -179,7 +179,7 @@ def switch_degree_radian(cartesian_or_polar, degree_or_radian,
             angle_degrees = np.rad2deg(angle_radian)
 
             imaginary_or_angle_slider.start = -180
-            imaginary_or_angle_slider.end = 180
+            imaginary_or_angle_slider.end = 360
             imaginary_or_angle_slider.value = angle_degrees
             imaginary_or_angle_slider.step = 2
         else: # This means it was 0 (degrees -> radian)
