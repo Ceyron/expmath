@@ -144,7 +144,7 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         real_or_radius_slider.value = radius
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Winkel $\\varphi$"
+        imaginary_or_angle_slider.title = "Winkel"
         if degree_or_radian.active == 0: # Degrees
             imaginary_or_angle_slider.start = -180
             imaginary_or_angle_slider.end = 180
@@ -168,10 +168,10 @@ def switch_degree_radian(cartesian_or_polar, degree_or_radian,
 
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
-            angle_or_imaginary_box.text = "Winkel $\\varphi =$ " + str(round(angle, 1)) + "°"
+            angle_or_imaginary_box.text = "zugehöriger Winkel : " + str(round(angle, 1)) + "°"
         else: # Radians
             angle = np.arctan2(imaginary, real)
-            angle_or_imaginary_box.text = "Winkel $\\varphi =$ " + str(round(angle, 3))
+            angle_or_imaginary_box.text = "zugehöriger Winkel : " + str(round(angle, 3))
     else: # Polar: The angle occurs in the sliders
         if degree_or_radian.active == 0: #  This means it was 1 (radian ->
                                          #  degrees)
