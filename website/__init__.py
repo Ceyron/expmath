@@ -62,7 +62,7 @@ analysis_2 = {
     "parametrisierungen_2d": "Parametrisierung von Kurven (2D)",
     #"parametrisierungen_3d": "Parametrisierung von Linien im Raum (3D) (TODO)",
     #"kurven_integrale_1": "Kurven-Integrale 1. Art (TODO)",
-    "fourier_reihen": "Fourier-Reihen",
+    #"fourier_reihen": "Fourier-Reihen",
     #"fourier_zerlegung": "Fourier-Zerlegung - Frequenzraum (TODO)",
     }
 
