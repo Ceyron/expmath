@@ -143,7 +143,7 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         real_or_radius_slider.value = radius
         real_or_radius_slider.step = 0.1
 
-        imaginary_or_angle_slider.title = "Winkel $\\varphi$"
+        imaginary_or_angle_slider.title = "Winkel $\varphi$"
         if degree_or_radian.active == 0: # Degrees
             imaginary_or_angle_slider.start = -180
             imaginary_or_angle_slider.end = 180
