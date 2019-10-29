@@ -151,7 +151,7 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
             imaginary_or_angle_slider.step = 2
         else: # Radians
             imaginary_or_angle_slider.start = -np.pi
-            imaginary_or_angle_slider.end = 2*np.pi
+            imaginary_or_angle_slider.end = np.pi
             imaginary_or_angle_slider.step = 0.1
         imaginary_or_angle_slider.value = angle
     # Note: no update to the boxes is needed, since the change in the slider
