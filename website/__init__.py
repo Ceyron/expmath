@@ -43,7 +43,7 @@ analysis_1 = {
     }
 
 lineare_algebra = {
-    #"komplexe_zahlen": "Komplexe Zahlen",
+    "komplexe_zahlen": "Komplexe Zahlen",
     #"komplexes_wurzelziehen": "Komplexe Wurzeln",
     #"basisvektoren": "Zerlegung beliebiger Vektoren in Basisvektoren (TODO)",
     #"matrizen_2d": "Matrizen und lineare Transformationen (2D)",
