@@ -210,9 +210,9 @@ plot.line(x="x", y="y", line_width=ARROW_LINE_WIDTH, source=number_source)
 
 cartesian_or_polar = RadioButtonGroup(labels=["Kartesisch", "Polar"], active=0)
 degree_or_radian = RadioButtonGroup(labels=["Grad", "Bogenmaß"], active=0)
-real_or_radius_slider = Slider(title="Realteil a", start=-5, end=5, value=4,
+real_or_radius_slider = Slider(title="Realteil x", start=-5, end=5, value=4,
         step=0.1)
-imaginary_or_angle_slider = Slider(title="Imaginärteil b", start=-5, end=5,
+imaginary_or_angle_slider = Slider(title="Imaginärteil y", start=-5, end=5,
         value=3, step=0.1)
 radius_or_real_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)
 angle_or_imaginary_box = Div(width=DIV_BOX_WIDTH, height=DIV_BOX_HEIGHT)
