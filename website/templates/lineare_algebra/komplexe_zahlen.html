@@ -37,18 +37,6 @@ Polarkoordinaten
 
 {% endblock %}
 
-{% block DEF4_HEAD %}
-Konvergenz
-{% endblock %}
-{% block DEF4 %}
- <p>Eine Folge $\left ( a_n \right )_{n=0}^\infty$ hat einen Grenzwert $a \in \mathbb{R}$, wenn 
-$$ \forall \varepsilon >0 \ \exists N  \, : \, \lvert a_n - a \rvert < \varepsilon \ \forall n \geq N$$
-gilt. 
-</p>
- <p>Wenn ein Grenzwert für eine Folge existiert, schreiben wir $\displaystyle \lim_{n \to \infty} a_n =a$ oder kurz $a_n \rightarrow a$. 
-	 Die Folge konvergiert gegen den Grenzwert $a$. 
-	 Wenn dieser Grenzwert $a=0$ ist, so heißt die Folge Nullfolge. Eine Folge, die nicht konvergiert, heißt divergente Folge. </p>
- {% endblock %}
 
 {% block BOKEH %}
 {{ script|safe }}
@@ -120,36 +108,5 @@ Teil 3 - Kartesische Darstellung vs. Polarkoordinaten
 </ol>
 {% endblock %}
 {% block ANS3 %}
-Antwort 3
-{% endblock %}
-
-{% block QUEST4_HEAD %}
-Teil 4 - Grenzwert und Konvergenz
-{% endblock %}
-{% block QUEST4 %}
-<ol>
-<li>Geben Sie die Definition für den Grenzwert einer Folge in Ihren Worten wieder. </li>
-<li>Was bedeuten die Quantoren $\forall$ und $\exists$?</li>
-<li>Betrachten Sie die Grafik und versuchen Sie, für jede der unterschiedlichen Folgen ihren Grenzwert zu finden. </li>
-<li>Raten Sie einen Grenzwert $a$, stellen Sie diesen ein und variieren Sie $\varepsilon$. Was beobachten Sie?</li>
-<li>Vergrößern Sie die Anzahl an Folgengliedern, die gezeichnet werden. Finden Sie eine natürliche Zahl $N$, 
-	sodass alle Folgenglieder ab diesem $N$ innerhalb des Epsilon-Schlauchs liegen?</li>
-<li>Kommentieren Sie die folgende Aussage: Wenn nur endlich viele Folgenglieder nicht im Epsilon-Schlauch liegen, 
-	konvergiert die Folge trotzdem. </li>
-<li>Zeichnen Sie die ersten 10 Folgenglieder von $\left ( b_n \right )_{n=0}^\infty$  mit $b_n=1$ für 
-	$\{n \in \mathbb{N} : n= 5^k, k\in \mathbb{N} \} = \{ 5, 25, 125, 600,  \dots \}$ und $b_n =0$ sonst. 
-	Gibt es für jedes $\varepsilon >0$ ein $N \in \mathbb{N}$, sodass die Ungleichung $\lvert b_n - b\rvert < \varepsilon$ erfüllt ist?</li>
-<li>Bestimmen Sie für die Folge $\left ( a_n \right )_{n=0}^\infty$ mit $a_n= \frac{3}{4} -  \frac{1}{n}$ die Abhängigkeit für $N$ 
-	von $\varepsilon$, sodass die Ungleichung $\lvert a_n - a\rvert < \varepsilon$ erfüllt ist. 
-	Nutzen Sie Ihre Vermutung für den Grenzwert von $\left ( a_n \right )_{n=0}^\infty$. Interpretieren Sie das Ergebnis.</li>
-<li>Notieren Sie die Grenzwertdefinition mit der konkreten Zuordnungsvorschrift für $a_n$.</li>
-<li>Lösen Sie den Betrag auf. </li>
-<li>Stellen Sie die entstandene Gleichung nach N um. </li>
-<li>Welche Folgenglieder liegen demnach im Epsilon-Schlauch?</li>
-<li>Aus welchem Zahlenbereich stammt $N$?</li>
-<li>Welche Auswirkung hat die Wahl von $N$ auf die Folge?</li>
-</ol>
-{% endblock %}
-{% block ANS4 %}
 Antwort 3
 {% endblock %}
