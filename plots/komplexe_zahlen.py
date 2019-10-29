@@ -92,7 +92,7 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         real = radius * np.cos(angle)
         imaginary = radius * np.sin(angle)
 
-        print "Zugehörige kartesische Darstellung: "
+        #print "Zugehörige kartesische Darstellung: "
         radius_or_real_box.text = "zugehöriger Realteil a = " + str(round(real, 2))
         angle_or_imaginary_box.text = "zugehöriger Imaginärteil b = " + str(round(imaginary, 2))
 
