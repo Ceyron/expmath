@@ -75,13 +75,13 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         imaginary = imaginary_or_angle_slider.value
 
         radius = np.sqrt(real**2 + imaginary**2)
-        radius_or_real_box.text = "zugehöriger Radius $r$ = " + str(round(radius, 2))
+        radius_or_real_box.text = "zugehöriger Radius: " + str(round(radius, 2))
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
-            angle_or_imaginary_box.text = "zugehöriger Winkel $\\varphi$ = " + str(round(angle, 1)) + "°"
+            angle_or_imaginary_box.text = "zugehöriger Winkel: " + str(round(angle, 1)) + "°"
         else: # Radians
             angle = np.arctan2(imaginary, real)
-            angle_or_imaginary_box.text = "zugehöriger Winkel $\\varphi$ = " + str(round(angle, 3))
+            angle_or_imaginary_box.text = "zugehöriger Winkel: " + str(round(angle, 3))
     else: # Polar
         radius = real_or_radius_slider.value
         if degree_or_radian.active == 0: # Degrees
@@ -92,9 +92,9 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         real = radius * np.cos(angle)
         imaginary = radius * np.sin(angle)
 
-        
-        radius_or_real_box.text = "zugehöriger Realteil = " + str(round(real, 2))
-        angle_or_imaginary_box.text = "zugehöriger Imaginärteil = " + str(round(imaginary, 2))
+        print "Zugehörige kartesische Darstellung: "
+        radius_or_real_box.text = "zugehöriger Realteil a = " + str(round(real, 2))
+        angle_or_imaginary_box.text = "zugehöriger Imaginärteil b = " + str(round(imaginary, 2))
 
 
 def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_slider, imaginary_or_angle_slider):
