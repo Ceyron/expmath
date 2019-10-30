@@ -75,7 +75,7 @@ def fill_boxes_for_other_coordinates(cartesian_or_polar, degree_or_radian, real_
         imaginary = imaginary_or_angle_slider.value
 
         radius = np.sqrt(real**2 + imaginary**2)
-        radius_or_real_box.text = "zugehöriger Radius: " + str(round(radius, 2))
+        radius_or_real_box.text = "zugehöriger Abstand vom Ursprung: " + str(round(radius, 2))
         if degree_or_radian.active == 0: # Degrees
             angle = np.rad2deg(np.arctan2(imaginary, real))
             angle_or_imaginary_box.text = "zugehöriger Winkel: " + str(round(angle, 1)) + "°"
@@ -138,7 +138,7 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
         else: # Radians
             angle = np.arctan2(imaginary, real)
 
-        real_or_radius_slider.title = "Radius r"
+        real_or_radius_slider.title = "Abstand r vom Ursprung"
         real_or_radius_slider.start = 0
         real_or_radius_slider.end = 5
         real_or_radius_slider.value = radius
