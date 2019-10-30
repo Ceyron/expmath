@@ -48,8 +48,8 @@ def switch_cartesian_polar(cartesian_or_polar, real_or_radius,
 
         # Calculate the imaginary part out of radius and angle
         imaginary_or_angle.title = "Imaginärteil"
-        imaginary_or_angle.start = -CARTESIAN_SLIDER_LIMITS[0]
-        imaginary_or_angle.end = CARTESIAN_SLIDER_LIMITS[1]
+        imaginary_or_angle.start = -3
+        imaginary_or_angle.end = 3
         imaginary_or_angle.value = radius * np.sin(np.deg2rad(angle))
         imaginary_or_angle.step = 0.1
 
