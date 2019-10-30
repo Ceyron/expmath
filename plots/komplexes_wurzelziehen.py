@@ -58,7 +58,7 @@ def switch_cartesian_polar(cartesian_or_polar, real_or_radius,
         imaginary = imaginary_or_angle.value
 
         # Calculate the radius out of real and imaginary part
-        real_or_radius.title = "Abstand r vom Ursprung"
+        real_or_radius.title = "Radius"
         real_or_radius.start = RADIUS_SLIDER_LIMIT[0]
         real_or_radius.end = RADIUS_SLIDER_LIMIT[1] 
         real_or_radius.value = np.sqrt(real**2 + imaginary**2)
