@@ -21,7 +21,16 @@ Definition: $n$-te komplexe Wurzel
 Berechnung der $n$-ten Wurzeln
 {% endblock %}
 {% block DEF2%}
-<p></p>
+<p>Zur Berechnung der $n$ komplexen Wurzeln lösen wir die Gleichung</p>
+<p>$$z^n = a.$$</p>
+<p>Damit wir die Potenzgesetze ausnutzen können, nutzen wir die Polarkoordinatendarstellung von $z$ und $a$:</p>
+<p>$$z^n = \left(r\cdot{\rm{e}}^{i\varphi}\right)^n = r^n\cdot{\rm{e}}^{i\varphi\cdot n} = 
+	s\cdot {\rm{e}}^{i\psi} = a.$$</p>
+<p>Der entscheidende Schritt ist nun die Berücksichtigung der $2\pi$-Periodizität der Polarkoordinatendarstellung:</p>
+<p>$$z^n = {\rm{e}}^{i\psi + 2\pi i} = {\rm{e}}^{i\psi + 2 \pi i k}.$$</p>
+<p>Nun können wir die Gleichung nach $z$ auflösen und es entstehen $n$ von $k$ abhängige Lösungen $z_k$ 
+	mit $k = 0,1,\ldots,n-1$.</p>
+
 {% endblock %}
 
 {% block DEF3_HEAD %}
@@ -40,7 +49,11 @@ Teil 1 - Erkundung der Grafik
 {% endblock %}
 {% block QUEST1 %}
 <ol>
-<li></li>
+<li>Erkunden Sie die unterschiedlichen Schaltflächen und Schieberegler der Grafik.</li>
+<li>Was ist in der Skizze dargestellt? Welche Achsen gibt es?</li>
+<li>Was beobachten Sie, wenn Sie die Ordnung der Wurzel erhöhen?</li>
+<li>Denken Sie sich eine komplexe Zahl $a$ aus, und bestimmen Sie Wurzeln unterschiedlicher Ordnung. 
+	Beschreiben Sie Ihre Beobachtungen.</li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
@@ -52,7 +65,11 @@ Teil 2 - Was sind komplexe Wurzeln?
 {% endblock %}
 {% block QUEST2 %}
 <ol>
-<li></li>
+<li>Bestimmen Sie die fünften komplexen Wurzeln aus 
+	$\displaystyle a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$.</li> 
+<li>Verwenden Sie dazu nicht auswendig gelernte Formeln, sondern rechnen Sie sie Schritt für Schritt aus, indem Sie die
+	Gleichung $z^n = a$ nach $z$ umformen. Suchen Sie dazu zunächst nach den Polarkoordinatendarstellungen von $z$ und $a$.</li>
+<li>Überprüfen Sie Ihr Ergebnis mithilfe der Grafik. Kann Ihr Ergebnis stimmen?</li>
 </ol>
 {% endblock %}
 {% block ANS2 %}
@@ -63,8 +80,19 @@ Antwort 2
 Teil 3 - Komplexe Wurzeln in der Gaußschen Zahlenebene
 {% endblock %}
 {% block QUEST3 %}
-<ol>
-<li></li>
+<ol>+
+<li>Skizzieren Sie Ihre Ergebnisse zur fünften Wurzel aus Teil 2 in der Gaußschen Zahlenebene.</lI>
+<li>Erläutern Sie, warum der Index $k$ von $0$ bis $n-1$ läuft. Warum sollte er nicht unendlich weiter laufen?</li>
+<li>Testen Sie dies, indem Sie die fünften Wurzeln aus 
+	$\displaystyle a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$ hernehmen, und den Laufindex 
+	$k=0,1,2,3,4,5,6,\ldots $ beliebig hoch laufen lassen. Was beobachten Sie?</li>
+<li>Kommentieren Sie die Aussagen: 
+		<ul>
+			<li>Es gibt genau $n$ $n$-te Wurzeln aus $a\in\mathbb{C}.</li>
+			<li>Es gibt genau $n$ verschiedene $n$-te Wurzeln aus $a\in\mathbb{C}$.</li>
+			<li>Es gibt unendlich viele $n$-te Wurzeln aus $a\in\mathbb{C}$.</li>
+		</ul>
+</li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
