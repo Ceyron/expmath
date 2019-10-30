@@ -33,13 +33,6 @@ Berechnung der $n$-ten Wurzeln
 
 {% endblock %}
 
-{% block DEF3_HEAD %}
-Beschränktheit von Folgen
-{% endblock %}
-{% block DEF3 %}
- <p></p>
-{% endblock %}
-
 {% block BOKEH %}
 {{ script|safe }}
 {% endblock %}
@@ -66,9 +59,13 @@ Teil 2 - Was sind komplexe Wurzeln?
 {% block QUEST2 %}
 <ol>
 <li>Bestimmen Sie die fünften komplexen Wurzeln aus 
-	$\displaystyle a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$.</li> 
+	$a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$.</li> 
 <li>Verwenden Sie dazu nicht auswendig gelernte Formeln, sondern rechnen Sie sie Schritt für Schritt aus, indem Sie die
-	Gleichung $z^n = a$ nach $z$ umformen. Suchen Sie dazu zunächst nach den Polarkoordinatendarstellungen von $z$ und $a$.</li>
+	Gleichung $z^n = a$ nach $z$ umformen. Erläutern Sie Ihre Gedankengang und Ihre Rechnung.</li>
+<li>Suchen Sie dazu zunächst nach den Polarkoordinatendarstellungen von $z$ und $a$.</li>
+<li>Nutzen Sie zur Bestimmung der Polarkoordinatendarstellung von $a$ beispielsweise die Eulersche Identität 
+	${\rm{e}}^{i\varphi} = \operatorname{cos}\varphi + {\rm{i}} \operatorname{sin}\varphi$ oder eine Skizze, in der Sie Winkel
+	und Abstand vom Ursprung ablesen können.</li>
 <li>Überprüfen Sie Ihr Ergebnis mithilfe der Grafik. Kann Ihr Ergebnis stimmen?</li>
 </ol>
 {% endblock %}
@@ -80,7 +77,7 @@ Antwort 2
 Teil 3 - Komplexe Wurzeln in der Gaußschen Zahlenebene
 {% endblock %}
 {% block QUEST3 %}
-<ol>+
+<ol>
 <li>Skizzieren Sie Ihre Ergebnisse zur fünften Wurzel aus Teil 2 in der Gaußschen Zahlenebene.</lI>
 <li>Erläutern Sie, warum der Index $k$ von $0$ bis $n-1$ läuft. Warum sollte er nicht unendlich weiter laufen?</li>
 <li>Testen Sie dies, indem Sie die fünften Wurzeln aus 
@@ -88,7 +85,7 @@ Teil 3 - Komplexe Wurzeln in der Gaußschen Zahlenebene
 	$k=0,1,2,3,4,5,6,\ldots $ beliebig hoch laufen lassen. Was beobachten Sie?</li>
 <li>Kommentieren Sie die Aussagen: 
 		<ul>
-			<li>Es gibt genau $n$ $n$-te Wurzeln aus $a\in\mathbb{C}.</li>
+			<li>Es gibt genau $n$ $n$-te Wurzeln aus $a\in\mathbb{C}$.</li>
 			<li>Es gibt genau $n$ verschiedene $n$-te Wurzeln aus $a\in\mathbb{C}$.</li>
 			<li>Es gibt unendlich viele $n$-te Wurzeln aus $a\in\mathbb{C}$.</li>
 		</ul>
