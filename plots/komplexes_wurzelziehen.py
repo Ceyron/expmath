@@ -20,6 +20,7 @@ Y_TOP = 3
 # Limits of the imaginary and real slider
 CARTESIAN_SLIDER_LIMITS = (-3, 3)
 RADIUS_SLIDER_LIMIT = (0.3, 4)
+ANGLE_SLIDER_LIMITS = (-180, 360)
 
 
 def switch_cartesian_polar(cartesian_or_polar, real_or_radius,
@@ -62,14 +63,14 @@ def switch_cartesian_polar(cartesian_or_polar, real_or_radius,
         real_or_radius.start = RADIUS_SLIDER_LIMIT[0]
         real_or_radius.end = RADIUS_SLIDER_LIMIT[1] 
         real_or_radius.value = np.sqrt(real**2 + imaginary**2)
-        real_or_radius.step=0.1
+        real_or_radius.step = 0.1
 
         # Calculate the angle out of real and imaginary part
         imaginary_or_angle.title = "Winkel"
-        imaginary_or_angle.start = -180.
-        imaginary_or_angle.end = 180.
+        imaginary_or_angle.start = ANGLE_SLIDER_LIMITS[0]
+        imaginary_or_angle.end = ANGLE_SLIDER_LIMITS[1]
         imaginary_or_angle.value = np.rad2deg(np.arctan2(imaginary, real))
-        imaginary_or_angle.step =  5.
+        imaginary_or_angle.step = 5.
 
 
 def update_data(cartesian_or_polar, real_or_radius, imaginary_or_angle, order,

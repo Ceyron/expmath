@@ -33,6 +33,10 @@ Y_TOP = DISTORTION *  X_RIGHT
 ARROW_LINE_WIDTH = 3
 ARROWHEAD_CROSS_SIZE = 15
 
+# Slider limits
+ANGLE_SLIDER_LIMITS_DEGREES = (-180., 360.)
+ANGLE_SLIDER_LIMITS_RADIANS = (-np.pi, 2*np.pi)
+
 def redraw_plot(cartesian_or_polar, degree_or_radian, real_or_radius_slider,
         imaginary_or_angle_slider, number_source):
     """
@@ -146,12 +150,12 @@ def switch_cartesian_polar(cartesian_or_polar, degree_or_radian, real_or_radius_
 
         imaginary_or_angle_slider.title = "Winkel"
         if degree_or_radian.active == 0: # Degrees
-            imaginary_or_angle_slider.start = -180
-            imaginary_or_angle_slider.end = 360
+            imaginary_or_angle_slider.start = ANGLE_SLIDER_LIMITS_DEGREES[0]
+            imaginary_or_angle_slider.end = ANGLE_SLIDER_LIMITS_DEGREES[1]
             imaginary_or_angle_slider.step = 2
         else: # Radians
-            imaginary_or_angle_slider.start = -np.pi
-            imaginary_or_angle_slider.end = np.pi
+            imaginary_or_angle_slider.start = ANGLE_SLIDER_LIMITS_RADIANS[0]
+            imaginary_or_angle_slider.end = ANGLE_SLIDER_LIMITS_RADIANS[1]
             imaginary_or_angle_slider.step = 0.1
         imaginary_or_angle_slider.value = angle
     # Note: no update to the boxes is needed, since the change in the slider
@@ -178,16 +182,16 @@ def switch_degree_radian(cartesian_or_polar, degree_or_radian,
             angle_radian = imaginary_or_angle_slider.value
             angle_degrees = np.rad2deg(angle_radian)
 
-            imaginary_or_angle_slider.start = -180
-            imaginary_or_angle_slider.end = 360
+            imaginary_or_angle_slider.start = ANGLE_SLIDER_LIMITS_DEGREES[0]
+            imaginary_or_angle_slider.end = ANGLE_SLIDER_LIMITS_DEGREES[1]
             imaginary_or_angle_slider.value = angle_degrees
             imaginary_or_angle_slider.step = 2
         else: # This means it was 0 (degrees -> radian)
             angle_degrees = imaginary_or_angle_slider.value
             angle_radian = np.deg2rad(angle_degrees)
 
-            imaginary_or_angle_slider.start = -np.pi
-            imaginary_or_angle_slider.end = np.pi
+            imaginary_or_angle_slider.start = ANGLE_SLIDER_LIMITS_RADIANS[0]
+            imaginary_or_angle_slider.end = ANGLE_SLIDER_LIMITS_RADIANS[1]
             imaginary_or_angle_slider.value = angle_radian
             imaginary_or_angle_slider.step = 0.1
 
