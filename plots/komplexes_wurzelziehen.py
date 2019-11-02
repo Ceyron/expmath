@@ -42,14 +42,14 @@ def switch_cartesian_polar(cartesian_or_polar, real_or_radius,
 
         # Calculate the real part out of radius and angle
         real_or_radius.title = "Realteil"
-        real_or_radius.start = -CARTESIAN_SLIDER_LIMITS[0]
+        real_or_radius.start = CARTESIAN_SLIDER_LIMITS[0]
         real_or_radius.end = CARTESIAN_SLIDER_LIMITS[1]
         real_or_radius.value = radius * np.cos(np.deg2rad(angle))
         real_or_radius.step = 0.1
 
         # Calculate the imaginary part out of radius and angle
         imaginary_or_angle.title = "Imaginärteil"
-        imaginary_or_angle.start = -CARTESIAN_SLIDER_LIMITS[0]
+        imaginary_or_angle.start = CARTESIAN_SLIDER_LIMITS[0]
         imaginary_or_angle.end = CARTESIAN_SLIDER_LIMITS[1]
         imaginary_or_angle.value = radius * np.sin(np.deg2rad(angle))
         imaginary_or_angle.step = 0.1
@@ -147,9 +147,11 @@ plot.cross(x="x", y="y", color="orange", size="sizes",
 # help of numpy's functions deg2rad and rad2deg
 cartesian_or_polar_selector = RadioButtonGroup(labels=["Kartesisch", "Polar"],
         active=0)
-real_or_radius_slider = Slider(title="Realteil", start=-5, end=5, value=1,
-        step=0.1)
-imaginary_or_angle_slider = Slider(title="Imaginärteil", start=-5, end=5,
+real_or_radius_slider = Slider(title="Realteil",
+        start=CARTESIAN_SLIDER_LIMITS[0], end=CARTESIAN_SLIDER_LIMITS[1],
+        value=1, step=0.1)
+imaginary_or_angle_slider = Slider(title="Imaginärteil",
+        start=CARTESIAN_SLIDER_LIMITS[0], end=CARTESIAN_SLIDER_LIMITS[1],
         value=1, step=0.1)
 order_slider = Slider(title="Ordnung der Wurzel", start=2, end=10, value=3,
         step=1)
