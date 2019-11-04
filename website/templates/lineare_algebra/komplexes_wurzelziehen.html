@@ -13,8 +13,10 @@ Definition: $n$-te komplexe Wurzel
 <p>$$z^n = a.$$</p>
 <p>Die $n$-te Einheitswurzel $\displaystyle \varepsilon_k = {\rm{e}}^{2\pi i \frac{k}{n}}$ mit $k = 0, 1, \ldots, n-1$
 	hat die Eigenschaften</p>
-<p>$$\lvert\varepsilon_k\rvert = 1 \text{ und } \varepsilon_k^n = {\rm{e}}^{2\pi i k} = \left({\rm{e}}^{2\pi i}\right)^k = 1$$</p> 
-<p>und ist damit die Lösung von $z^n = 1$. Die $n$ Einheitswurzeln $\varepsilon_k$ bilden in der Gaußschen Zahlenebene ein regelmäßiges $n$-Eck.</p>
+<p>$$\lvert\varepsilon_k\rvert = 1 \text{ und } \varepsilon_k^n = {\rm{e}}^{2\pi i k} 
+	= \left({\rm{e}}^{2\pi i}\right)^k = 1$$</p> 
+<p>und ist damit die Lösung von $z^n = 1$. Die $n$ Einheitswurzeln $\varepsilon_k$ bilden in der Gaußschen Zahlenebene ein 
+	regelmäßiges $n$-Eck.</p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
@@ -27,10 +29,9 @@ Berechnung der $n$-ten Wurzeln
 <p>$$z^n = \left(r\cdot{\rm{e}}^{i\varphi}\right)^n = r^n\cdot{\rm{e}}^{i\varphi\cdot n} = 
 	s\cdot {\rm{e}}^{i\psi} = a.$$</p>
 <p>Der entscheidende Schritt ist nun die Berücksichtigung der $2\pi$-Periodizität der Polarkoordinatendarstellung:</p>
-<p>$$z^n = {\rm{e}}^{i\psi + 2\pi i} = {\rm{e}}^{i\psi + 2 \pi i k}.$$</p>
+<p>$$z^n = r\cdot{\rm{e}}^{i\psi + 2\pi i} = r\cdot{\rm{e}}^{i\psi + 2 \pi i k}.$$</p>
 <p>Nun können wir die Gleichung nach $z$ auflösen und es entstehen $n$ von $k$ abhängige Lösungen $z_k$ 
 	mit $k = 0,1,\ldots,n-1$.</p>
-
 {% endblock %}
 
 {% block BOKEH %}
@@ -59,7 +60,7 @@ Teil 2 - Was sind komplexe Wurzeln?
 {% block QUEST2 %}
 <ol>
 <li>Bestimmen Sie die fünften komplexen Wurzeln aus 
-	$a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$.</li> 
+	$\displaystyle a = \frac{1}{\sqrt{2}} + {\rm{i}} \cdot \frac{1}{\sqrt{2}}$.</li> 
 <li>Verwenden Sie dazu nicht auswendig gelernte Formeln, sondern rechnen Sie sie Schritt für Schritt aus, indem Sie die
 	Gleichung $z^n = a$ nach $z$ umformen. Erläutern Sie Ihre Gedankengang und Ihre Rechnung.</li>
 <li>Suchen Sie dazu zunächst nach den Polarkoordinatendarstellungen von $z$ und $a$.</li>
