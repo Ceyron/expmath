@@ -84,7 +84,7 @@ analysis_3 = {
 
 pde = {
     "waermeleitung": "Wärmeleitung",
-    #"schwingungen": "Schwingungen",
+    "schwingungen": "Schwingungen",
     #"wellen": "Wellenbewegung",
    # "transport_gleichung": "Transportgleichung und Charakteristiken",
     #"membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
