@@ -9,21 +9,46 @@
 Die Schwingungsgleichung
 {% endblock %}
 {% block DEF1 %}
-<p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Die Schwingungsgleichung beschreibt, dass die Kraft, die an einer Stelle $x$ und 
+    zu einem Zeitpunkt $t$ auf die Saite wirkt, durch die rücktreibende Kraft aus der Verzerrung der 
+    Saite wirkt.  </p>
+    <p> Aus dem zweiten Newtonschen Gesetz ergibt sich 
+        \begin{align*}
+            \varrho u_{,tt} = P u_{,xx},
+        \end{align*}
+        wobei $varrho$ die Längendichte der Saite angibt, $P$ die Vorspannung der Saite ist und 
+        $u(t,x)$ die Auslenkung der Saite an einem Ort $x$ zur Zeit $t$ angibt.
+    </p>
+    <p> Auf der linken Seite der Gleichung finden wir das 2. Newtonsche Gesetz, 
+        auf der rechten die rücktreibende Kraft durch die Verzerrung. </p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
-Monotonie und Beschr&aumlnktheit
+Randbedingungen
 {% endblock %}
 {% block DEF2%}
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd</p>
+<p> Bei einer Gitarrensaite sind die beiden Enden eingespannt und die Saite lässt sich dort nicht auslenken. </p>
+<p> Eine solche Einspannung lässt sich durch Dirichlet-Randbedingungen beschreiben. Mit der zusätzlichen Festlegung,
+    die Saite auf der Höhe 0 einzuspannen, erhalten wir die homogenen Dirichlet-Randbedingungen
+    \begin{align*}
+    u(t,a) = u(t,b)=0,
+    \end{align*}
+wobei $x=a$ und $x=b$ die beiden Enden der Saite angeben. 
+</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
-Epsilon-Kriterium
+Anfangsbedingungen
 {% endblock %}
 {% block DEF3 %}
- <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+ <p>Die Schwingungsgleichung benötigt zwei Anfangsbedingungen: eine für die Auslenkung zu Beginn und eine 
+     für die Geschwindigkeit der Saite. </p>
+     <p>Mit den Anfangsbedingungen
+    \begin{align*}
+    u(0,x)&= u_0(x) , x \in \Omega \\
+    u_{,t}(0,x)&= v_0(x),  x \in \Omega
+    \end{align*}
+   bekommen wir ein vollständiges Anfangsrandwertproblem. </p>
 {% endblock %}
 
 {% block BOKEH %}
@@ -31,28 +56,45 @@ Epsilon-Kriterium
 {% endblock %}
 
 {% block QUEST1_HEAD %}
-Monotoniebeweis
+Erkundung der Graphik
 {% endblock %}
 {% block QUEST1 %}
-Frage 1
+\begin{enumerate}
+\item Welche physikalische Größe ist dargestellt?
+\item Beschreiben Sie kurz das zeitabhängige Lösungsverhalten.
+\item Welche Auswirkungen hat die Veränderung von $\varrho$ bzw. $P$ auf die Lösung?
+\item Was verändert sich, wenn eine höhere Eigenform schwingt?
+\end{enumerate}
 {% endblock %}
 {% block ANS1 %}
 Antwort 1
 {% endblock %}
 
-{% block QUEST2_HEAD %}{% endblock %}
+{% block QUEST2_HEAD %}
+Fragen zum tieferen Verständnis
+{% endblock %}
 {% block QUEST2 %}
-Frage 2
+Die Lösung der Schwingungsgleichung zur $k$-ten Eigenform hat die Form 
+\begin{align*}
+u(t,x)= \cos( \frac{k}{L} \sqrt{\frac{P}{\varrho}}/cdot t ) \sin(\frac{k}{L} x)
+\end{align*}
+\begin{enumerate}
+        \item Begründen Sie anhand der Lösungsformel, welche Auswirkungen Veränderungen der Länge $L$, 
+        der Vorspannung $P$ oder der Dichte $\varrho$ haben. 
+        Überprüfen Sie Ihre Vermutung mithilfe der interaktiven Graphik.
+        \item Begründen Sie anhand der Lösungsformel, wieso die Amplitude der Schwingung konstant ist. 
+        \item Rechnen Sie nach, dass die Lösungsformel tatsächlich eine Lösung angibt.
+\end{enumerate}
 {% endblock %}
 {% block ANS2 %}
 Antwort 2
 {% endblock %}
 
 {% block QUEST3_HEAD %}
-Konvergenzbeweis
+Fragen zur eigenen Bearbeitung
 {% endblock %}
 {% block QUEST3 %}
-Frage 3
+Erklären Sie, was passiert, wenn Sie die Anfangsbedingung aus mehreren Eigenformen zusammensetzen.
 {% endblock %}
 {% block ANS3 %}
 Antwort 3
