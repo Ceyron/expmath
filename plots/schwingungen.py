@@ -82,7 +82,7 @@ def create_latex(length, tension, density, first, second, third):
         str(round(length, 1)) +\
         "} x \\right)"
 
-    %return text
+    #return text
 
 
 def calculate_new_value_pairs(t, length, tension, density, first, second, third):
