@@ -225,7 +225,7 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        # a \cdot \ln(b\cdot(x+c)) + d
+                         a \cdot \ln(b\cdot(x+c)) + d
                         \\\\=&
                         %1.2f \cdot \ln(%1.2f\cdot (x + %1.2f)) + %1.2f
                     \end{aligned}
