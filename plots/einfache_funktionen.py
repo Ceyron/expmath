@@ -59,7 +59,7 @@ dropdown_menu = [
         ("Tangens", "tangent"),
         None,
         ("Allgemeine Exponentialfunktion", "exponential_general"),
-        ("E-Funktion", "exponential"),
+        ("e-Funktion", "exponential"),
         None,
         ("Wurzel", "root"),
         ("Logarithmus", "logarithmn"),
@@ -135,9 +135,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \sin(bx + c) + d
+                        a \cdot \sin(bx + c) + d
                         \\\\=&
-                        %1.2f \sin(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \sin(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -150,9 +150,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \cos(bx + c) + d
+                        a \cdot \cos(bx + c) + d
                         \\\\=&
-                        %1.2f \cos(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \cos(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -165,9 +165,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\tan(bx + c) + d
+                        a \cdot \\tan(bx + c) + d
                         \\\\=&
-                        %1.2f \\tan(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\tan(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -180,7 +180,7 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a b^{x+c} + d
+                        a \cdot b^{x+c} + d
                         \\\\=&
                         %1.2f \cdot %1.2f ^ {x +  %1.2f} + %1.2f
                     \end{aligned}
@@ -474,7 +474,7 @@ parameter_sliders = (parameter_a, parameter_b, parameter_c, parameter_d)
 
 # This toggle is used to activate a second function and once it is activated to
 # switch between controling the first and the second function
-second_toggle = Toggle(label="Zweite Funktion $g$ (de-)aktivieren")
+second_toggle = Toggle(label="Zweite Funktion g (de-)aktivieren")
 
 # Lable extension rendered by the help of KaTex on the client-side
 function_latex = LatexLabel(text = "", x = WIDTH_PLOT - 20, y = 80,
