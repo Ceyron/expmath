@@ -1,29 +1,75 @@
 {% extends "wrapper.html" %}
 
 {% block PRETEXT %}
- <h1>Standard-Funktionen</h1>
+ <h1>Die Standardfunktionen</h1>
 {% endblock %}
 
 
 {% block DEF1_HEAD %}
-
+Was ist eine Funktion?
 {% endblock %}
 {% block DEF1 %}
-<p></p>
+<p>Eine Funktion $f: \mathcal{U} \to \mathcal{V}$ ist eine Zuordnung, die jedem Element $u\in\mathcal{U}$ des
+	Definitionsbereichs $\mathcal{U}$ genau ein Element $v\in\mathcal{V}$ des Wertebereichs $\mathcal{V}$ vermöge
+	$f: u \mapsto v$, d.h. $f(u) = v$, zuordnet.</p>
+<p>Hier wenden wir uns Funktionen $f: D \to B$ mit $D,B \subseteq \mathbb{R}$ zu.</p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
-
+Eigenschaften von Funktionen
 {% endblock %}
 {% block DEF2%}
-<p></p>
+<ul>
+	<li>Injektivitat und Surjektivität</li>
+	<ul>
+		<li>\bfseries{injektive Funktion}$\quad$ $x_1 \neq x_2, x_1,x_2\in D \ \Rightarrow \ f(x_1) \neq f(x_2)$</li>
+		<li>\bfseries{surjektive Funktion}$\quad$ $\forall y\in B \ \exists x\in D: \ f(x) = y$</li>
+		<li>\bfseries{bijektive Funktion}$\quad$ injektiv und surjektiv</li>
+	</ul>
+	<li>Monotonie</li>
+	<ul>
+		<li>\bfseries{monoton wachsende Funktion}$\quad$ $x_1 < x_2 \ \Rightarrow \ f(x_1) \leq f(x_2)$</li>
+		<li>\bfseries{streng monoton wachsende Funktion}$\quad$ $x_1 < x_2 \ \Rightarrow f(x_1) < f(x_2)$</li>
+		<li>analog: monoton fallende und streng monoton fallende Funktion</li>
+	</ul>
+	<li>Gerade und ungerade Funktionen</li>
+	<ul>
+		<li>\bfseries{gerade Funktion}$\quad$ $f(x) = f(-x) \ \forall x\in D$: eine gerade Funktion ist 
+			spiegelsymmetrisch zur $y$-Achse</li>
+		<li>\bfseries{ungerade Funktion}$\quad$ $f(x) = -f(x) \ \forall x\in D$: eine ungerade Funktion ist
+			drehsymmetrisch zum Ursprung
+		</li>
+	</ul>
+	<li>Periodizität</li>
+	<ul>
+		<li>Eine periodische Funktion $f: D \to B$ erfüllt die Eigenschaft $f(x) = f(x+T) \ \forall x\in D.</li>
+		<li>Darin ist $T\neq0$ die Periode.</li>
+	</ul>
+</ul>
 {% endblock %}
 
 {% block DEF3_HEAD %}
-
+Standardfunktionen
 {% endblock %}
 {% block DEF3 %}
- <p></p>
+<ul>
+	<li>Potenzfunktionen</li>
+	<ul>
+		<li></li>
+	</ul>
+	<li>Exponentialfunktionen</li>
+	<ul>
+		<li></li>
+	</ul>
+	<li>Logarithmusfunktionen</li>
+	<ul>
+		<li></li>
+	</ul>
+	<li>Trigonometrische Funktionen</li>
+	<ul>
+		<li></li>
+	</ul>
+</ul>
 {% endblock %}
 
 
@@ -32,7 +78,7 @@
 {% endblock %}
 
 {% block QUEST1_HEAD %}
-Teil 1 - Fragen
+Teil 1 - Was ist eine Funktion?
 {% endblock %}
 {% block QUEST1 %}
 <ol>
@@ -44,7 +90,7 @@ Antwort 1
 {% endblock %}
 
 {% block QUEST2_HEAD %}
-Teil 2 - Fragen
+Teil 2 - Erkundung der Grafik
 {% endblock %}
 {% block QUEST2 %}
 <ol>
@@ -56,7 +102,7 @@ Antwort 2
 {% endblock %}
 
 {% block QUEST3_HEAD %}
-Teil 3 - Fragen
+Teil 3 - Eigenschaften von Funktionen
 {% endblock %}
 {% block QUEST3 %}
 <ol>
