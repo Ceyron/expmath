@@ -395,16 +395,16 @@ functions = {
                         a * np.piecewise(x, [x < b, b <= x], [0, 1]) + c),
                 "latex": """
                     \\begin{aligned}
-                        f(x) =& a \cdot
+                        f(x) =& a + b \cdot
                         \\begin{cases}
-                            0 & x < b \\\\
-                            1 & x \ge b
-                        \end{cases} + c
-                        \\\\=& %1.2f \cdot
+                            0 & x < c \\\\
+                            1 & x \ge c
+                        \end{cases}
+                        \\\\=& %1.2f + %1.2f \cdot
                         \\begin{cases}
                             0 & x < %1.2f \\\\
-                            1 & x \ge b
-                        \end{cases} + %1.2f
+                            1 & x \ge c
+                        \end{cases}
                     \end{aligned}""",
                 "number_of_placeholders": 3,
                 "defaults": {"a": 1, "b": 0, "c": 0, "d": 0}
