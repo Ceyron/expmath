@@ -92,7 +92,7 @@ functions = {
 
         "linear": {
                 "definition": (lambda a, b, c, d, x: a * x + b),
-                "latex": "f(x) = ax + b = %1.2f x + %1.2f",
+                "latex": "f(x) = ax + b = %1.2f \cdot x + %1.2f",
                 "number_of_placeholders": 2,
                 "defaults": {"a": 1, "b": 1, "c": 0, "d": 0},
                 },
@@ -105,7 +105,7 @@ functions = {
                         =&
                         ax^2 + bx + c
                         \\\\=&
-                        %1.2f x^2 + %1.2f x + %1.2f
+                        %1.2f \cdot x^2 + %1.2f \cdot x + %1.2f
                     \end{aligned}
                     """,
 
@@ -122,7 +122,7 @@ functions = {
                         =&
                         ax^3 + bx^2 + cx + d
                         \\\\=&
-                        %1.2f x^3 + %1.2f x^2 + %1.2f x + %1.2f
+                        %1.2f \cdot x^3 + %1.2f \cdot x^2 + %1.2f \cdot x + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -195,7 +195,7 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a e^{b(x+c)} + d
+                        a \cdot e^{b(x+c)} + d
                         \\\\=&
                         %1.2f \cdot e^{%1.2f (x + %1.2f)} + %1.2f
                     \end{aligned}
@@ -210,9 +210,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \sqrt[b]{x + c} + d
+                        a \cdot \sqrt[b]{x + c} + d
                         \\\\=&
-                        %1.2f \sqrt[ %1.2f ]{x + %1.2f} + %1.2f
+                        %1.2f \cdot \sqrt[ %1.2f ]{x + %1.2f} + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -225,9 +225,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \ln(b(x+c)) + d
+                        # a \cdot \ln(b\cdot(x+c)) + d
                         \\\\=&
-                        %1.2f \ln(%1.2f (x + %1.2f)) + %1.2f
+                        %1.2f \cdot \ln(%1.2f\cdot (x + %1.2f)) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -240,9 +240,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \sinh(bx + c) + d
+                        a \cdot \sinh(bx + c) + d
                         \\\\=&
-                        %1.2f \sinh(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \sinh(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -255,9 +255,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \cosh(bx + c) + d
+                        a \cdot \cosh(bx + c) + d
                         \\\\=&
-                        %1.2f \cosh(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \cosh(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -270,9 +270,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\tanh(bx + c) + d
+                        # a cdot\\tanh(bx + c) + d
                         \\\\=&
-                        %1.2f \\tanh(%1.2f x + %1.2f) + %1.2f
+                        # %1.2f \cdot \\tanh(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -286,9 +286,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\arcsin(bx + c) + d
+                        a \cdot \\arcsin(bx + c) + d
                         \\\\=&
-                        %1.2f \\arcsin(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\arcsin(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -302,9 +302,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\arccos(bx + c) + d
+                        a \cdot \\arccos(bx + c) + d
                         \\\\=&
-                        %1.2f \\arccos(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\arccos(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -318,9 +318,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\arctan(bx + c) + d
+                        a \cdot \\arctan(bx + c) + d
                         \\\\=&
-                        %1.2f \\arctan(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\arctan(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -334,9 +334,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\text{ arsinh}(bx + c) + d
+                        a \cdot\\text{ arsinh}(bx + c) + d
                         \\\\=&
-                        %1.2f \\text{ arsinh}(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\text{ arsinh}(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -350,9 +350,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\text{ arcosh}(bx + c) + d
+                        a \cdot \\text{ arcosh}(bx + c) + d
                         \\\\=&
-                        %1.2f \\text{ arcosh}(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\text{ arcosh}(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -366,9 +366,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a \\text{ artanh}(bx + c) + d
+                        a \cdot \\text{ artanh}(bx + c) + d
                         \\\\=&
-                        %1.2f \\text{ artanh}(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\text{ artanh}(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
@@ -381,9 +381,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        a |bx + c | + d
+                        a \cdot |bx + c | + d
                         \\\\=&
-                        %1.2f |%1.2f x + %1.2f | + %1.2f
+                        %1.2f \cdot |%1.2f x + %1.2f | + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
