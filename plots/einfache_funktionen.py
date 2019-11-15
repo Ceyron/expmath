@@ -270,9 +270,9 @@ functions = {
                     \\begin{aligned}
                         f(x)
                         =&
-                        # a cdot\\tanh(bx + c) + d
+                        a cdot\\tanh(bx + c) + d
                         \\\\=&
-                        # %1.2f \cdot \\tanh(%1.2f x + %1.2f) + %1.2f
+                        %1.2f \cdot \\tanh(%1.2f x + %1.2f) + %1.2f
                     \end{aligned}
                     """,
                 "number_of_placeholders": 4,
