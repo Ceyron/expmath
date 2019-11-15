@@ -395,7 +395,7 @@ functions = {
                         a * np.piecewise(x, [x < b, b <= x], [0, 1]) + c),
                 "latex": """
                     \\begin{aligned}
-                        f(x) =& c + a \cdot 
+                        f(x) =& a + c \cdot 
                         \\begin{cases}
                             0 & x < b \\\\
                             1 & x \ge b
