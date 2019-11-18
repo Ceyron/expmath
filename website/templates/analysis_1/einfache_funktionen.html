@@ -20,6 +20,8 @@ Was ist eine Funktion?
 Eigenschaften von Funktionen
 {% endblock %}
 {% block DEF2%}
+<p>Unterschiedliche Funktionen haben unterschiedliche Eigenschaften, die das charakteristische Verhalten und Aussehen der
+	jeweiligen Funktion beschreiben. </p>
 <ul>
 	<li>Injektivitat und Surjektivität</li>
 	<ul>
@@ -51,10 +53,10 @@ Eigenschaften von Funktionen
 		<ul>
 			<li> Der Funktionswert $f_{\text{max}} = f(x_{\text{max}})$ heißt <b>globales Maximum</b> von $f$ in $D$,
 				wenn $f_{\text{max}} \geq f(x) \ \forall x \in D$ gilt.</li>
-			<li> Die Funktion $f$ hat an der Stelle $x_{\text{M}}$ ein <b>lokales Maximum</b>, wenn 
+			<li> Die Funktion $f$ hat an der Stelle $x_{\text{M}}$ ein <b>lokales Maximum</b>, wenn gilt:
 				$$ \exists \ \varepsilon: \ f(x_{\text{M}}) \geq f(x) \ \forall 
-				x\in(x_{\text{M}}-\varepsilon, x_{\text{M}}+ \varepsilon) \cap D \ \subseteq D $$
-				gilt. </li>
+				x\in(x_{\text{M}}-\varepsilon, x_{\text{M}}+ \varepsilon) \cap D \ \subseteq D.$$
+				</li>
 			<li> Analog lassen sich die Bedingungen für globale und lokale Minima definieren.</li>
 		</ul>
 	</ul>
@@ -67,6 +69,7 @@ Standardfunktionen
 {% block DEF3 %}
 <ul>
 	<li>Potenzfunktionen</li>
+	<p>$$f: \mathbb{R} \to \mathbb{R} \ \text{vermöge} \ f(x) = x^a \ \text{mit} \ a \in \mathbb{N}$$</p>
 	<ul>
 		<li></li>
 	</ul>
@@ -119,7 +122,9 @@ Teil 3 - Eigenschaften von Funktionen
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-<li></li>
+<li>Worin liegt der Unterschied zwischen globalen und lokalen Maxima bzw. Minima? 
+	Woran erkennt man dies an der Definition der beiden Begriffe?
+	Skizzieren Sie eine Funktion, die ein lokales, aber kein globales Maximum hat. </li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
