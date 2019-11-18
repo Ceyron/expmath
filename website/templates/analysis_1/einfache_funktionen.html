@@ -10,10 +10,10 @@ Was ist eine Funktion?
 {% endblock %}
 {% block DEF1 %}
 <p>Eine Funktion $f: \mathcal{U} \to \mathcal{V}$ ist eine Zuordnung, die jedem Element $u\in\mathcal{U}$ des
-	Definitionsbereichs $\mathcal{U}$ genau ein Element $v\in\mathcal{V}$ des Wertebereichs $\mathcal{V}$ vermöge
+	Definitionsbereichs $\mathcal{U}$ genau ein Element $v\in\mathcal{V}$ des Bild- bzw. Wertebereichs $\mathcal{V}$ vermöge
 	$f: u \mapsto v$, d.h. $f(u) = v$, zuordnet.</p>
-<p>Hier wenden wir uns Funktionen $f: D \to B$ mit $D,B \subseteq \mathbb{R}$ zu, die reelle Zahlen auf reelle Zahlen
-	abbilden.</p>
+<p>Hier wenden wir uns Funktionen $f: D \to B$ mit dem Definitions- bzw. Bildbereich 
+	$D,B \subseteq \mathbb{R}$ zu, die reelle Zahlen auf reelle Zahlen abbilden.</p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
@@ -25,13 +25,13 @@ Eigenschaften von Funktionen
 	<ul>
 		<li> <b>injektive Funktion</b>$\quad$ $x_1 \neq x_2, x_1,x_2\in D \ \Rightarrow \ f(x_1) \neq f(x_2)$</li>
 		<li> <b>surjektive Funktion</b>$\quad$ $\forall y\in B \ \exists x\in D: \ f(x) = y$</li>
-		<li> <b>bijektive Funktion</b>$\quad$ injektiv und surjektiv</li>
+		<li> Eine Funktion heißt <b>bijektiv</b>, wenn sie sowohl injektiv als auch surjektiv ist.</li>
 	</ul>
 	<li>Monotonie</li>
 	<ul>
 		<li> <b>monoton wachsende Funktion</b>$\quad$ $x_1 < x_2 \ \Rightarrow \ f(x_1) \leq f(x_2)$</li>
 		<li> <b>streng monoton wachsende Funktion</b>$\quad$ $x_1 < x_2 \ \Rightarrow f(x_1) < f(x_2)$</li>
-		<li>analog: monoton fallende und streng monoton fallende Funktion</li>
+		<li> Analog lassen sich monoton fallende und streng monoton fallende Funktionen definieren.</li>
 	</ul>
 	<li>Gerade und ungerade Funktionen</li>
 	<ul>
@@ -42,8 +42,10 @@ Eigenschaften von Funktionen
 		</li>
 	</ul>
 	<li>Periodizität</li>
-	<p>Eine periodische Funktion $f: D \to B$ erfüllt die Eigenschaft $f(x) = f(x+T) \ \forall x\in D$.</p>
-	<p>Darin ist $T\neq0$ die Periode.</p>
+		<ul>
+			<li>Eine periodische Funktion $f: D \to B$ erfüllt die Eigenschaft $f(x) = f(x+T) \ \forall x\in D$.
+			Darin ist $T\neq0$ die Periode. Periodizität zeichnet sich also durch immer wiederkehrendes Verhalten aus.</li>
+		</ul>
 	</ul>
 </ul>
 {% endblock %}
