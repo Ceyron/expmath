@@ -68,17 +68,24 @@ Standardfunktionen
 {% endblock %}
 {% block DEF3 %}
 <ul>
-	<li>Potenzfunktionen</li>
-	<p>$$f: \mathbb{R} \to \mathbb{R} \ \text{vermöge} \ f(x) = x^a \ \text{mit} \ a \in \mathbb{N}$$</p>
-	<li>Exponentialfunktionen</li>
+	<li>Potenzfunktionen $f(x) = x^a$</li>
+		<ul> 
+			<li>$f: \mathbb{R} \to \mathbb{R}$ mit $a \in \mathbb{N}$</li>
+			<li>$f: \mathbb{R}\backslash\{0\} \to \mathbb{R}$ mit $a < 0$, $a\in\mathbb{Z}$</li>
+			<li>$f: [0, \infty) \to \mathbb{R} für $a \geq 0$, sonst $f= (0,\infty) \to \mathbb{R}$</li>
+		</ul>	
+	<li>Polynom vom Grad $n$: $f(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_{n-1}x^{n-1} + a_n x^n$</li>
+		<ul>
+			<li>Polynome sind in $\mathbb{C}$ in Linearfaktoren zerlegbar. 
+				Damit haben sie höchstens $n$ Nullstellen in $\mathbb{R}$.</li>
+		</ul>
+	<li>Exponentialfunktionen $f: (0,\infty) \to \mathbb{R}$$f(x) = a^x$ mit $a > 0$</li>
 	<ul>
-		<li></li>
+		<li>Exponentialfunktionen sind die Umkehrfunktionen zum Logarithmus (s.u.)</li>
 	</ul>
-	<li>Logarithmusfunktionen</li>
-	<ul>
-		<li></li>
-	</ul>
+	<li>Logarithmusfunktionen $f: (0,\infty) \to \mathb{R}$ vermöge $f(x) = \operatorname{log}_a x$ mit $a>1$</li>
 	<li>Trigonometrische Funktionen</li>
+	<p>Die trigonometrischen Funktionen lassen sich am Einheitskreis definieren. </p>
 	<ul>
 		<li></li>
 	</ul>
@@ -95,7 +102,12 @@ Teil 1 - Was ist eine Funktion?
 {% endblock %}
 {% block QUEST1 %}
 <ol>
-<li></li>
+	<li>Welche Informationen sind nötig, um eine Funktion zu definieren?</li>
+	<li>Erläutern Sie, warum eine Änderung des Definitions- bzw. Bildbereichs eine andere Funktion bedeutet. 
+		Versuchen Sie, dies an einer Skizze zu erklären.</li>
+	<li>Kann eine Zahl $y\in B$ zwei Urbilder $x \in D$ haben? Warum? Warum nicht? 
+		Wie kann man dies in einer Skizze erkennen?</li>
+	<li>Kann eine Zahl $x\in D$ zwei Bilder $y\in B$ haben? Warum? Warum nicht? Wie kann man dies in einer Skizze erkennen?</li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
@@ -119,9 +131,28 @@ Teil 3 - Eigenschaften von Funktionen
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-<li>Worin liegt der Unterschied zwischen globalen und lokalen Maxima bzw. Minima? 
-	Woran erkennt man dies an der Definition der beiden Begriffe?
-	Skizzieren Sie eine Funktion, die ein lokales, aber kein globales Maximum hat. </li>
+	<li>Ist die Funktion $f(x) = x^2$ injektiv oder surjektiv? Können Sie dies anhand der Angabe der Funktion beurteilen?</li>
+	<li>Passen Sie die Angabe von $f$ so an, dass Sie die beiden Eigenschaften der Injektivität und Surjektivität überprüfen 
+		können. </li>
+	<li>Für welche Definitions- bzw. Wertebereiche ist $f$ mit $f(x) = x^2$ injektiv bzw. surjektiv?</li>
+	<li>Kommentieren Sie die beiden Aussagen: 
+		<ul> 
+			<li>Injektivität ist eine Eigenschaft, die durch den Definitionsbereich bestimmt wird.</li>
+			<li>Surjektivität wird durch den Bildbereich beeinflusst.</li>
+		</ul>
+	<li>Leiten Sie die Definition für (streng) monoton fallende Funktionen aus der obigen Definition wachsender 
+		Funktionen ab. </li>
+	<li>Skizzieren Sie je eine streng monoton wachsende bzw. fallende und eine monoton wachsende bzw. fallende Funktion.
+		Worin erkennen Sie den entscheidenden Unterschied.</li>
+	<li>Kommentieren Sie:
+		<ul>
+			<li>Wenn eine Funktion nicht monoton fällt, wächst sie also monoton.</li>
+			<li>Wenn eine Funktion nicht ungerade ist, ist sie gerade.</li>
+		</ul>
+		</li>
+	<li>Worin liegt der Unterschied zwischen globalen und lokalen Maxima bzw. Minima? 
+		Woran erkennt man dies an der Definition der beiden Begriffe?
+		Skizzieren Sie eine Funktion, die ein lokales, aber kein globales Maximum hat. </li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
