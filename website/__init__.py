@@ -38,7 +38,7 @@ analysis_1 = {
     #"riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
     #"taylorpolynome": "Taylor-Polynome",
     #"trigonometrische_funktionen": "Trigonometrische Funktionen",
-    "schrittweises_zeichnen": "Schrittweises Skizzieren von Funktionen",
+    "schrittweises_skizzieren": "Schrittweises Skizzieren von Funktionen",
     #"umkehrfunktionen": "Umkehrfunktionen",
     }
 
