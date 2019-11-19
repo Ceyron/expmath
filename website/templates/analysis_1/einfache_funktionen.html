@@ -72,14 +72,14 @@ Standardfunktionen
 		<ul> 
 			<li>$f: \mathbb{R} \to \mathbb{R}$ mit $a \in \mathbb{N}$</li>
 			<li>$f: \mathbb{R}\backslash\{0\} \to \mathbb{R}$ mit $a < 0$, $a\in\mathbb{Z}$</li>
-			<li>$f: [0, \infty) \to \mathbb{R}$ für $a \geq 0$, sonst $f= (0,\infty) \to \mathbb{R}$</li>
+			<li>$f: [0, \infty) \to \mathbb{R}$ für $a \geq 0$, sonst $f: (0,\infty) \to \mathbb{R}$</li>
 		</ul>	
 	<li>Polynom vom Grad $n$: $f(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_{n-1}x^{n-1} + a_n x^n$</li>
 		<ul>
 			<li>Polynome sind in $\mathbb{C}$ in Linearfaktoren zerlegbar. 
 				Damit haben sie höchstens $n$ Nullstellen in $\mathbb{R}$.</li>
 		</ul>
-	<li>Exponentialfunktionen $f: (0,\infty) \to \mathbb{R}$$f(x) = a^x$ mit $a > 0$</li>
+	<li>Exponentialfunktionen $f: (0,\infty) \to \mathbb{R}$ vermöge $f(x) = a^x$ mit $a > 0$</li>
 	<ul>
 		<li>Exponentialfunktionen sind die Umkehrfunktionen zum Logarithmus (s.u.)</li>
 	</ul>
@@ -118,8 +118,13 @@ Teil 2 - Erkundung der Grafik
 {% endblock %}
 {% block QUEST2 %}
 <ol>
-<li></li>
-</ol>
+	<li>Untersuchen Sie die unterschiedlichen Schaltflächen der Grafik. Welchen Einfluss hat eine Veränderung der Parameter
+		auf das Aussehen der unterschiedlichen Funktionen?</li>
+	<li>Was fällt Ihnen bei der Skizze zur Heaviside-Funktion auf? Wie würden Sie die Funktion auf dem Papier skizzieren?
+		Worin liegen die Unterschiede?</li>
+	<li>Was fällt Ihnen bei der Skizze zum Tangens auf? Wie würden Sie die Funktion auf dem Papier skizzieren? Worin liegen
+		die Unterschiede? Warum ist nur einer der beiden Darstellungen mathematisch korrekt? Welche?</li>
+	</ol>
 {% endblock %}
 {% block ANS2 %}
 Antwort 2
@@ -130,7 +135,12 @@ Teil 3 - Eigenschaften von Funktionen
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-	<li>Ist die Funktion $f(x) = x^2$ injektiv oder surjektiv? Können Sie dies anhand der Angabe der Funktion beurteilen?</li>
+	<li>Was bedeutet Injektivität anschaulich? Woran erkennt man dies an der Definition der Injektivität?
+		Fertigen Sie Skizzen von injektiven und nicht injektiven Funktionen an.</li>
+	<li>Was bedeutet Surjektivität anschaulich? Woran erkennt man dies an der Definition der Surjektivität?
+		Fertigen Sie Skizzen von surjektiven und nicht surjektiven Funktionen an.</li>
+	<li>Ist die Funktion $f(x) = x^2$ injektiv oder surjektiv? Können Sie dies in der Form, in der die Funktion angegeben ist,
+		beurteilen?</li>
 	<li>Passen Sie die Angabe von $f$ so an, dass Sie die beiden Eigenschaften der Injektivität und Surjektivität überprüfen 
 		können. </li>
 	<li>Für welche Definitions- bzw. Wertebereiche ist $f$ mit $f(x) = x^2$ injektiv bzw. surjektiv?</li>
@@ -145,13 +155,13 @@ Teil 3 - Eigenschaften von Funktionen
 		Worin erkennen Sie den entscheidenden Unterschied.</li>
 	<li>Kommentieren Sie:
 		<ul>
-			<li>Wenn eine Funktion nicht monoton fällt, wächst sie also monoton.</li>
+			<li>Wenn eine Funktion nicht monoton fällt, wächst sie monoton.</li>
 			<li>Wenn eine Funktion nicht ungerade ist, ist sie gerade.</li>
 		</ul>
 		</li>
 	<li>Worin liegt der Unterschied zwischen globalen und lokalen Maxima bzw. Minima? 
-		Woran erkennt man dies an der Definition der beiden Begriffe?
-		Skizzieren Sie eine Funktion, die ein lokales, aber kein globales Maximum hat. </li>
+		Woran erkennt man dies an der Definition der beiden Begriffe?</li>
+	<li>Skizzieren Sie eine Funktion, die ein lokales, aber kein globales Maximum hat. </li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
