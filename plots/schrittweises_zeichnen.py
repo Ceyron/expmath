@@ -37,7 +37,7 @@ NUMER_OF_POINTS = 300
 # right top
 
 # The first function is a general fractional function
-indicator_1 = "$\\frac{1}{\\sqrt(1+x^2)}$"
+indicator_1 = "$\\frac{1}{\\sqrt{1+x^2}}$"
 func_1 = [
         lambda x: x**2,
         lambda x: 1 + x**2,
@@ -63,7 +63,7 @@ label_2 = [
         "$\\sin^2\\left(x + \\frac{\\pi}{2}\\right)$",
         ]
 
-indicator_3 = "$\\frac{1}{x^2 - 2}"
+indicator_3 = "$\\frac{1}{x^2 - 2}$"
 func_3 = [
         lambda x: x**2,
         lambda x: x**2 - 2,
@@ -75,7 +75,7 @@ label_3 = [
         "$\\frac{1}{x^2 - 2}$",
         ]
 
-indicator_4 = "$\\frac{{\\rm{e}}^x}{1 + {\\rm{e}}^x}"
+indicator_4 = "$\\frac{{\\rm{e}}^x}{1 + {\\rm{e}}^x}$"
 func_4 = [
         lambda x: np.exp(x),
         lambda x: 1 + np.exp(x),
