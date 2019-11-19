@@ -16,7 +16,7 @@ Die Schwingungsgleichung
         \begin{align*}
             \varrho u_{,tt} = P u_{,xx},
         \end{align*}
-        wobei $varrho$ die Längendichte der Saite angibt, $P$ die Vorspannung der Saite ist und 
+        wobei $\varrho$ die Längendichte der Saite angibt, $P$ die Vorspannung der Saite ist und 
         $u(t,x)$ die Auslenkung der Saite an einem Ort $x$ zur Zeit $t$ angibt.
     </p>
     <p> Auf der linken Seite der Gleichung finden wir das 2. Newtonsche Gesetz, 
@@ -28,7 +28,7 @@ Randbedingungen
 {% endblock %}
 {% block DEF2%}
 <p> Bei einer Gitarrensaite sind die beiden Enden eingespannt und die Saite lässt sich dort nicht auslenken. </p>
-<p> Eine solche Einspannung lässt sich durch Dirichlet-Randbedingungen beschreiben. Mit der zusätzlichen Festlegung,
+<p> Eine solche Einspannung lässt sich durch Dirichlet-Randbedingungen für $\Omega=(a,b)$ beschreiben. Mit der zusätzlichen Festlegung,
     die Saite auf der Höhe 0 einzuspannen, erhalten wir die homogenen Dirichlet-Randbedingungen
     \begin{align*}
     u(t,a) = u(t,b)=0,
@@ -76,13 +76,13 @@ Fragen zum tieferen Verständnis
 {% block QUEST2 %}
 Die Lösung der Schwingungsgleichung zur $k$-ten Eigenform hat die Form 
 \begin{align*}
-u(t,x)= \cos( \frac{k}{L} \sqrt{\frac{P}{\varrho}}/cdot t ) \sin(\frac{k}{L} x)
+u(t,x)= \cos( \frac{k}{L} \sqrt{\frac{P}{\varrho}}\cdot t ) \sin(\frac{k}{L} x)
 \end{align*}
 <ol>
     <li>  Begründen Sie anhand der Lösungsformel, welche Auswirkungen Veränderungen der Länge $L$, 
         der Vorspannung $P$ oder der Dichte $\varrho$ haben. 
         Überprüfen Sie Ihre Vermutung mithilfe der interaktiven Graphik. </li>
-        <li>Begründen Sie anhand der Lösungsformel, wieso die Amplitude der Schwingung konstant ist. </li>> 
+        <li>Begründen Sie anhand der Lösungsformel, wieso die Amplitude der Schwingung konstant ist. </li> 
        <li> Rechnen Sie nach, dass die Lösungsformel tatsächlich eine Lösung angibt.</li>
 </ol>
 {% endblock %}
