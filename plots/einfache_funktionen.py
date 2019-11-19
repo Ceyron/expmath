@@ -376,7 +376,7 @@ functions = {
                 },
 
         "absolute": {
-                "definition": (lambda a, b, c, d, x: a * np.abs(b*x + c) + d),
+                "definition": (lambda a, b, c, d, x: a * np.absolute(b*x + c) + d),
                 "latex": """
                     \\begin{aligned}
                         f(x)
