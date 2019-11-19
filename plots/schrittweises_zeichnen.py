@@ -134,7 +134,7 @@ plot.line('x', 'y', source=step_4_source, line_width=LINE_WIDTH_OLD,
 plot.line('x', 'y', source=step_5_source, line_width=LINE_WIDTH_OLD,
         color="red")
 
-function_selector = RadioButtonGroup(labels=indicators, height = 20, active=0)
+function_selector = RadioButtonGroup(labels=indicators, height = 100, active=0)
 step_slider = Slider(title="Schritt", start=1, end=4, value=1, step=1)
 # The latex label is an updated label that is connected with the katex latex
 # engine. Since it is connected to the plot, it has to adjusted with respect to
