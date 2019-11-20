@@ -73,7 +73,7 @@ trivial_line_source = ColumnDataSource(data={'x': [], 'y': []})
 
 plot = Figure(plot_height=HEIGHT, plot_width=WIDTH_PLOT, x_range=[-1, 2*np.pi+1],
         y_range=[-2, 2], tools="")
-plot.xaxis.axis_label = "Position x"
+plot.xaxis.axis_label = "Ort x"
 plot.yaxis.axis_label = "Temperatur u(t, x)"
 
 # Analytical solution

@@ -103,6 +103,7 @@ source = ColumnDataSource()
 
 plot = Figure(x_range=[-1, 2*np.pi+1], y_range=[-2, 2], plot_height=HEIGHT,
               plot_width=WIDTH_PLOT)
+plot.xaxis.axis_label = "Ort x"
 plot.toolbar.active_drag = None  # Helpful for touchscreen users
 # Indicate the x-axis
 plot.line(x=[-100, 100], y=[0, 0], color="black")
