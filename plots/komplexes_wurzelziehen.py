@@ -8,14 +8,14 @@ from bokeh.plotting import figure
 
 # Geometry Constants of the plot
 HEIGHT = 400
-WIDTH_PLOT = 400
+WIDTH_PLOT = 600
 WIDTH_TOTAL = 800
 
 # The initial viewport the user starts in
 X_LEFT = -4
 X_RIGHT = 4
-Y_BOTTOM = -4
-Y_TOP = 4
+Y_BOTTOM = -3
+Y_TOP = 3
 
 # Limits of the imaginary and real slider
 CARTESIAN_SLIDER_LIMITS = (-3, 3)
