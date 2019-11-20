@@ -7,8 +7,8 @@ from bokeh.models.widgets import Slider, RadioButtonGroup
 from bokeh.plotting import figure
 
 # Geometry Constants of the plot
-HEIGHT = 600
-WIDTH_PLOT = 600
+HEIGHT = 400
+WIDTH_PLOT = 400
 WIDTH_TOTAL = 800
 
 # The initial viewport the user starts in
