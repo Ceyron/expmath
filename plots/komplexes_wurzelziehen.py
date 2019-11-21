@@ -118,7 +118,7 @@ def update_data(cartesian_or_polar, real_or_radius, imaginary_or_angle, order,
 
     # The data for the polyeder
     vertices_angle = np.linspace(0., 360., order.value +1)
-    vertices_angle += raticand_angle
+    vertices_angle += raticand_angle**(1/(order.value +1))
     vertices_real = radius_circle * np.cos(np.deg2rad(vertices_angle))
     vertices_imaginary = radius_circle * np.sin(np.deg2rad(vertices_angle))
     polyeder_source.data = {
