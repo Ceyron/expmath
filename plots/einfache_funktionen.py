@@ -416,7 +416,9 @@ functions = {
 
 
 def update_plot(function_active, a, b, c, d):
-    x = np.linspace(X_LEFT, X_RIGHT, 400)
+    x_left_of_0 = np.linspace(X_LEFT, -0.000001, 200)
+    x_right_of_0 = np.linspace(0.000001, X_RIGHT, 200)
+    x = np.concatenate([x_left_of_0, x_right_of_0])
     y = functions[function_active]["definition"](a, b, c, d, x)
 
     return x, y
