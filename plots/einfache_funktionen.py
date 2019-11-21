@@ -416,9 +416,17 @@ functions = {
 
 
 def update_plot(function_active, a, b, c, d):
-    x_left_of_0 = np.linspace(X_LEFT, -0.000001, 200)
-    x_right_of_0 = np.linspace(0.000001, X_RIGHT, 200)
-    x = np.concatenate([x_left_of_0, x_right_of_0])
+    if function_active == "absolute":
+        x_left_of_c = np.linspace(X_LEFT, c - 0.0001, 200)
+        x_right_of_c = np.linspace(c + 0.0001, X_RIGHT, 200)
+        x = np.concatenate([x_left_of_c, np.array([c, ]), x_right_of_c])
+    elif function_active == "heaviside":
+        x_left_of_b = np.linspace(X_LEFT, b - 0.0001, 200)
+        x_right_of_b = np.linspace(b + 0.0001, X_RIGHT, 200)
+        x = np.concatenate([x_left_of_b, x_right_of_b])
+    else:
+        x = np.linspace(X_LEFT, X_RIGHT, 400)
+
     y = functions[function_active]["definition"](a, b, c, d, x)
 
     return x, y
