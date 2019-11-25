@@ -41,10 +41,10 @@ def create_latex(length, tension, density, first, second, third):
         str(round(tension, 1)) +\
         " / " +\
         str(round(density, 1)) +\
-        "} t \\right)" +\
+        "} \cdot t \\right)" +\
         " \cdot \sin \left( 1 / " +\
         str(round(length, 1)) +\
-        " x \\right)"
+        " \cdot x \\right)"
 
     if(second != 0.0):
         if(first != 0.0):
@@ -59,10 +59,10 @@ def create_latex(length, tension, density, first, second, third):
         str(round(tension, 1)) +\
         " / " +\
         str(round(density, 1)) +\
-        "} t \\right)" +\
+        "} \cdot t \\right)" +\
         " \cdot \sin \left( 2 / " +\
         str(round(length, 1)) +\
-        " x \\right)"
+        " \cdot x \\right)"
 
 
     if(third != 0.0):
@@ -77,10 +77,10 @@ def create_latex(length, tension, density, first, second, third):
         " \cdot \sqrt{" +\
         str(round(tension, 1)) +\
         " / " + str(round(density, 1)) +\
-        "} t \\right)" +\
+        "} \cdot  t \\right)" +\
         " \cdot \sin \left( 3 / " +\
         str(round(length, 1)) +\
-        " x \\right)"
+        " \cdot x \\right)"
 
     return text
 
