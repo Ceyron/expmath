@@ -84,8 +84,8 @@ plot_right.toolbar.active_drag = None
 
 function_selector = RadioButtonGroup(labels=["Sinus", "Kosinus", "Tangens"],
         active=0)
-phase_slider = Slider(title="Argument der trigonometrischen Funktion", start=0,
-        end=2*np.pi, step=0.1, value=0.7)
+phase_slider = Slider(title="Argument der trigonometrischen Funktion (mal pi)", start=0,
+        end=4, step=0.1, value=0.7)
 
 # Draw circle once in advance 
 plot_left.circle(x=0, y=0, radius=1, color="black", line_width=2,
@@ -105,12 +105,12 @@ def update_slider(attr, old, new):
     trig_values.data = {"x": x, "y": y}
 
     x_triangle, y_triangle, radius = calculate_triangle_values_on_unit_circle(
-            function_selector.active, phase_slider.value)
+            function_selector.active, phase_slider.value*np.pi)
     triangle_values.data = {"x": x_triangle, "y": y_triangle,
             "radius": radius}
 
     x_highlight, y_highlight = calculate_active_value_highlight_line(
-            function_selector.active, phase_slider.value)
+            function_selector.active, phase_slider.value*np.pi)
     active_values.data = {"x": x_highlight, "y": y_highlight}
 
 
