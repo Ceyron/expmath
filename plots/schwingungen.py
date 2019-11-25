@@ -35,16 +35,16 @@ def create_latex(length, tension, density, first, second, third):
     if(first != 0.0):
         text += " " +\
         str(round(first, 1)) +\
-        " \cdot \cos \left( \\frac{1}{" +\
+        " \cdot \cos \left( 1 / " +\
         str(round(length, 1)) +\
-        "} \sqrt{\\frac{" +\
+        " \cdot \sqrt{ " +\
         str(round(tension, 1)) +\
-        "}{" +\
+        " / " +\
         str(round(density, 1)) +\
-        "}} t \\right)" +\
-        " \cdot \sin \left( \\frac{1}{" +\
+        "} t \\right)" +\
+        " \cdot \sin \left( 1 / " +\
         str(round(length, 1)) +\
-        "} x \\right)"
+        " x \\right)"
 
     if(second != 0.0):
         if(first != 0.0):
@@ -53,16 +53,16 @@ def create_latex(length, tension, density, first, second, third):
 
         text += " " +\
         str(round(second, 1)) +\
-        " \cdot \cos \left( \\frac{2}{" +\
+        " \cdot \cos \left( 2 / " +\
         str(round(length, 1)) +\
-        "} \sqrt{\\frac{" +\
+        " \cdot \sqrt{ " +\
         str(round(tension, 1)) +\
-        "}{" +\
+        " / " +\
         str(round(density, 1)) +\
-        "}} t \\right)" +\
-        " \cdot \sin \left( \\frac{2}{" +\
+        "} t \\right)" +\
+        " \cdot \sin \left( 2 / " +\
         str(round(length, 1)) +\
-        "} x \\right)"
+        " x \\right)"
 
 
     if(third != 0.0):
@@ -74,13 +74,13 @@ def create_latex(length, tension, density, first, second, third):
         str(round(third, 1)) +\
         " \cdot \cos \left( 3 / " +\
         str(round(length, 1)) +\
-        " \sqrt{\\frac{" +\
+        " \cdot \sqrt{" +\
         str(round(tension, 1)) +\
-        "}{" + str(round(density, 1)) +\
-        "}} t \\right)" +\
-        " \cdot \sin \left( \\frac{3}{" +\
+        " / " + str(round(density, 1)) +\
+        "} t \\right)" +\
+        " \cdot \sin \left( 3 / " +\
         str(round(length, 1)) +\
-        "} x \\right)"
+        " x \\right)"
 
     return text
 
