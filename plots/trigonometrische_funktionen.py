@@ -101,7 +101,7 @@ plot_right.line(x="x", y="y", color="blue", source=trig_values, line_width=2)
 # Define the callbacks
 def update_slider(attr, old, new):
     x, y = calculate_new_function_value_pairs(function_selector.active,
-            phase_slider.value)
+            phase_slider.value*np.pi)
     trig_values.data = {"x": x, "y": y}
 
     x_triangle, y_triangle, radius = calculate_triangle_values_on_unit_circle(
