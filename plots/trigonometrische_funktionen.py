@@ -75,11 +75,11 @@ trig_values = ColumnDataSource()
 triangle_values = ColumnDataSource()
 active_values = ColumnDataSource()
 
-plot_left = figure(plot_width=WIDTH_LEFT, plot_height=HEIGHT, x_range=[-2, 2],
-        y_range=[-2, 2])
+plot_left = figure(plot_width=WIDTH_LEFT, plot_height=HEIGHT, x_range=[-1.5, 1.5],
+        y_range=[-1.5, 1.5])
 plot_left.toolbar.active_drag = None
-plot_right = figure(plot_width=WIDTH_RIGHT, plot_height=HEIGHT, x_range=[0, 8],
-        y_range=[-2, 2])
+plot_right = figure(plot_width=WIDTH_RIGHT, plot_height=HEIGHT, x_range=[0, 13],
+        y_range=[-1.5, 1.5])
 plot_right.toolbar.active_drag = None
 
 function_selector = RadioButtonGroup(labels=["Sinus", "Kosinus", "Tangens"],
