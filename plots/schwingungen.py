@@ -72,9 +72,9 @@ def create_latex(length, tension, density, first, second, third):
 
         text += " " +\
         str(round(third, 1)) +\
-        " \cdot \cos \left( \\frac{3}{" +\
+        " \cdot \cos \left( 3 \\backslash " +\
         str(round(length, 1)) +\
-        "} \sqrt{\\frac{" +\
+        " \sqrt{\\frac{" +\
         str(round(tension, 1)) +\
         "}{" + str(round(density, 1)) +\
         "}} t \\right)" +\
