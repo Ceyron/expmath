@@ -85,7 +85,7 @@ plot_right.toolbar.active_drag = None
 function_selector = RadioButtonGroup(labels=["Sinus", "Kosinus", "Tangens"],
         active=0)
 phase_slider = Slider(title="Argument der trigonometrischen Funktion (mal pi)", start=0,
-        end=4, step=0.1, value=0.25)
+        end=4, step=0.05, value=0.25)
 
 # Draw circle once in advance 
 plot_left.circle(x=0, y=0, radius=1, color="black", line_width=2,
