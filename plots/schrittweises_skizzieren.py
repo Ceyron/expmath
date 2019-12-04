@@ -158,9 +158,7 @@ def update_slider(attr, old, new):
         # use -1 since we have zero based indexing on the Python lists
         update_data(function_selector.active, new-1, sources[new])
 
-    # Fill the latex label
-    step_function_latex.text = "f(x) = " +\
-            labels[function_selector.active][new-1]
+
 
 
 def update_button(source):
@@ -176,8 +174,9 @@ def update_button(source):
     # Calculate the value pairs for the first step of the newly selected
     # function
     update_data(function_active, 0, step_1_source)
-    # Fill the latex label with the formula for the first step
-    step_function_latex.text = "f(x) = " + labels[function_active][0]
+  
+
+  
     # Whenever the function is changed the steps start back at the first
     step_slider.value = 1
 
