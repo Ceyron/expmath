@@ -139,11 +139,7 @@ step_slider = Slider(title="Schritt", start=1, end=4, value=1, step=1)
 # The latex label is an updated label that is connected with the katex latex
 # engine. Since it is connected to the plot, it has to adjusted with respect to
 # the bottom left corner of the plot measuring in screen units (=pixels)
-step_function_latex = LatexLabel(
- x=WIDTH_PLOT+10, y=250,
-        x_units="screen", y_units="screen", render_mode="css",
-        text_font_size="14pt", background_fill_alpha=0)
-plot.add_layout(step_function_latex)
+
 
 # Call this routine first to populate the plot with the first step
 update_data(0, 0, step_1_source)
