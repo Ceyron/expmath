@@ -37,9 +37,10 @@ Grenzwerte von Funktionen
 	$$\displaystyle\lim_{x \to z^-} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n < z$$</p>
 <p><b>Rechtsseitiger Grenzwert:</b> 
 	$$\displaystyle\lim_{x \to z^+} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n > z$$</p>
-<p><b>Folgenkriterium:</b> Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn
-	$$\lim_{x \to z} f(x) = f(z)$$
-	für alle Folgen mit $x \to z$.
+<p><b>Folgenkriterium:</b> Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn für alle Folgen $(x_n)_{n=0}^\infty$,
+	die gegen $z$ konvergieren, die Folge $(f(x_n))_{n=0}^\infty$ der zugehörigen Funktionswerte gegen $f(z)$ konvergiert. 
+	Stetigkeit bedeutet also eine Vertauschbarkeit von Funktionswert- und Grenzwertbildung an der Stelle $z$:
+	$$\lim_{n\to\infty} f(x_n) = f(z) = f(\lim_{n\to\infty} x_n) \ \ \forall (x_n)_{n= 0}^\infty \to z.$$ 
 </p>
 {% endblock %}
 
