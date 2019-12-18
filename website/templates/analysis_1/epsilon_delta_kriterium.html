@@ -21,6 +21,7 @@ Epsilon-Delta-Kriterium
 	\lvert x - z \rvert < \delta \ \Rightarrow \ \lvert f(x) - f(z) \rvert < \varepsilon. $$
 	Das Intervall $(z-\delta, z+\delta)$ wird also in den $\varepsilon$-Schlauch um $f(z)$ abgebildet.
 </p>
+<p>Eine Funktion $f:[a,b] \to \mathbb{R}$ oder $f: \mathbb{R} \to \mathbb{R}$ heißt stetig, wenn sie in jedem Punkt stetig ist.</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
@@ -28,14 +29,14 @@ Grenzwerte von Funktionen
 {% endblock %}
 {% block DEF3 %}
  <p>$f: D \to \mathbb{R}$ und $(a,b)\subseteq D, z \in [a,b]$</p>
- <p><b>Grenzwert von $f$ im Punkt $z$</b></p>
- <p>Für jede Folge $(x_n)_{n=0}^\infty$ mit $x_n \in D \ \forall n \in \mathbb{N}$ und $\displaystyle\lim_{n \to \infty} x_n = z$ gilt
-	 $$\lim_{n \to \infty} f(x_n) = c$$
-	 Notation: $\displaystyle \lim_{x \to z} f(x) = c$ </p>
+ <p><b>Grenzwert von $f$ im Punkt $z$:</b> 
+	Für jede Folge $(x_n)_{n=0}^\infty$ mit $x_n \in D \ \forall n \in \mathbb{N}$ und $\displaystyle\lim_{n \to \infty} x_n = z$ gilt
+	$$\lim_{n \to \infty} f(x_n) = c$$
+	Notation: $\displaystyle \lim_{x \to z} f(x) = c$ </p>
 <p><b>Linksseitiger Grenzwert:</b> 
-	$\displaystyle\lim_{x \to z^-} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n < z$</p>
+	$$\displaystyle\lim_{x \to z^-} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n < z$$</p>
 <p><b>Rechtsseitiger Grenzwert:</b> 
-	$\displaystyle\lim_{x \to z^+} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n > z$</p>
+	$$\displaystyle\lim_{x \to z^+} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n > z$$</p>
 <p><b>Folgenkriterium:</b> Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn
 	$$\lim_{x \to z} f(x) = f(z)$$
 	für alle Folgen mit $x \to z$.
@@ -43,11 +44,25 @@ Grenzwerte von Funktionen
 {% endblock %}
 
 {% block DEF4_HEAD %}
-Eigenschaften stetiger Funktionen
+Arten von Unstetigkeitsstellen und Eigenschaften stetiger Funktionen
 {% endblock %}
 {% block DEF4 %}
-<p></p>
+<p><b>Sprungstelle</b>
+	$$\lim_{x\to z^-} f(x) \neq \lim_{x \to z^+} \ , \ \text{beide Grenzwerte existieren}$$</p>
+<p><b>Hebbare Unstetigkeitsstelle</b>
+	$$c = \lim_{x \to z^-} f(x) = \lim_{x \to z^+} f(x) \neq f(z)$$
+	behebbar durch Umdefinition $\tilde{f}(z) = c$</p>
+<p><b>Hebbare Definitionslücke</b>
+	$$c = \lim_{x \to z^-} f(x) = \lim_{x \to z^+} f(x) \ , \ \text{aber hier: $f(z)$ nicht definiert}$$</p>
+<p><b>Polstelle</b>
+	$$\lim_{x \to z^-} f(x) = \pm \infty \ \text{ und/oder } \ \lim_{x \to z^+} f(x) = \pm\infty $$</p>
+<p><b>Zwischenwertsatz:</b> Eine stetige Funktion $f: [a,b] \to \mathbb{R}$ nimmt jeden Wert zwischen $f(a)$ und $f(b)$ an.</p>
+<p><b>Satz von Weierstraß:</b> Sei $f:[a,b] \to \mathbb{R}$ stetig. Dann existieren Stellen $x_{\rm{min}},x_{\rm{max}}\in [a,b]$ mit
+	$$f(x_{\rm{min}}) \leq f(x) \leq f(x_{\rm{max}}) \ \ \forall x \in [a,b].$$
+	Das bedeutet, dass stetige Funktionen auf abgeschlossenen Intervallen ihre Extrema annehmen. Sie sind beschränkt. Dies gilt 
+	nicht auf offenen oder halboffenen Intervallen.</p>
  {% endblock %}
+
 
 {% block BOKEH %}
 {{ script|safe }}
