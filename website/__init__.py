@@ -32,7 +32,7 @@ analysis_1 = {
     #"ordnungssymbol": "Größenordnungen und Landausches Ordnungssymbol (TODO)",
     "reihen": "Partialsummen und Reihen",
     "einfache_funktionen": "Standardfunktionen",
-    #"epsilon_delta_kriterium": "Stetigkeit von Funktionen",
+    "epsilon_delta_kriterium": "Stetigkeit von Funktionen",
     #"diffbarkeit": "Differenzierbarkeit von Funktionen",
     #"integrale_und_ableitungen": "Integrale und Ableitungen",
     #"riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
