@@ -18,7 +18,7 @@ Epsilon-Delta-Kriterium
 {% block DEF2%}
 <p>Ist $f: D \to\mathbb{R}$ stetig im Punkt $z \in D$, so gilt
 	$$\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in D: \ 
-	\lvert x - z \rvert > \delta \ \Rightarrow \ \lvert f(x) - f(z) \rvert < \varepsilon. $$
+	\lvert x - z \rvert < \delta \ \Rightarrow \ \lvert f(x) - f(z) \rvert < \varepsilon. $$
 	Das Intervall $(z-\delta, z+\delta)$ wird also in den $\varepsilon$-Schlauch um $f(z)$ abgebildet.
 </p>
 {% endblock %}
@@ -33,19 +33,20 @@ Grenzwerte von Funktionen
 	 $$\lim_{n \to \infty} f(x_n) = c$$
 	 Notation: $\displaystyle \lim_{x \to z} f(x) = c$ </p>
 <p><b>Linksseitiger Grenzwert:</b> 
-	$\displaystyle\lim_{x \to z^-} f(x) = \lim_{n\to\infty} f(x_n) \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n < z$</p>
+	$\displaystyle\lim_{x \to z^-} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n < z$</p>
 <p><b>Rechtsseitiger Grenzwert:</b> 
-	$\displaystyle\lim_{x \to z^+} f(x) = \lim_{n\to\infty} f(x_n) \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n > z$</p>
+	$\displaystyle\lim_{x \to z^+} f(x) = \lim_{n\to\infty} f(x_n) \ \ \forall (x_n)_{n=0}^\infty \to z \ , \ x_n > z$</p>
+<p><b>Folgenkriterium:</b> Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn
+	$$\lim_{x \to z} f(x) = f(z)$$
+	für alle Folgen mit $x \to z$.
+</p>
 {% endblock %}
 
 {% block DEF4_HEAD %}
-Folgenkriterium
+Eigenschaften stetiger Funktionen
 {% endblock %}
 {% block DEF4 %}
- <p>Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn
-	 $$\lim_{x \to z} f(x) = f(z)$$
-	 für alle Folgen mit $x \to z$.
- </p>
+<p></p>
  {% endblock %}
 
 {% block BOKEH %}
