@@ -16,7 +16,11 @@ Was ist Stetigkeit?
 Epsilon-Delta-Kriterium
 {% endblock %}
 {% block DEF2%}
-<p></p>
+<p>Ist $f: D \to\mathbb{R}$ stetig im Punkt $z \in D$, so gilt
+	$$\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in D: \ 
+	\lvert x - z \rvert > \delta \ \Rightarrow \ \lvert f(x) - f(z) \rvert < \varepsilon. $$
+	Das Intervall $(z-\delta, z+\delta)$ wird also in den $\varepsilon$-Schlauch um $f(z)$ abgebildet.
+</p>
 {% endblock %}
 
 {% block DEF3_HEAD %}
@@ -38,7 +42,10 @@ Grenzwerte von Funktionen
 Folgenkriterium
 {% endblock %}
 {% block DEF4 %}
- <p></p>
+ <p>Die Funktion $f: D \to \mathbb{R}$ heißt stetig im Punkt $z \in D$, wenn
+	 $$\lim_{x \to z} f(x) = f(z)$$
+	 für alle Folgen mit $x \to z$.
+ </p>
  {% endblock %}
 
 {% block BOKEH %}
