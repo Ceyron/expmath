@@ -97,9 +97,9 @@ function_names = ["Funktion 1", "Funktion 2", "Funktion 3", ]
 
 def calculate_new_value_pairs(function_active):
         if function_active == "FUNC_2":
-                x_left_of_c = np.linspace(X_LEFT, c - 0.0001, 200)
-                x_right_of_c = np.linspace(c + 0.0001, X_RIGHT, 200)
-                x = np.concatenate([x_left_of_c, np.array([c, ]), x_right_of_c])
+                x_left_of_0 = np.linspace(X_LEFT, 0 - 0.0001, 50)
+                x_right_of_0 = np.linspace(0 + 0.0001, X_RIGHT, 50)
+                x = np.concatenate([x_left_of_0, np.array([0, ]), x_right_of_0])
         else:
                 x = np.linspace(X_LEFT, X_RIGHT, 100)
 
