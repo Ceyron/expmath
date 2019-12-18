@@ -161,7 +161,7 @@ plot.multi_line(xs="xs", ys="ys", color="black",
 
 function_selector = RadioButtonGroup(labels=function_names, active=0)
 
-epsilon_slider = Slider(title="$\varepsilon = $", start=MIN_TUNNEL_WIDTH,
+epsilon_slider = Slider(title="$\\varepsilon = $", start=MIN_TUNNEL_WIDTH,
         end=MAX_TUNNEL_WIDTH, step=STEP_TUNNEL_WIDTH,
         value=INITIAL_TUNNEL_WIDTH)
 delta_slider = Slider(title="$\delta = $", start=MIN_TUNNEL_WIDTH,
