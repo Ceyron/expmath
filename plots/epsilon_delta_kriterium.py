@@ -59,7 +59,7 @@ def FUNC_1(x):
 
 # Absolute function
 def FUNC_2(x):
-    y = np.abs(x)
+    y = np.absolute(x)
     xs = [x, ]
     ys = [y, ]
     return xs, ys
@@ -161,13 +161,13 @@ plot.multi_line(xs="xs", ys="ys", color="black",
 
 function_selector = RadioButtonGroup(labels=function_names, active=0)
 
-epsilon_slider = Slider(title="$\\varepsilon = $", start=MIN_TUNNEL_WIDTH,
+epsilon_slider = Slider(title="$Breite des Epsilon-Schlauchs$", start=MIN_TUNNEL_WIDTH,
         end=MAX_TUNNEL_WIDTH, step=STEP_TUNNEL_WIDTH,
         value=INITIAL_TUNNEL_WIDTH)
-delta_slider = Slider(title="$\delta = $", start=MIN_TUNNEL_WIDTH,
+delta_slider = Slider(title="$Breite des Delta-Schlauchs$", start=MIN_TUNNEL_WIDTH,
         end=MAX_TUNNEL_WIDTH, step=STEP_TUNNEL_WIDTH,
         value=INITIAL_TUNNEL_WIDTH)
-position_slider = Slider(title="Betrachtete Stelle $z$", start=VIEWPORT_X[0] + 1,
+position_slider = Slider(title="Betrachtete Stelle z", start=VIEWPORT_X[0] + 1,
         end= VIEWPORT_X[1] - 1, step = STEP_POSITION, value = 1)
 
 
