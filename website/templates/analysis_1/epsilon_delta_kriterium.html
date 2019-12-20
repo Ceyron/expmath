@@ -5,17 +5,11 @@
 {% endblock %}
 
 
-{% block DEF1_HEAD %}
-Was ist Stetigkeit?
-{% endblock %}
-{% block DEF1 %}
-<p></p>
-{% endblock %}
 
-{% block DEF2_HEAD %}
+{% block DEF1_HEAD %}
 Epsilon-Delta-Kriterium
 {% endblock %}
-{% block DEF2%}
+{% block DEF1%}
 <p>Ist $f: D \to\mathbb{R}$ stetig im Punkt $z \in D$, so gilt
 	$$\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x \in D: \ 
 	\lvert x - z \rvert < \delta \ \Rightarrow \ \lvert f(x) - f(z) \rvert < \varepsilon. $$
@@ -24,10 +18,10 @@ Epsilon-Delta-Kriterium
 <p>Eine Funktion $f:[a,b] \to \mathbb{R}$ oder $f: \mathbb{R} \to \mathbb{R}$ heißt stetig, wenn sie in jedem Punkt stetig ist.</p>
 {% endblock %}
 
-{% block DEF3_HEAD %}
+{% block DEF2_HEAD %}
 Grenzwerte von Funktionen
 {% endblock %}
-{% block DEF3 %}
+{% block DEF2 %}
  <p>$f: D \to \mathbb{R}$ und $(a,b)\subseteq D, z \in [a,b]$</p>
  <p><b>Grenzwert von $f$ im Punkt $z$:</b> 
 	Für jede Folge $(x_n)_{n=0}^\infty$ mit $x_n \in D \ \forall n \in \mathbb{N}$ und $\displaystyle\lim_{n \to \infty} x_n = z$ gilt
@@ -44,10 +38,10 @@ Grenzwerte von Funktionen
 </p>
 {% endblock %}
 
-{% block DEF4_HEAD %}
+{% block DEF3_HEAD %}
 Arten von Unstetigkeitsstellen und Eigenschaften stetiger Funktionen
 {% endblock %}
-{% block DEF4 %}
+{% block DEF3 %}
 <p><b>Sprungstelle</b>
 	$$\lim_{x\to z^-} f(x) \neq \lim_{x \to z^+} f(x)\ , \ \text{beide Grenzwerte existieren}$$</p>
 <p><b>Hebbare Unstetigkeitsstelle</b>
