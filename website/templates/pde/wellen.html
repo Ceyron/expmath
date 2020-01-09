@@ -9,7 +9,7 @@
 Wellengleichung
 {% endblock %}
 {% block DEF1 %}
-<p>Wir betrachten eine Wellengleichung $$u_{,tt} = c^2 u_{,xx} \quad \text{für} x \in \mathbb{R}, t>0.$$</p>
+<p>Wir betrachten eine Wellengleichung $$u_{,tt} = c^2 u_{,xx} \quad \text{für} \quad x \in \mathbb{R}, t>0.$$</p>
 <p>Zusammen mit den Anfangsbedingungen $u(0,x)=u_0(x)$ und $u_{,t}(0,x)= u_1(x)$ erhalten wir ein vollständiges Anfangswertproblem.</p>
 {% endblock %}
 
@@ -20,7 +20,7 @@ Lösungsansatz
 <p> Die Lösung $u(t,x)$ setzt sich aus einer nach rechtslaufenden Welle $F(x-ct)$ und einer nach linkslaufenden Welle $G(x+ct)$ zusammen, 
 	also $$u(t,x)= F(x-ct)+ G(x+ct).$$</p>
 <p> Die Gestalt von $F$ und $G$ hängt von den Anfangsbedingungen $u_0(x)$ und $u_1(x)$ ab. Genauer gilt
-	$$ u(t,x) = \\frac{1}{2} \left ( u_0(x-ct) + u_0(x+ct) + \frac{1}{c} \int_{x-ct}^{x+ct} u_1(y) \mathrm{d}y.$$ </p>
+	$$ u(t,x) = \\frac{1}{2} \left ( u_0(x-ct) + u_0(x+ct) + \\frac{1}{c} \int_{x-ct}^{x+ct} u_1(y) \mathrm{d}y.$$ </p>
 {% endblock %}
 
 
@@ -43,7 +43,7 @@ Erkundung der Graphik
 {% block QUEST1 %}
 <ol>
 <li>Was verändert sich bei unterschiedlichen Anfangsbedingungen?</li>
-<li>Welchen Einfluss hat insbesondere eine Anfangsbeingung $u_1(x) \neq 0$?</li>
+<li>Welchen Einfluss hat insbesondere eine Anfangsbedingung $u_1(x) \neq 0$?</li>
 </ol>
 {% endblock %}
 {% block ANS1 %}
