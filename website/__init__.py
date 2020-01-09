@@ -86,7 +86,7 @@ pde = {
     "waermeleitung": "Wärmeleitung",
     "schwingungen": "Schwingungen",
     "wellen": "Wellenausbreitung",
-   # "transport_gleichung": "Transportgleichung und Charakteristiken",
+    "transport_gleichung": "Transportgleichung und Charakteristiken",
     #"membran_verformung": "Verformung von Membranen (Maximumsprinzip,\
     #    Mittelwerteigenschaft (TODO)",
     #"fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
