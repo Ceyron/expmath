@@ -108,7 +108,7 @@ init_0_selector = RadioButtonGroup(labels=indicators_0, active=0)
 speed = Slider(title="Ausbreitungsgeschwindigkeit", start=0.1, end=2, step=0.1,
         value=1)
 # Manipulate the influence of the zeroth initial condition
-scale_0 = Slider(title="Skalierung der 0. Anfangsbedingung", start=0.1, end=2,
+scale_0 = Slider(title="Skalierung der 1. Anfangsbedingung", start=0.1, end=2,
         step=0.1, value=1)
 # Toggle that adds a periodic callback function, so that the plot seems to be
 # moving
@@ -122,7 +122,7 @@ advanced_toggle = Toggle(label="Zweite Anfangsbedingung aktivieren")
 # Select the type of the first initial condition
 init_1_selector = RadioButtonGroup(labels=indicators_1, active=0, visible=False)
 # Manipulate the influence of the first initial condition
-scale_1 = Slider(title="Skalierung der 1. Anfangsbedingung", start=0, end=2,
+scale_1 = Slider(title="Skalierung der 2. Anfangsbedingung", start=0, end=2,
         step=0.1, value=0, visible=False)
 
 
