@@ -91,7 +91,7 @@ pde = {
     #    Mittelwerteigenschaft (TODO)",
     #"fundamental_loesungen": "Fundamentallösungen und Faltungen (TODO)",
     #"green_funktion": "Green-Funktion (TODO)",
-    #"variationsformulierung": "Variationsformulierung",
+    "variationsformulierung": "Variationsformulierung",
     #"finite_elemente": "Finite Elemente",
     }
 
