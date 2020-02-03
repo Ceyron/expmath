@@ -48,7 +48,6 @@ def calculate_new_value_pairs(function_active):
         x = np.concatenate([x_left, np.array([0, ]), x_right])
     else:
         x = np.linspace(LEFT, RIGHT, 200)
-
 y = functions[function_active](x)
 return x,y 
 
