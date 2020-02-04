@@ -43,10 +43,10 @@ functions = [FUNC_1, FUNC_2, FUNC_3]
 
 
 def calculate_new_value_pairs(function_active):
-    if function_active == 2:
+    if function_active == 1:
         x_left = np.linspace(LEFT, - 0.0001, 100)
         x_right = np.linspace(0.0001, RIGHT, 100)
-        x = np.concatenate([x_left_of_b, x_right_of_b])
+        x = np.concatenate([x_left, x_right])
     else:
         x = np.linspace(LEFT, RIGHT, 200)
 
