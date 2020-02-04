@@ -49,7 +49,9 @@ def calculate_new_value_pairs(function_active):
         x = np.concatenate([x_left_of_b, x_right_of_b])
     else:
         x = np.linspace(LEFT, RIGHT, 200)
-y = functions[function_active](x)
+
+    y = functions[function_active](x)
+
     return x, y
     
 def calculate_new_secant_value_pairs(function_active, point_location, spacing):
