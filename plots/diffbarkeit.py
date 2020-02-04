@@ -42,7 +42,7 @@ def FUNC_3(x):
 functions = [FUNC_1, FUNC_2, FUNC_3]
 
 def calculate_new_value_pairs(function_active):
-    if function_active == 2:
+    if function_active == 1:
         x_left = np.linspace(X_LEFT, - 0.0001, 100)
         x_right = np.linspace(0.0001, X_RIGHT, 100)
         x = np.concatenate([x_left, np.array([0, ]), x_right])
