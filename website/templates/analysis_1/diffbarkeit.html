@@ -17,7 +17,7 @@ Was ist Differenzierbarkeit?
 <p>Der Grenzwert $f'(x_0)$ ist die Ableitung von $f$ an der Stelle $x_0$.</p>
 <p>Die Funktion $f: [a,b] \to \mathbb{R}$ heißt stetig differenzierbar, wenn ihre Ableitung 
     $f': [a,b] \to \mathbb{R}$ eine stetige Funktion ist. 
-    Die Menge aller stetig differenzierbaren Funktionen $f[a,b] \to \mathbb{R}$ bilden den Vektorraum $C^1([a,b])$.</p>
+    Die Menge aller stetig differenzierbaren Funktionen $f: [a,b] \to \mathbb{R}$ bilden den Vektorraum $C^1([a,b])$.</p>
 {% endblock %}
 
 {% block DEF2_HEAD %}
@@ -28,9 +28,9 @@ Ableitungsregeln
 <p>Für zwei differenzierbare Funktionen $u,v: [a,b] \to \mathbb{R}$ gelten die folgenden Regeln:</p>
 <p>Produktregel: $$(uv)'(x) = u'v + uv' \ \text{bzw.} \ 
     \frac{{\rm{d}}uv}}{{\rm{d}}x} = \frac{{\rm{d}}u}{{\rm{d}}x} \cdot v + u \cdot \frac{{\rm{d}}v}{{\rm{d}}x}$$</p>
-<p>Kettenregel: $$ \frac{{\rm{d}}}{{\rm{d}}x}u(v(x)) = u'(v(x)) \cdot v'(x) +
-    = \ \text{äußere} \ \cdot \text{innere Ableitung} $$</p>
-<p>Quotientenregel: $$ \left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2} $$</p>
+<p>Kettenregel: $$ \frac{{\rm{d}}}{{\rm{d}}x}u(v(x)) = u'(v(x)) \cdot v'(x) 
+    = \ \text{äußere} \ \cdot \ \text{innere Ableitung} $$</p>
+<p>Quotientenregel: $$ (\frac{u}{v})' = \frac{u'v - uv'}{v^2} $$</p>
 {% endblock %}
 
 {% block BOKEH %}
