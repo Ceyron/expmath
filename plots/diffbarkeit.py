@@ -34,7 +34,7 @@ EPSILON = 0.0001
 def FUNC_1(x):
     return np.exp(-(x - 1)**2)
 def FUNC_2(x):
-    return np.absolute(x)
+    return np.abs(x)
 def FUNC_3(x):
     return np.piecewise(x, [x < 1, x >= 1],
             [lambda ele: 1/3*ele**2, lambda ele: -ele + 4/3])
