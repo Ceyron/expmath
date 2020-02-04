@@ -5,4 +5,93 @@
 {% endblock %}
 
 
+{% block DEF1_HEAD %}
+Was ist Differenzierbarkeit?
+{% endblock %}
+{% block DEF1 %}
+<p>Eine Funktion $f: [a,b] \to \mathbb{R}$ heißt differenzierbar an der Stelle $x_0 \in (a,b)$, wenn der 
+    Differentialquotient
+    $$ \lim_{h\to 0} \frac{f(x_0 + h) - f(x_0)}{h} = f'(x_0)$$
+    existiert. 
+    Der Grenzwert bezeichnet die Steigung der Tangenten an den Graphen von $f$ an der Stelle $x_0$.</p>
+<p>Der Grenzwert $f'(x_0)$ ist die Ableitung von $f$ an der Stelle $x_0$.</p>
+<p>Die Funktion $f: [a,b] \to \mathbb{R}$ heißt stetig differenzierbar, wenn ihre Ableitung 
+    $f': [a,b] \to \mathbb{R}$ eine stetige Funktion ist. 
+    Die Menge aller stetig differenzierbaren Funktionen $f[a,b] \to \mathbb{R}$ bilden den Vektorraum $C^1([a,b])$.</p>
+{% endblock %}
 
+{% block DEF2_HEAD %}
+Ableitungsregeln
+{% endblock %}
+{% block DEF2 %}
+<p>Aus dem Differentialquotienten lassen sich einige Ableitungsregeln herleiten, mit denen man einfacher rechnen kann.</p>
+<p>Für zwei differenzierbare Funktionen $u,v: [a,b] \to \mathbb{R}$ gelten die folgenden Regeln.</p>
+<p>Produktregel: $$(uv)'(x) = u'v + uv' \ \text{bzw.} \ 
+    \frac{{\rm{d}uv}}{{\rm{d}}x} = \frac{{\rm{d}}u}{{\rm{d}}x} \cdot v + u \cdot \frac{{\rm{d}}v}{{\rm{d}}x}$$</p>
+<p>Kettenregel: $$ \frac{{\rm{d}}}{{\rm{d}}x}u(v(x)) = u'(v(x)) \cdot v'(x) +
+    = \ \text{äußere} \ \cdot \text{innere Ableitung} $$</p>
+<p>Quotientenregel: $$ \left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2} $$</p>
+{% endblock %}
+
+{% block BOKEH %}
+{{ script|safe }}
+{% endblock %}
+
+{% block QUEST1_HEAD %}
+Teil 1 - Differenzierbarkeit
+{% endblock %}
+{% block QUEST1 %}
+<ol>
+    <li>Erläutern Sie, worin der Unterschied zwischen dem Differenzenquotient und dem Differentialquotient besteht. </li>
+    <li>Was ist die Ableitung einer Funktion? Leiten Sie den Begriff her. Fertigen Sie dazu eine Skizze an, und 
+        beginnen Sie mit der Sekantensteigung. Erfinden Sie den Weg zur Ableitung nach.</li>
+    <li>Bestimmen Sie mithilfe des Differentialquotienten die Ableitung der Funktion $f: \mathbb{R} \to \mathbb{R}$ 
+        vermöge $f(x) = x^2$ an der Stelle $x_0$. Begründen Sie jeden Rechenschritt.</li>
+    <li>Skizzieren Sie eine stetig differenzierbare Funktion $f: [-1,1] \to \mathbb{R}$ und eine stetige Funktion, die
+        aber nicht differenzierbar ist. Wo geht bei der zweiten Funktion die Differenzierbarkeit kaputt?</li>
+    <li>Versuchen Sie sich an einer Erklärung, warum stetig differenzierbare Funktionen auch manchmal als glatte 
+        Funktionen bezeichnet werden.</li>
+    <li>Warum ist Differenzierbarkeit eine punktweise Eigenschaft? Erläutern Sie dies, gern mithilfe instruktiver 
+        Skizzen.</li>
+</ol>
+{% endblock %}
+{% block ANS1 %}
+Antwort 1
+{% endblock %}
+
+
+{% block QUEST2_HEAD %}
+Teil 2 - Erkundung der Grafik
+{% endblock %}
+{% block QUEST2 %}
+<ol>
+    <li>Vergleichen Sie Ihre Skizze aus Teil 1 mit der Skizze in der Grafik. Welche Unterschiede erkennen Sie?</li>
+    <li>Warum bezeichnet man $$ \lim_{h\to 0} \frac{f(x_0 + h) - f(x_0)}{h} $$ auch als rechtsseitigen 
+        Differentialquotienten? Verdeutlichen Sie dies mithilfe einer Skizze.</li>
+    <li>Wie würde der linksseitige Differentialquotient aussehen? Fertigen Sie eine Skizze an. Leiten Sie den 
+        linksseitigen Differentialquotienten her, indem Sie Analogien aus Teil 1 nutzen.</li>
+    <li>Was bedeutet Differenzierbarkeit im Bezug auf rechts- und linksseitigen Differentialquotienten? Wann ist eine 
+        Funktion differenzierbar? Wie finden Sie dies in der Grafik wieder? </li>
+    <li>Lässt sich auch ein zentraler Differentialquotient erfinden? Versuchen Sie sich an einer Skizze und einer
+        Herleitung. Beschreiben Sie, was geschieht und worin Gemeinsamkeiten und Unterschiede zu links- und rechtsseitigem 
+        Differentialquotient bestehen.</li>
+</ol>
+{% endblock %}
+{% block ANS2 %}
+Antwort 2
+{% endblock %}
+
+{% block QUEST3_HEAD %}
+Teil 3 - Ableitungsregeln
+{% endblock %}
+{% block QUEST3 %}
+<ol>
+    <li> Wie würde die Ableitung der Funktion aussehen, welche eine
+        nicht-differenzierbare Stelle hat. </li>
+    <li> Wie würde das Integral (eine Stammfunktion) einer Funktion aussehen,
+        welche eine nicht-differenzierbare Stelle hat. </li>
+</ol>
+{% endblock %}
+{% block ANS3 %}
+Antwort 3
+{% endblock %}
