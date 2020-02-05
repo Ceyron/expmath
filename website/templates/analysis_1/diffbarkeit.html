@@ -11,7 +11,7 @@ Was ist Differenzierbarkeit?
 {% block DEF1 %}
 <p>Eine Funktion $f: [a,b] \to \mathbb{R}$ heißt differenzierbar an der Stelle $x_0 \in (a,b)$, wenn der 
     Differentialquotient
-    $$ \lim_{h\to 0} \frac{f(x_0 + h) - f(x_0)}{h} = f'(x_0)$$
+    $$ \lim_{h\to 0} \frac{f(x_0 + h) - f(x_0)}{h} = f'(x_0) = \frac{d f(x_0)}{d x}$$
     existiert. 
     Der Grenzwert bezeichnet die Steigung der Tangenten an den Graphen von $f$ an der Stelle $x_0$.</p>
 <p>Der Grenzwert $f'(x_0)$ ist die Ableitung von $f$ an der Stelle $x_0$.</p>
@@ -43,11 +43,12 @@ Teil 1 - Differenzierbarkeit
 {% block QUEST1 %}
 <ol>
     <li>Erläutern Sie, worin der Unterschied zwischen dem Differenzenquotient und dem Differentialquotient besteht. </li>
+    <li>Erklären Sie, wie Sie eine Geradengleichung bestimmen.</li>
     <li>Was ist die Ableitung einer Funktion? Leiten Sie den Begriff her. Fertigen Sie dazu eine Skizze an, und 
         beginnen Sie mit der Sekantensteigung. Erfinden Sie den Weg zur Ableitung nach.</li>
     <li>Bestimmen Sie mithilfe des Differentialquotienten die Ableitung der Funktion $f: \mathbb{R} \to \mathbb{R}$ 
         vermöge $f(x) = x^2$ an der Stelle $x_0$. Begründen Sie jeden Rechenschritt.</li>
-    <li>Skizzieren Sie eine stetig differenzierbare Funktion $f: [-1,1] \to \mathbb{R}$ und eine stetige Funktion, die
+    <li>Skizzieren Sie eine stetig differenzierbare Funktion $f: [a,b] \to \mathbb{R}$ und eine stetige Funktion, die
         aber nicht differenzierbar ist. Wo geht bei der zweiten Funktion die Differenzierbarkeit kaputt?</li>
     <li>Versuchen Sie sich an einer Erklärung, warum stetig differenzierbare Funktionen auch manchmal als glatte 
         Funktionen bezeichnet werden.</li>
@@ -86,10 +87,26 @@ Teil 3 - Ableitungsregeln
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-    <li> Wie würde die Ableitung der Funktion aussehen, welche eine
-        nicht-differenzierbare Stelle hat. </li>
-    <li> Wie würde das Integral (eine Stammfunktion) einer Funktion aussehen,
-        welche eine nicht-differenzierbare Stelle hat. </li>
+    <li>Welche Ableitungsregeln kennen Sie? Denken Sie sich für jede ein instruktives Beispiel aus, und erläutern Sie 
+        an diesem Beispiel, wie die jeweilige Regel funktioniert.</li>
+    <li>Leiten Sie die Produktregel her. Nutzen Sie dazu den Differentialquotienten.
+        <ul>
+            <li>Stellen Sie den Differentialquotienten für die Funktion $f(x) = u(x) \cdot v(x)$ auf.</li>
+            <li>Um sinnvoll weiterrechnen zu können, fügen Sie eine kompliziert geschriebene Null ein: 
+                $$ 0 = - u(x) \cdot v(x+h) + u(x) \cdot v(x+h). $$</li>
+            <li>Formen Sie den entstehenden Term so lange um, bis Sie auf die bekannten Differentialquotienten für 
+                $u$ und $v$ kommen.</li>
+        </ul>
+    </li>
+    <li>Leiten Sie die Quotientenregel her. Nutzen Sie auch hier den Differentialquotienten.
+        <ul>
+            <li>Notieren Sie den Differentialquotienten für die Funktion $\displaystyle f(x) = \frac{u(x)}{v(x)}$.</li>
+            <li>Vereinfachen Sie den entstehenden Term so weit wie möglich.</li>
+            <li>Auch hier wird das Einfügen einer kompliziert notierten Null nötig:
+                $$ 0 = - u(x) \cdot v(x) + u(x) \cdot v(x).$$</li>
+        </ul>
+    </li>
+    <li>Trainieren Sie die Ableitungsregeln, bis ableiten für Sie langweilig wird und Sie es im Schlaf beherrschen.</li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
