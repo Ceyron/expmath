@@ -9,17 +9,16 @@
 Taylor-Entwicklung
 {% endblock %}
 {% block DEF1 %}
-<p></p>
-{% endblock %}
-
-{% block DEF2_HEAD %}
-Taylor-Reihe vs. Taylor-Polynome
-{% endblock %}
-{% block DEF2%}
-<p><b>Taylor-Polynome</b> $T_n(x)$ vom Grad $n$ für $n$-mal stetig differenzierbare Funktionen $f$:
+<p>Mit der Taylor-Entwicklung lassen sich differenzierbare Funktionen $f: \mathbb{R} \to \mathbb{R} mithilfe 
+	von Polynomen in einer Entwicklungsstelle $x_0$ annähern. Dazu nutzen wir die Werte der Ableitungen der 
+	Funktion an der Stelle $x_0$. </p>
+<p>Jedes Taylor-Polynom nimmt dabei eine zusätzliche Information auf. $T_0$ nutzt den Funktionswert von $f$ an der
+	Entwicklungsstelle, $T_1$ nutzt zusätzlich die Steigung in dem Punkt, $T_2$ die Krümmung, ... . So wird die 
+	Annäherung mit höheren Grades des Taylorpolynoms immer besser.</p>
+<p><b>Taylor-Polynome</b> $T_n(x)$ vom Grad $n$ für $n$-mal stetig differenzierbare Funktionen $f$
 	$$ T_n(x) = \sum_{k = 0}^n \frac{f^{(k)}(x_0)}{k!} \cdot (x-x_0)^k$$</p>
 <p><b>Taylor-Reihe</b> $T(x)$ für beliebig oft differenzierbare Funktionen $f$
-	$$ T(x) \sum_{k = 0}^\infty \frac{f^{(k)}(x_0)}{k!} \cdot (x-x_0)^k$$</p>
+	$$ T(x) = \sum_{k = 0}^\infty \frac{f^{(k)}(x_0)}{k!} \cdot (x-x_0)^k$$</p>
 {% endblock %}
 
 
@@ -53,6 +52,8 @@ Teil 2 - Taylor-Polynome und Taylor-Reihe
 	<li>Erläutern Sie - möglichst ausführlich gern mithilfe einer allgemeinen Skizze - was die Taylor-Entwicklung tut.
 		<ul>
 			<li>Welches sind die grundlegenden Ideen? Worauf können wir bei einer Erklärung oder Skizze nicht verzichten?</li>
+			<li>Worin liegt der Unterschied zwischen einem Taylor-Polynom und einer Taylor-Reihe? Wie findet sich dieser
+				Unterschied in der Notation wieder?</li>
 		</ul>
 	</li>
 	<li>Bestimmen Sie die Taylor-Entwicklung der Funktion $f(x) = \operatorname{ln} x$ an der Stelle $x_0 = 2$.
