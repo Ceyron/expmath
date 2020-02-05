@@ -42,8 +42,29 @@ Teil 2 - Taylor-Polynome und Taylor-Reihe
 {% endblock %}
 {% block QUEST2 %}
 <ol>
-	<li></li>
-</ol>
+	<li>Erläutern Sie - möglichst ausführlich gern mithilfe einer allgemeinen Skizze - was die Taylor-Entwicklung tut.
+		<ul>
+			<li>Welches sind die grundlegenden Ideen? Worauf können wir bei einer Erklärung oder Skizze nicht verzichten?</li>
+		</ul>
+	</li>
+	<li>Bestimmen Sie die Taylor-Entwicklung der Funktion $f(x) = \operatorname{ln} x$ an der Stelle $x_0 = 2$.
+		<ul>
+			<li>Fertigen Sie zunächst eine Skizze von $f$ an. Ergänzen Sie in Ihrer Skizze $T_0$, $T_1$, $T_2$, ... .</li>
+			<li>Bestimmen Sie die ersten vier Taylor-Polynome von $f$. Achten Sie auf die Summe!</li>
+			<li>Gibt es eine Möglichkeit, die Taylor-Reihe in allgemeiner Form zu notieren?</li>
+			<li>Gibt es ein $k \in \mathbb{N}$ mit $T_k(x) = f(x)$? Warum? Warum nicht?</li>
+		</ul>
+	</li>
+	<li>Gegeben ist die Funktion $f: \mathbb{R} \to \mathbb{R}$ vermöge $f(x) = x^2 + 2x - 1$. 
+		<ul>
+			<li>Fertigen Sie eine Skizze von $f$ an.</li>
+			<li>Welche Form erwarten Sie für die Taylor-Reihe? Begründen Sie Ihre Vermutung.</li>
+			<li>Gibt es ein $k \in \mathbb{N}$ mit $T_k(x) = f(x)$? Warum? Warum nicht?</li>
+			<li>Bestimmen Sie die Taylor-Entwicklung von $f$ an der Stelle $x = 1$. </li>
+			<li>Überprüfen Sie Ihre Vermutung von oben mithilfe des Ergebnisses.</li>
+		</ul>
+	</li>
+</ol>	
 {% endblock %}
 {% block ANS2 %}
 Antwort 2
@@ -65,7 +86,7 @@ Teil 3 - Taylor-Entwicklung zur Annäherung von Funktionen
 	<li>Erklären Sie, was die Regel von de l'Hospital besagt.
 	<li>Überlegen Sie, welcher Zusammenhang hinter der Regel von de l'Hospital steckt.
 		Fertigen Sie eine Skizze an. Denken Sie an die infinitesimale Lupe.</li>
-	<li>Leiten Sie die Regel von de l'Hospital für $\dislaystyle \lim_{x\to 0} \frac{f(x)}{g(x)}$ her.
+	<li>Leiten Sie die Regel von de l'Hospital für $\displaystyle \lim_{x\to 0} \frac{f(x)}{g(x)}$ her.
 		<ul>
 			<li>Nutzen Sie dazu die Annäherung durch Taylorpolynome. Stellen Sie jeweils Taylor-Entwicklungen für 
 				$f(x)$ und $g(x)$ auf.</li>
