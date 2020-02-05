@@ -36,9 +36,9 @@ analysis_1 = {
     "schrittweises_skizzieren": "Schrittweises Skizzieren von Funktionen",
     "epsilon_delta_kriterium": "Stetigkeit von Funktionen",
     "diffbarkeit": "Differenzierbarkeit von Funktionen",
+    "taylorpolynome": "Taylor-Polynome",
     #"integrale_und_ableitungen": "Integrale und Ableitungen",
     #"riemann_integrale": "Ober- und Untersummen (Riemann-Integrale)",
-    #"taylorpolynome": "Taylor-Polynome",
     #"umkehrfunktionen": "Umkehrfunktionen",
     }
 
