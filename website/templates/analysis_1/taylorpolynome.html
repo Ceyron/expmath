@@ -38,7 +38,7 @@ Antwort 1
 {% endblock %}
 
 {% block QUEST2_HEAD %}
-Teil 2 - Taylor-Polynome
+Teil 2 - Taylor-Polynome und Taylor-Reihe
 {% endblock %}
 {% block QUEST2 %}
 <ol>
@@ -50,11 +50,34 @@ Antwort 2
 {% endblock %}
 
 {% block QUEST3_HEAD %}
-Teil 3 - Taylor-Reihe
+Teil 3 - Taylor-Entwicklung zur Annäherung von Funktionen
 {% endblock %}
 {% block QUEST3 %}
 <ol>
-	<li></li>
+	<li>Erläutern Sie, warum $\sin \varphi \approx \varphi$ für betragskleine Winkel $\varphi$ als eine für viele
+		Zwecke sinnvolle Näherung angesehen werden kann.
+		<ul>
+			<li>Was bedeutet "betragskleine Winkel"?</li>
+			<li>Nutzen Sie die Taylor-Entwicklung, um Ihre Aussage zu begründen.</li>
+			<li>Welche analoge Näherung lässt sich für $\cos \varphi$ formulieren? Warum?</li>
+		</ul>
+	</li>
+	<li>Erklären Sie, was die Regel von de l'Hospital besagt.
+	<li>Überlegen Sie, welcher Zusammenhang hinter der Regel von de l'Hospital steckt.
+		Fertigen Sie eine Skizze an. Denken Sie an die infinitesimale Lupe.</li>
+	<li>Leiten Sie die Regel von de l'Hospital für $\dislaystyle \lim_{x\to 0} \frac{f(x)}{g(x)}$ her.
+		<ul>
+			<li>Nutzen Sie dazu die Annäherung durch Taylorpolynome. Stellen Sie jeweils Taylor-Entwicklungen für 
+				$f(x)$ und $g(x)$ auf.</li>
+			<li>Begründen Sie, warum die Nutzung des Landau'schen Ordnungssymbols in 
+				$$ u(x) = u(x_0) + u'(x_0) \cdot (x-x_0) + \frac{1}{2} u''(x_0) \cdot (x-x_0)^2 + \ldots 
+				= u(x_0) + u'(x_0) \cdot (x-x_0) + \mathcal{O}((x-x_0)^2)$$
+				in einer Umgebung von $x_0$ in Ordnung ist. Übertragen Sie Ihre Überlegungen auf Ihre Annäherungen für 
+				$f$ und $g$.</li>
+			<li>Vereinfachen Sie den entstehenden Term so weit wie möglich. Beachten Sie dabei, dass Sie mit dem
+				Landau'schen Ordnungssymbol genauso rechnen können, wie mit anderen Termen. Wo landen Sie?</li>
+		</ul> 
+	</li>
 </ol>
 {% endblock %}
 {% block ANS3 %}
