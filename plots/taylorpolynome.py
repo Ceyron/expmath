@@ -121,14 +121,14 @@ plot.line(x="x", y="y", source=error_bar_values, color="red",
 
 order = Slider(title="Taylor-Polynom vom Grad", value=0, start=0, end=5,
         step=1)
-x_spot = Slider(title="Entwicklungstelle $x_0$", value=1, start=X_TAYLOR_LEFT,
+x_spot = Slider(title="Entwicklungstelle x_0", value=1, start=X_TAYLOR_LEFT,
         end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING)
 
 # Advanced options made visible after a Toggle is pressed: A red thick vertical
 # bar indicates the error between the Taylor approximation and the true function
 # at the chosen point
 advanced_toggle = Toggle(label="Fehlerbalken einblenden")
-error_position_slider = Slider(title="""Vergleich zwischen Funktionswert und Näherung an der Stelle z""", value=-1, start=X_TAYLOR_LEFT,
+error_position_slider = Slider(title="""Vergleich zwischen Funktionswert und Näherung an der Stelle x_0""", value=-1, start=X_TAYLOR_LEFT,
         end=X_TAYLOR_RIGHT, step=SLIDER_STEPPING, visible=False)
 
 # Right now, only one function is availabe, so its values can be statically
