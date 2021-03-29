@@ -1,5 +1,7 @@
 # ExpMath (Exploratory Mathematics)
 
+![Example Screenshot](https://user-images.githubusercontent.com/27728103/112809743-9d09b100-907a-11eb-955e-ebbac9a7fe6e.png)
+
 ExpMath is a project of the Institute of Computational Mathematics at the
 Technical University of Braunschweig. It aims at providing a web application
 visualizing mathematical ideas to students of the engineering disciplines of the
